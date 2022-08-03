@@ -3,7 +3,7 @@ guides:
   - orderbook-basics.yaml
   - orderbook-trade-lifecycle.yaml
   - build-on-serum-dex.yaml
-#  - projectserum-pools.yaml
+  - serum-liquidity-pools.yaml
 #  - using-projectserum-pools.yaml
 #  - serum-ts.yaml
 #  - serum-surfers.yaml
