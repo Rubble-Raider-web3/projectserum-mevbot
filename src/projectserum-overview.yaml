@@ -1,0 +1,41 @@
+uuid: 3155e591-4274-4d55-85d2-85b90b884a2e
+key: projectserum-overview
+name: Project Serum Overview
+content: Gives an Overview of Project Serum
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: 2ab1f3cf-906c-492d-8f74-6d178a86969c
+    name: Serum Overview
+    content: |
+      [https://www.youtube.com/watch?v=RxjMn6ORL6k](https://www.youtube.com/watch?v=RxjMn6ORL6k)
+      
+
+    stepItems: []
+  - uuid: 5f7f0a4d-0893-48df-8fa2-76aac31d3961
+    name: Current challenges in DeFi
+    content: |
+      Current challenges in DeFi
+    stepItems: []
+  - uuid: c425a86a-0e9b-4cf7-9854-5e1b8be01dda
+    name: Solution - On-chain central order book
+    content: |
+      Solution - On-chain central order book
+    stepItems: []
+  - uuid: ea76f813-494a-4727-bc87-3839b14dfd2f
+    name: Serum for Developers
+    content: |
+        What all can developers use and how can they build on top of serum
+    stepItems: []
+  - uuid: 4c445d47-bd68-41c2-a0ae-2cfc0ce46c34
+    name: Serum Ecosystem
+    content: |
+        All the different apps that have been built on top of Serum
+    stepItems: []

@@ -1,0 +1,34 @@
+uuid: a520c145-bd32-4478-b3e6-31f42828c7dc
+key: orderbook-basics
+name: Intro to Central Order Book
+content: Explains what is Central Orderbook and its benefits over AMMs
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: ab3008c0-1531-4ac2-9c69-3a176ab43a4f
+    name: Central limit order book
+    content: |
+      [https://www.youtube.com/watch?v=W7ZuXOMH7Fk](https://www.youtube.com/watch?v=W7ZuXOMH7Fk)
+    stepItems: []
+  - uuid: 3601deed-f6ad-436b-b5d5-cafa452d472f
+    name: Waht is AMM
+    content: |
+      On-chain central limit order book
+    stepItems: []
+  - uuid: 7994939b-5188-4951-aaf1-e3a268725fb6
+    name: Orderbook vs AMM
+    content: |
+      All the use cases
+    stepItems: []
+  - uuid: f317cc4e-1f45-496d-b01a-61ca28156997
+    name: AMM on top of Order Book
+    content: |
+      AMM on top of Order Book
+    stepItems: []
