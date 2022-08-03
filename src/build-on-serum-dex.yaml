@@ -1,0 +1,19 @@
+uuid: a6e0c0ae-569d-4e28-8733-7490ad3a88dc
+key: build-on-serum-dex
+name: Build on Serum's Dex
+content: Explains how devs can build on top of Project Serum's DEX
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: 9fec9d86-adbb-4959-bebe-f7ac619a0309
+    name: Developer Guide
+    content: |
+      Hard core developer guide which explains what APIs to call to integrate with Serum DEX
+    stepItems: []

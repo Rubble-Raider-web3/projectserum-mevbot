@@ -18,9 +18,9 @@ steps:
       [https://www.youtube.com/watch?v=W7ZuXOMH7Fk](https://www.youtube.com/watch?v=W7ZuXOMH7Fk)
     stepItems: []
   - uuid: 3601deed-f6ad-436b-b5d5-cafa452d472f
-    name: Waht is AMM
+    name: What is AMM
     content: |
-      On-chain central limit order book
+      https://ga245xphr2gqozusue66acdwqe2jdoflnonum32n5rvyr2dy.arweave.net/MDXO3eeOjQdmkq_E94Ah2gTS_RuKtrm0ZvTexriOh4M
     stepItems: []
   - uuid: 7994939b-5188-4951-aaf1-e3a268725fb6
     name: Orderbook vs AMM

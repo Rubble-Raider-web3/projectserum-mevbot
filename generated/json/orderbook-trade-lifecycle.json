@@ -1,0 +1,48 @@
+{
+  "uuid": "48c51a38-13d4-4b3e-8397-cfbc4f48c316",
+  "key": "orderbook-trade-lifecycle",
+  "name": "Orderbook Trade Lifecycle",
+  "content": "Explains the lifecycle of Trade in Orderbooks",
+  "guideType": "onboarding",
+  "created": "2022-08-02T04:15:13.911Z",
+  "categories": [
+    "developer",
+    "engineering"
+  ],
+  "thumbnail": "ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8",
+  "publishStatus": "Live",
+  "socialShareImage": null,
+  "showIncorrectOnCompletion": true,
+  "steps": [
+    {
+      "uuid": "35cac954-f981-4b7e-a7fe-6b65c8ead192",
+      "name": "Trade lifecycle Overview",
+      "content": "The high level lifecycle of a trade is:\n- Placing orders: A user funds an intermediary account (their OpenOrders account) from their SPL token account (wallet) and adds an order placement request to the Request Queue\n- Matching orders: The request is popped off of the Request Queue and processed: it’s placed on the Orderbook. Any resulting trades get reported in the Event Queue.\n- Consuming events: Events are popped off of the Event Queue and processed: OpenOrders account balances are updated as the result of the trade\n- Settlement: Users can settle free funds from their OpenOrders back to their SPL token account (wallet) at any time\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "a9bbcef0-af29-45ee-9f5d-bb6c1a3d4498",
+      "name": "Placing orders",
+      "content": "Placing orders\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "15b9f239-2a30-4f98-b4a0-21f129eafe7c",
+      "name": "Matching orders",
+      "content": "Matching orders\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "dffaad29-f925-4661-80fa-74fe574fe731",
+      "name": "Consuming events",
+      "content": "Consuming events\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "c1da1dc1-166e-46a6-8aea-8e52c1d758d0",
+      "name": "Settlement",
+      "content": "Settlement\n",
+      "stepItems": []
+    }
+  ]
+}

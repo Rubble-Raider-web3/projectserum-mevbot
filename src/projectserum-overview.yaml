@@ -16,8 +16,6 @@ steps:
     name: Serum Overview
     content: |
       [https://www.youtube.com/watch?v=RxjMn6ORL6k](https://www.youtube.com/watch?v=RxjMn6ORL6k)
-      
-
     stepItems: []
   - uuid: 5f7f0a4d-0893-48df-8fa2-76aac31d3961
     name: Current challenges in DeFi

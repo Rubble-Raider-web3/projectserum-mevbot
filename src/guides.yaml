@@ -1,7 +1,8 @@
 guides:
   - projectserum-overview.yaml
   - orderbook-basics.yaml
-#  - build-on-projectserum-orderbook.yaml
+  - orderbook-trade-lifecycle.yaml
+  - build-on-serum-dex.yaml
 #  - projectserum-pools.yaml
 #  - using-projectserum-pools.yaml
 #  - serum-ts.yaml
