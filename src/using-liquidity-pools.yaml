@@ -1,0 +1,19 @@
+uuid: c4103810-73b9-4789-afdb-37f2722da3d0
+key: using-liquidity-pools
+name: Using Liquidity Pool's API
+content: Using Liquidity Pool's API
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: 3f7228c7-028f-436d-936c-2b425ab5f9ab
+    name: Calling Serum Pool's API
+    content: |
+      https://github.com/project-serum/serum-ts/tree/master/packages/pool
+    stepItems: []

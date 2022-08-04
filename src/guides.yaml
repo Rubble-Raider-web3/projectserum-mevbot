@@ -4,9 +4,9 @@ guides:
   - orderbook-trade-lifecycle.yaml
   - build-on-serum-dex.yaml
   - serum-liquidity-pools.yaml
-#  - using-projectserum-pools.yaml
+  - using-liquidity-pools.yaml
+  - swapping-on-orderbook.yaml
 #  - serum-ts.yaml
 #  - serum-surfers.yaml
 #  - srm-token.yaml
 #  - project-serum-governance.yaml
-#  - serum-swap.yaml
