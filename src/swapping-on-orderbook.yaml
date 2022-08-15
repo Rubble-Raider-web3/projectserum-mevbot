@@ -1,7 +1,7 @@
 uuid: c7919913-05d8-4f67-834d-4e25a6d066fa
 key: swapping-on-orderbook
 name: Swapping Tokens Using Serum
-content: Using Liquidity Pool's API
+content: How to Swap tokens using Serum's API
 guideType: onboarding
 created: "2022-08-02T04:15:13.911Z"
 categories:
