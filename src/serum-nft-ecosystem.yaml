@@ -1,0 +1,19 @@
+uuid: 2d5e744e-1698-4a1d-ac76-4ee3c7115be4
+key: serum-tokenomics
+name: Project Serum Tokenomics
+content: Explains how SRM Token and its token mechanics
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: 387a7fc4-e32e-4a9d-87dd-a6aa93d29baa
+    name: Developer Guide
+    content: |
+      Hard core developer guide which explains what APIs to call to integrate with Serum DEX
+    stepItems: []

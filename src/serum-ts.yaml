@@ -1,0 +1,19 @@
+uuid: 87274e3c-e23a-4ea8-8652-622080d275fb
+key: serum-ts
+name: Serum Typescript
+content: Explains about various utilities present in Serum Typescript Library
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: f198c6ff-c49b-4ca6-9a8e-23bfec01e1f8
+    name: Developer Guide
+    content: |
+      Hard core developer guide which explains what APIs to call to integrate with Serum DEX
+    stepItems: []

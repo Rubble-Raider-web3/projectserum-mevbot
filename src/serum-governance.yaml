@@ -1,0 +1,19 @@
+uuid: a71a9dc6-9c5c-46ba-82b8-bb5cd65d07a9
+key: serum-governance
+name: Project Serum Governance
+content: Gives and introduction to the governance process of Project Serum
+guideType: onboarding
+created: "2022-08-02T04:15:13.911Z"
+categories:
+  - developer
+  - engineering
+thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+publishStatus: Live
+socialShareImage:
+showIncorrectOnCompletion: true
+steps:
+  - uuid: af2ffb51-5378-4b13-9614-3756fd3cf5b6
+    name: About Project Serum
+    content: |
+      Hard core developer guide which explains what APIs to call to integrate with Serum DEX
+    stepItems: []

@@ -1,8 +1,8 @@
 {
-  "uuid": "45a31914-5cd7-4875-b099-c28dc55eed0d",
-  "key": "build-on-serum-dex",
-  "name": "Build on Serum's Dex",
-  "content": "Explains how devs can build on top of Project Serum's DEX",
+  "uuid": "87274e3c-e23a-4ea8-8652-622080d275fb",
+  "key": "serum-ts",
+  "name": "Serum Typescript",
+  "content": "Explains about various utilities present in Serum Typescript Library",
   "guideType": "onboarding",
   "created": "2022-08-02T04:15:13.911Z",
   "categories": [
@@ -15,7 +15,7 @@
   "showIncorrectOnCompletion": true,
   "steps": [
     {
-      "uuid": "1f2a1def-610b-4c47-ac4a-162aa055103e",
+      "uuid": "f198c6ff-c49b-4ca6-9a8e-23bfec01e1f8",
       "name": "Developer Guide",
       "content": "Hard core developer guide which explains what APIs to call to integrate with Serum DEX\n",
       "stepItems": []

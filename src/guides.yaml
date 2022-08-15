@@ -6,7 +6,7 @@ guides:
   - serum-liquidity-pools.yaml
   - using-liquidity-pools.yaml
   - swapping-on-orderbook.yaml
-#  - serum-ts.yaml
-#  - serum-surfers.yaml
-#  - srm-token.yaml
-#  - project-serum-governance.yaml
+  - serum-ts.yaml
+  - serum-nft-ecosystem.yaml
+  - serum-tokenomics.yaml
+  - serum-governance.yaml
