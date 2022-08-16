@@ -8,7 +8,7 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 
 ---
 
-## Build on Serum's Dex
+## Project Serum Tokenomics
 
 
 ## Developer Guide

@@ -1,5 +1,5 @@
 uuid: 45a31914-5cd7-4875-b099-c28dc55eed0d
-key: build-on-serum-dex
+key: serum-tokenomics
 name: Build on Serum's Dex
 content: Explains how devs can build on top of Project Serum's DEX
 guideType: onboarding

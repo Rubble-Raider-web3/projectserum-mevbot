@@ -20,8 +20,8 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
  | 6      | Using Liquidity Pool's API | Using Liquidity Pool's API |  [Link](generated/markdown/using-liquidity-pools.md) |
  | 7      | Swapping Tokens Using Serum | How to Swap tokens using Serum's API |  [Link](generated/markdown/swapping-on-orderbook.md) |
  | 8      | Serum Typescript | Explains about various utilities present in Serum Typescript Library |  [Link](generated/markdown/serum-ts.md) |
- | 9      | Project Serum Tokenomics | Explains how SRM Token and its token mechanics |  [Link](generated/markdown/serum-tokenomics.md) |
- | 10      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/build-on-serum-dex.md) |
+ | 9      | Project Serum Tokenomics | Explains how SRM Token and its token mechanics |  [Link](generated/markdown/serum-nft-ecosystem.md) |
+ | 10      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/serum-tokenomics.md) |
  | 11      | Project Serum Governance | Gives and introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) |
 
 ---
