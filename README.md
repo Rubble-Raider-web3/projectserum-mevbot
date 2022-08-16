@@ -22,4 +22,14 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
  | 8      | Serum Typescript | Explains about various utilities present in Serum Typescript Library |  [Link](generated/markdown/serum-ts.md) |
  | 9      | Project Serum Tokenomics | Explains how SRM Token and its token mechanics |  [Link](generated/markdown/serum-tokenomics.md) |
  | 10      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/build-on-serum-dex.md) |
- | 11      | Project Serum Governance | Gives and introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) | 
+ | 11      | Project Serum Governance | Gives and introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) |
+
+---
+## Header
+This is the course header. This will be added on top of every page. Go to [DoDAO.io](https://www.dodao.io) to know more.
+
+## References
+* All links - https://github.com/project-serum/awesome-serum
+* Pools - https://docs.google.com/document/d/1lmMZRKkxMFOtGOEZOFEKYL7syqv-4QT87F0o55fc35Y/edit
+* Serum DEX - https://docs.google.com/document/d/1isGJES4jzQutI0GtQGuqtrBUqeHxl_xJNXdtOv4SdII/edit
+ 
