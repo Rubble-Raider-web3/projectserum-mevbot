@@ -23,6 +23,7 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
  | 9      | Project Serum Tokenomics | Explains how SRM Token and its token mechanics |  [Link](generated/markdown/serum-nft-ecosystem.md) |
  | 10      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/serum-tokenomics.md) |
  | 11      | Project Serum Governance | Gives and introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) |
+ | 12      | Trade Lifecycle | Explains Trade Lifecycle on Serum DEX |  [Link](generated/markdown/trade-lifecycle.md) |
 
 ---
 ## Header

@@ -15,6 +15,6 @@
   },
   "homepage": "https://github.com/DoDAO-io/dodao-aave-guides#readme",
   "dependencies": {
-    "dodao-guides-processor": "0.1.6"
+    "dodao-guides-processor": "^0.1.6"
   }
 }
