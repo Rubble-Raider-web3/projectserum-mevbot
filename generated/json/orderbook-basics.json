@@ -15,21 +15,21 @@
   "showIncorrectOnCompletion": true,
   "steps": [
     {
-      "uuid": "ab3008c0-1531-4ac2-9c69-3a176ab43a4f",
-      "name": "Central limit order book",
-      "content": "[https://www.youtube.com/watch?v=W7ZuXOMH7Fk](https://www.youtube.com/watch?v=W7ZuXOMH7Fk)\n",
+      "uuid": "a3828360-dd2b-4d0a-bda3-8fefaabaf7d3",
+      "name": "Intro & Terms",
+      "content": "Before Knowing the CLOB in detail one must understand the following terms:\n\n1. `Limit order`: You can purchase or sell a stock using a limit order at the price you specify or a higher one. You can make a purchase or sell order at the price you want by using a limit order.\n\n2. `Automated Market Maker (AMM)`: AMMs allow for the unrestricted trading of digital assets utilising pre-established algorithms placed inside of liquidity pools. Uniswap (a DEX) uses AMM to trade on its platform.\n\n3. `Request for Quote (RFQ)`: When an organisation needs supplies or services they contact potential vendors to send their price quotations. This helps suppliers stand a chance to get an order. \n\n4. `Invitation for Bid (IFB)`: A business or organisation issues an invitation to bid to request proposals from vendors for a particular good or service that an organisation is aware it wants or needs.\n\n5. `Market Liquidity (ML)`: It refers to how quickly or easily an asset may be turned into cash without affecting its market value.\n\n6. `Price discovery (PD)`: Price discovery is the process of determining an asset's value through exchanges between buyers and sellers in the market at a cost that both sides deem tolerable.\n\n7. `Liquidity Providers (LPs)`: It is the duty of this individual or organisation to support trade on decentralised exchanges by contributing money to the liquidity pools and profiting from their investment.\n\n8. `Market Fragmentation`: Market fragmentation is the division of a homogeneous market into numerous groups, each of which has its own unique needs, demands, and preferences.\n",
       "stepItems": []
     },
     {
-      "uuid": "3601deed-f6ad-436b-b5d5-cafa452d472f",
-      "name": "What is AMM",
-      "content": "https://ga245xphr2gqozusue66acdwqe2jdoflnonum32n5rvyr2dy.arweave.net/MDXO3eeOjQdmkq_E94Ah2gTS_RuKtrm0ZvTexriOh4M\n",
+      "uuid": "b665e2cb-dd10-45c4-8de0-bf1595eb18aa",
+      "name": "Serum-Deep Dive",
+      "content": "### Introduction to Serum\nBuilt on the Solana network, Serum is a very effective decentralised exchange that is also quite scalable and therefore widely accepted. Serum's platform uses Central Limit Order Book (CLOB) rather than Automated Market Makers (used by others) to facilitate efficient and quick trading, which is the key distinction between Serum and other well-known DEXs. \n\nSerum's built-in functionality is enhanced by its on-chain CLOB, a commonly used mechanism in traditional finance. Additionally, Serum makes it permissionless and decentralised, enabling users to communicate with a smart contract directly to execute trades from an order book without the need for a middleman.\n\n### Central Limit Order Book \nThe CLOB model, which enables users to clearly match their other with others on a \"price-time-priority\" basis, is one of Serum's most helpful design elements. Customers could opt to cross this bid-ask spread and have their order promptly filled in this model's order book where the market price is represented by the highest bid and lowest ask.\n\nHigh levels of transparency offered by the CLOB model allow customers to monitor market depth in real time. Although CLOB has very powerful features, integrating it into an on-chain system is exceedingly difficult. The key reasons for this difficulty are order books' high throughput and cheap execution costs. Therefore, low gas costs and rapid transactions are necessary for a CLOB to operate on-chain.\n\nMany of the first DEX protocols were conscious of these challenges and made an effort to replace the traditional CLOB paradigm with an AMM. By employing their AMM technology, Uniswap's Defi users were able to complete transactions rapidly and affordably.\n",
       "stepItems": []
     },
     {
-      "uuid": "7994939b-5188-4951-aaf1-e3a268725fb6",
+      "uuid": "a0271380-9bc8-49c0-b825-f6e9149bb4fe",
       "name": "Orderbook vs AMM",
-      "content": "All the use cases\n",
+      "content": "Orderbook and Automated market maker are two ost popular trading models. They primarly differentiate on the basis on structure and underlying working principle.\n",
       "stepItems": []
     },
     {
