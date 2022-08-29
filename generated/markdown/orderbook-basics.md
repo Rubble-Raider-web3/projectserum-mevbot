@@ -64,7 +64,7 @@ Before Knowing the CLOB in detail one must understand the following terms:
 
 
 
-##### Which of the followinG DEXs use AMM?  
+##### Which of the following DEXs use AMM?  
 
 - [x]  Uniswap
 - [x]  Curve
@@ -75,7 +75,7 @@ Before Knowing the CLOB in detail one must understand the following terms:
 
 
 
-##### Which of the followinG DEXs use CLOB?  
+##### Which of the following DEXs use CLOB?  
 
 - [x]  Serum
 - [x]  Coinbase
@@ -125,8 +125,8 @@ Many of the first DEX protocols were conscious of these challenges and made an e
 ##### Serum CLOB works on the basis of-  
 
 - [ ]  Last In Last Out
-- [ ]  First In First Out
-- [x]  First In Last Out
+- [x]  First In First Out
+- [ ]  First In Last Out
 - [ ]  Last In First Out
 
 
@@ -237,7 +237,7 @@ Some of advantages of CLOB model are:
 
 - [x]  Price
 - [x]  Quantity
-- [ ]  Direction
+- [x]  Direction
 - [ ]  Transaction Time
 
 
@@ -258,8 +258,8 @@ Some of advantages of CLOB model are:
 ##### What do you mean by cross-chain swaps?  
 
 - [ ]  Swapping within a blockchain ecosystem
-- [ ]  Swapping across different Cryptos using smart contracts
-- [x]  Swapping across different Cryptos with intermediary
+- [x]  Swapping across different Cryptos using smart contracts
+- [ ]  Swapping across different Cryptos with intermediary
 - [ ]  None of the above
 
     
@@ -308,9 +308,9 @@ This ought to provide a crystal-clear and upbeat image of Serum DEX's potential 
 ##### Which of the following Serum DEXs is building better lending and borrowing?  
 
 - [ ]  Bonfida
-- [ ]  JET Protocol
+- [x]  JET Protocol
 - [ ]  COPE
-- [x]  None of the above
+- [ ]  None of the above
 
 
 

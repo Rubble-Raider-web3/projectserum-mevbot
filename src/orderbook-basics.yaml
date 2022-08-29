@@ -69,7 +69,7 @@ steps:
           - content: None of these
             key: D
       - uuid: 6f11766f-8bfb-4a62-ab2b-f4e91ca299fa
-        content: Which of the followinG DEXs use AMM?
+        content: Which of the following DEXs use AMM?
         answerKeys:
           - A
           - B
@@ -85,7 +85,7 @@ steps:
           - content: Balancer
             key: D
       - uuid: 984d2c1a-b521-433f-98ca-3a84035942bb
-        content: Which of the followinG DEXs use CLOB?
+        content: Which of the following DEXs use CLOB?
         answerKeys:
           - A
           - B
@@ -140,7 +140,7 @@ steps:
       - uuid: 44a8a64e-2fb5-43c9-9392-36a61334831d
         content: Serum CLOB works on the basis of-
         answerKeys:
-          - C
+          - B
         type: SingleChoice
         choices:
           - content: Last In Last Out
@@ -265,7 +265,7 @@ steps:
         answerKeys:
           - A
           - B
-          - c
+          - C
         type: MultipleChoice
         choices:
           - content: Price 
@@ -295,7 +295,7 @@ steps:
       - uuid: 5f5b0575-7d48-4365-a523-2033a64fabb4
         content: What do you mean by cross-chain swaps?
         answerKeys:
-          - C
+          - B
         type: SingleChoice
         choices:
           - content: Swapping within a blockchain ecosystem
@@ -350,7 +350,7 @@ steps:
       - uuid: d93f538b-0acd-4401-b817-94728867d81b
         content: Which of the following Serum DEXs is building better lending and borrowing?
         answerKeys:
-          - D         
+          - B 
         type: SingleChoice
         choices:
           - content: Bonfida
