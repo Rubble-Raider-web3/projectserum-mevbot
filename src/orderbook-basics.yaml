@@ -40,7 +40,7 @@ steps:
         
     stepItems:
       - uuid: 12a809d7-34b0-4edd-a4d1-d62a0e1354ec
-        content: What is the difference between Invitation for Bid and Request For Quote?
+        content: What is the difference between Invitation for Bid and Request For Quote(RFQ)?
         answerKeys:
           - C
         type: SingleChoice
