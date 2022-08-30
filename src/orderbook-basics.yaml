@@ -238,7 +238,7 @@ steps:
   - uuid: 6fc6f39c-81a8-4796-aade-bfff10267e15
     name: Advantages of CLOB
     content: |
-      Some of advantages of CLOB model are:
+      Some of advantages of Center Limit Order Book(CLOB) model are:
 
       * Users can execute orders using smart contracts in Serum's fully decentralized, on-chain order book while keeping pricing and order size flexibility.
 
