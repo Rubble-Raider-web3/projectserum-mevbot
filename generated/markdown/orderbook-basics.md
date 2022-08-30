@@ -42,7 +42,7 @@ Before Knowing the CLOB in detail one must understand the following terms:
 
 
 
-##### What is the difference between IFB and RFQ?  
+##### What is the difference between Invitation for Bid and Request For Quote?  
 
 - [ ]  IFB is given to small contractors whereas, RFQ is for big ones.
 - [ ]  Projects under IFB require less time to complete whereas, RFQ require large amount of time.
@@ -75,7 +75,7 @@ Before Knowing the CLOB in detail one must understand the following terms:
 
 
 
-##### Which of the following DEXs use CLOB?  
+##### Which of the following Decentralised Exchanges use Central Limit Order Book?  
 
 - [x]  Serum
 - [x]  Coinbase
@@ -111,7 +111,7 @@ Many of the first DEX protocols were conscious of these challenges and made an e
 
 
 
-##### Serum uses which of the following builders?  
+##### Serum uses which of the following blockchains?  
 
 - [ ]  Ethereum
 - [ ]  Hyperledger
@@ -122,18 +122,18 @@ Many of the first DEX protocols were conscious of these challenges and made an e
 
 
 
-##### Serum CLOB works on the basis of-  
+##### Serum Central Limit Order Book works on the basis of-  
 
-- [ ]  Last In Last Out
-- [x]  First In First Out
-- [ ]  First In Last Out
-- [ ]  Last In First Out
-
-
+- [ ]  Last In Last Out on Price and Time
+- [x]  First In First Out on Price and Time
+- [ ]  First In Last Out on Price and Time
+- [ ]  Last In First Out on Price and Time
 
 
 
-##### What are the requirements for the functioning of CLOB?  
+
+
+##### What are the requirements for the functioning of Central Limit Order Book?  
 
 - [ ]  High Gas cost
 - [x]  Low Gas Cost
@@ -171,18 +171,18 @@ AMM gives consumers the ability to exchange their assets directly between themse
 
 
 
-##### How does CLOB and AMM differ on the basis of contributors?  
+##### How does Central Limit Order Book and Automated Market Maker differ on the basis of contributors?  
 
-- [x]  CLOB has two liquidity custodians and AMM has liquidity pools.
-- [ ]  CLOB has liquidity pools and AMM has two liquidity custodians.
-- [ ]  AMM uses one liquidity custodian whereas CLOB uses two.
-- [ ]  CLOB and AMM both use liqidity pools.
-
-
+- [x]  Central Limit Order Book has two liquidity custodians and Automated Market Maker has liquidity pools.
+- [ ]  Central Limit Order Book has liquidity pools and Automated Market Maker has two liquidity custodians.
+- [ ]  Automated Market Maker uses one liquidity custodian whereas Central Limit Order Book uses two.
+- [ ]  Central Limit Order Book and Automated Market Maker both use liqidity pools.
 
 
 
-##### When does CLOB mechanism come into play?  
+
+
+##### When does Central Limit Order Book mechanism come into play?  
 
 - [ ]  Distinct Orders
 - [x]  Overlapping Orders
@@ -233,9 +233,9 @@ Some of advantages of CLOB model are:
 
 
 
-##### CLOB enhances the liquidity by specifying ____ of transaction.  
+##### Central Limit Order Book enhances the liquidity by specifying ____ of transaction.  
 
-- [x]  Price
+- [x]  Limit Price
 - [x]  Quantity
 - [x]  Direction
 - [ ]  Transaction Time
@@ -244,7 +244,7 @@ Some of advantages of CLOB model are:
 
 
 
-##### How does Solana empower Serum CLOB?  
+##### How does Solana empower Serum Central Limit Order Book?  
 
 - [ ]  Low Transaction Cost
 - [ ]  Minimising capital inefficiencies
@@ -258,8 +258,8 @@ Some of advantages of CLOB model are:
 ##### What do you mean by cross-chain swaps?  
 
 - [ ]  Swapping within a blockchain ecosystem
-- [x]  Swapping across different Cryptos using smart contracts
-- [ ]  Swapping across different Cryptos with intermediary
+- [x]  Swapping across different Crypto tokens using smart contracts
+- [ ]  Swapping across different Cryptos tokens with intermediary
 - [ ]  None of the above
 
     
@@ -294,7 +294,7 @@ This ought to provide a crystal-clear and upbeat image of Serum DEX's potential 
 
 
 
-##### Which property of Solana helps building over the Serum?  
+##### Which property of Project Serum helps other projects build on top of Serum?  
 
 - [ ]  Fast Throughput
 - [ ]  Low Transaction cost
@@ -305,7 +305,7 @@ This ought to provide a crystal-clear and upbeat image of Serum DEX's potential 
 
 
 
-##### Which of the following Serum DEXs is building better lending and borrowing?  
+##### Which of the following protocol is building lending and borrowing and is build on top of Serum?  
 
 - [ ]  Bonfida
 - [x]  JET Protocol

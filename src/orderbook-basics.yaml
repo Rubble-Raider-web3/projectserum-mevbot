@@ -40,7 +40,7 @@ steps:
         
     stepItems:
       - uuid: 12a809d7-34b0-4edd-a4d1-d62a0e1354ec
-        content: What is the difference between IFB and RFQ?
+        content: What is the difference between Invitation for Bid and Request For Quote?
         answerKeys:
           - C
         type: SingleChoice
@@ -85,7 +85,7 @@ steps:
           - content: Balancer
             key: D
       - uuid: 984d2c1a-b521-433f-98ca-3a84035942bb
-        content: Which of the following DEXs use CLOB?
+        content: Which of the following Decentralised Exchanges use Central Limit Order Book?
         answerKeys:
           - A
           - B
@@ -124,7 +124,7 @@ steps:
 
     stepItems:
       - uuid: c7b5cdea-2928-4dd7-8da2-d786fd98187f
-        content: Serum uses which of the following builders?
+        content: Serum uses which of the following blockchains?
         answerKeys:
           - C
         type: SingleChoice
@@ -138,21 +138,21 @@ steps:
           - content: R3
             key: D
       - uuid: 44a8a64e-2fb5-43c9-9392-36a61334831d
-        content: Serum CLOB works on the basis of-
+        content: Serum Central Limit Order Book works on the basis of-
         answerKeys:
           - B
         type: SingleChoice
         choices:
-          - content: Last In Last Out
+          - content: Last In Last Out on Price and Time
             key: A
-          - content: First In First Out
+          - content: First In First Out on Price and Time
             key: B
-          - content: First In Last Out
+          - content: First In Last Out on Price and Time
             key: C
-          - content: Last In First Out
+          - content: Last In First Out on Price and Time
             key: D
       - uuid: 28f4dd9e-468f-4788-b586-8b2bbccd7102
-        content: What are the requirements for the functioning of CLOB?
+        content: What are the requirements for the functioning of Central Limit Order Book?
         answerKeys:
           - B
           - C
@@ -192,22 +192,22 @@ steps:
 
     stepItems:
       - uuid: 9a837714-e236-4ee5-b084-2d0fe5729b03
-        content: How does CLOB and AMM differ on the basis of contributors?
+        content: How does Central Limit Order Book and Automated Market Maker differ on the basis of contributors?
         answerKeys:
           - A
         type: SingleChoice
         choices:
-          - content: CLOB has two liquidity custodians and AMM has liquidity pools.
+          - content: Central Limit Order Book has two liquidity custodians and Automated Market Maker has liquidity pools.
             key: A
-          - content: CLOB has liquidity pools and AMM has two liquidity custodians.
+          - content: Central Limit Order Book has liquidity pools and Automated Market Maker has two liquidity custodians.
             key: B
-          - content: AMM uses one liquidity custodian whereas CLOB uses two.
+          - content: Automated Market Maker uses one liquidity custodian whereas Central Limit Order Book uses two.
             key: C
-          - content: CLOB and AMM both use liqidity pools.
+          - content: Central Limit Order Book and Automated Market Maker both use liqidity pools.
             key: D
 
       - uuid: 6b31471a-e40a-470c-9d34-3b5356dc19f3
-        content: When does CLOB mechanism come into play?
+        content: When does Central Limit Order Book mechanism come into play?
         answerKeys:
           - B
         type: SingleChoice
@@ -261,14 +261,14 @@ steps:
 
     stepItems:
       - uuid: 53c58fcf-8101-48f8-9681-899a4b173a0b
-        content: CLOB enhances the liquidity by specifying ____ of transaction.
+        content: Central Limit Order Book enhances the liquidity by specifying ____ of transaction.
         answerKeys:
           - A
           - B
           - C
         type: MultipleChoice
         choices:
-          - content: Price 
+          - content: Limit Price 
             key: A
           - content: Quantity
             key: B
@@ -278,7 +278,7 @@ steps:
             key: D
 
       - uuid: 02db90e6-1301-4bdf-b04e-b97eaafa22e1
-        content: How does Solana empower Serum CLOB?
+        content: How does Solana empower Serum Central Limit Order Book?
         answerKeys:
           - D
         type: SingleChoice
@@ -300,9 +300,9 @@ steps:
         choices:
           - content: Swapping within a blockchain ecosystem
             key: A
-          - content: Swapping across different Cryptos using smart contracts
+          - content: Swapping across different Crypto tokens using smart contracts
             key: B
-          - content: Swapping across different Cryptos with intermediary
+          - content: Swapping across different Cryptos tokens with intermediary
             key: C
           - content: None of the above
             key: D
@@ -334,7 +334,7 @@ steps:
 
     stepItems:
       - uuid: e00fa4ba-a439-4b38-bfb4-1545770a9343
-        content: Which property of Solana helps building over the Serum?
+        content:  Which property of Project Serum helps other projects build on top of Serum?
         answerKeys:
           - D         
         type: SingleChoice
@@ -348,7 +348,7 @@ steps:
           - content: High Composibility
             key: D
       - uuid: d93f538b-0acd-4401-b817-94728867d81b
-        content: Which of the following Serum DEXs is building better lending and borrowing?
+        content: Which of the following protocol is building lending and borrowing and is build on top of Serum?
         answerKeys:
           - B 
         type: SingleChoice
