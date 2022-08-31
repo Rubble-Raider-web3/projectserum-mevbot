@@ -15,11 +15,11 @@ steps:
   - uuid: 628e184c-5fe6-49d1-b6a5-4add0747a3f1
     name: Introduction
     content: |
-      ## Introduction:-
+      ## Introduction:
       The Serum DEX is a program on the Solana blockchain. Solana has block times of 400ms, and can currently process roughly 50,000 transactions per second.
       This allows Serum to handle hundreds of orders per second per market.
       Tokens on Solana are instrumented as instances of the SPL Token Program. An Solana Program Library (SPL) token on Solana is analogous to an ERC20 token on Ethereum.
-      Now, before going to Trade Lifecycle, let's first understand some terminologies related to accounts specifically global accounts:-
+      Now, before going to Trade Lifecycle, let's first understand some terminologies related to accounts specifically global accounts:
         * **Request Queue**: This account maintains all submitted but unprocessed order placement and cancellation requests.
         * **Orderbook**: Speaks for itself. There's one account for bids and another for asks, but for simplicity,
         we'll refer to both of them collectively as Orderbook going forward.
@@ -86,11 +86,11 @@ steps:
     name: Trade Lifecycle - Placing Orders
     content: |
       The trade lifecycle generally consists of four main stages: placing orders, matching orders, consuming events, and settlement.
-      Let's see each in detail:-
+      Let's see each in detail:
       
       ## 1. Placing orders:
       A user funds an intermediary account (their OpenOrders account) from their SPL token account (wallet) and adds an order placement request to the Request Queue.
-      ### Necessary steps required in placing successful orders:-
+      ### Necessary steps required in placing successful orders:
         * 1. A user submits a **Place Order** instruction to the DEX program, passing:
           * Order details: the market size, price, order type, side
           * Their OpenOrders account on that market
@@ -211,10 +211,10 @@ steps:
     content: |
       ## 3. Consuming events:
         * Events are popped off of the Event Queue and processed. This usually results in OpenOrders account balances being updated as a result of the trade.
-        ### Necessary steps required in successfully consuming events:-
-          * The next event in the Event Queue is considered. If its OpenOrders account public key is found (via binary search - hence the sorting requirement)
+        ### Necessary steps required in successfully consuming events:
+          - The next event in the Event Queue is considered. If its OpenOrders account public key is found (via binary search - hence the sorting requirement)
           in the account list submitted by the client as writable, then continue. Otherwise, abort.
-          * That event is popped off the queue and processed
+          - That event is popped off the queue and processed.
             - Fill:
               * The OpenOrders account's total balances are decremented by the quantity paid
               * The OpenOrders account's total and free balances are incremented by the quantity received
@@ -263,7 +263,7 @@ steps:
     content: |
       ## 4. Settlement:
         * Users can settle free funds from their OpenOrders back to their SPL token account at any time.
-        - Step required in the settlement:-
+        - Step required in the settlement:
           * The user passes their OpenOrders account and their SPL token accounts for the base and quotes currency,
           signs with the “owner” of all of them (the same key pair that signed for placing orders using these same accounts),
           and the runtime does the following:
