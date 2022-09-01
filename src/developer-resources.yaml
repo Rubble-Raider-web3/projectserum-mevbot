@@ -107,6 +107,21 @@ steps:
             key: C
           - content: Low transaction latency
             key: D
+      
+      - uuid: 6c708898-c3f3-4c34-8bc4-28bfac9f6fbe
+        content: What is the typical network fees per transaction on Solana?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: $0.1
+            key: A
+          - content: $0.0001
+            key: B
+          - content: $0.01
+            key: C
+          - content: $1
+            key: D
 
   - uuid: 8edd760d-be46-4be1-bb07-66fd78625d58
     name: Serum Basics
@@ -146,6 +161,8 @@ steps:
       - [Awesome Serum](https://github.com/project-serum/awesome-serum)
       - [Solnet.Serum](https://github.com/bmresearch/Solnet.Serum) (.NET integration for Serum)
       - [PySerum](https://github.com/serum-community/pyserum) (Python client library for interacting with Serum)
+      - [serum-ts](https://github.com/project-serum/serum-ts)
+      - [serum-dex](https://github.com/project-serum/serum-dex)
 
     stepItems: []
   - uuid: 9f9ec248-b6e5-491a-bab2-55d53012d21e
@@ -182,8 +199,25 @@ steps:
           - content: Low Gas Cost
             key: D
 
+      - uuid: 69abc052-50d6-458b-baa0-373be56ab1a5
+        content: What are the advantages of Central Limit Order Book over Automated Market Maker?
+        answerKeys:
+          - A
+          - B
+          - D
+        type: MultipleChoice
+        choices:
+          - content: It works on First in First Out Principle (FIFO)
+            key: A
+          - content: It reduces liquidity segmentation
+            key: B
+          - content: It increases liquidity segmentation
+            key: C
+          - content: It reduces capital inefficiencies
+            key: D
+
   - uuid: d3c7cbc6-f9f2-402c-84ff-14cedcca6dee
-    name: Serum based projects
+    name: Ideas for Serum based projects
     content: |
       The project ideas for Serum are numerous. Some of them, like the AMM Bot and cross-chain bridges, 
       are about the technical aspects of the project. Other ideas, like Borrow/lending and Sushi Swap, 

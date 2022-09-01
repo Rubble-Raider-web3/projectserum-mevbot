@@ -104,13 +104,39 @@
               "key": "D"
             }
           ]
+        },
+        {
+          "uuid": "6c708898-c3f3-4c34-8bc4-28bfac9f6fbe",
+          "content": "What is the typical network fees per transaction on Solana?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "$0.1",
+              "key": "A"
+            },
+            {
+              "content": "$0.0001",
+              "key": "B"
+            },
+            {
+              "content": "$0.01",
+              "key": "C"
+            },
+            {
+              "content": "$1",
+              "key": "D"
+            }
+          ]
         }
       ]
     },
     {
       "uuid": "8edd760d-be46-4be1-bb07-66fd78625d58",
       "name": "Serum Basics",
-      "content": "## What is Serum?\nSerum is a highly efficient decentralized exchange built using the Solana network which makes it quite scalable and thus widely acceptable exchange. \nThe prime differentiating factor between Serum and other popular DEXs is that it uses Central Limit Order Book (CLOB) rather than \nthe Automated Market Makers (used by others) to enable effective and fast trading on its platform. \nThe inbuilt design of Serum is empowered by its on-chain CLOB which is a largely used mechanism in traditional finance and \nfurther Serum makes it permissionless and decentralized, helping its users to erode a middle party and \ncommunicate directly with a smart contract to execute trades from an order book. Solana, which is one of the key components of the exchange, \nprovides high speed and low cost to the Serum Network making it outshine other popular decentralized exchanges, enabling Serum to perform effectively. \nMoreover, Serum can interact efficiently with Ethereum and it enables high composability within the decentralized finance environment \nby permitting other smart contract protocols to interact with its order book to share liquidity and develop more features on top of it. \nSerum can be used alongside Ethereum.\n\n## Serum's Central Limit Order Book\nSerum has developed a fully decentralized, on-chain order book that allows users to execute orders directly with a smart contract. \nThis system is still flexible with pricing and order sizes. Additionally, the CLOB and the matching engine provide both liquidity and \nprice-time-priority-basis matching to users. As a result, users are able to choose the price, size, and \ndirection of their trades without all of the associated inefficiencies. Moreover, Serum can be used for bootstrapping liquidity and matching services, \nadding an additional layer of composability to other protocols within the space.\n\nBuilding on Solana allows Serum to use the network's high speed and low transaction costs to power its order book functionality and \nfurther reduce capital inefficiency and liquidity segmentation, while still being able to communicate with Ethereum. \nSerum's CLOB is designed to be able to handle any type of Solana-based trading instrument, such as options and futures, \nand is also comprised of other powerful features such as cross-chain swaps (e.g. ETH and BTC). \nIts architecture is designed in a way that makes it easier to add on or take away features as needed. \nThis makes it a more flexible option for financial applications that need to share middleware.\n\nBy having an order book that is completely on the blockchain, Serum has made a lot of the benefits \nthat come with traditional order books available to the DeFi ecosystem while still keeping the decentralized exchange effective. \nAdditionally, this method allows other programs to connect to Serum and use its infrastructure to build their own project; \nfor example, a trading application that would use the liquidity on Serum.\n\n## Some useful links\n- [Awesome Serum](https://github.com/project-serum/awesome-serum)\n- [Solnet.Serum](https://github.com/bmresearch/Solnet.Serum) (.NET integration for Serum)\n- [PySerum](https://github.com/serum-community/pyserum) (Python client library for interacting with Serum)\n",
+      "content": "## What is Serum?\nSerum is a highly efficient decentralized exchange built using the Solana network which makes it quite scalable and thus widely acceptable exchange. \nThe prime differentiating factor between Serum and other popular DEXs is that it uses Central Limit Order Book (CLOB) rather than \nthe Automated Market Makers (used by others) to enable effective and fast trading on its platform. \nThe inbuilt design of Serum is empowered by its on-chain CLOB which is a largely used mechanism in traditional finance and \nfurther Serum makes it permissionless and decentralized, helping its users to erode a middle party and \ncommunicate directly with a smart contract to execute trades from an order book. Solana, which is one of the key components of the exchange, \nprovides high speed and low cost to the Serum Network making it outshine other popular decentralized exchanges, enabling Serum to perform effectively. \nMoreover, Serum can interact efficiently with Ethereum and it enables high composability within the decentralized finance environment \nby permitting other smart contract protocols to interact with its order book to share liquidity and develop more features on top of it. \nSerum can be used alongside Ethereum.\n\n## Serum's Central Limit Order Book\nSerum has developed a fully decentralized, on-chain order book that allows users to execute orders directly with a smart contract. \nThis system is still flexible with pricing and order sizes. Additionally, the CLOB and the matching engine provide both liquidity and \nprice-time-priority-basis matching to users. As a result, users are able to choose the price, size, and \ndirection of their trades without all of the associated inefficiencies. Moreover, Serum can be used for bootstrapping liquidity and matching services, \nadding an additional layer of composability to other protocols within the space.\n\nBuilding on Solana allows Serum to use the network's high speed and low transaction costs to power its order book functionality and \nfurther reduce capital inefficiency and liquidity segmentation, while still being able to communicate with Ethereum. \nSerum's CLOB is designed to be able to handle any type of Solana-based trading instrument, such as options and futures, \nand is also comprised of other powerful features such as cross-chain swaps (e.g. ETH and BTC). \nIts architecture is designed in a way that makes it easier to add on or take away features as needed. \nThis makes it a more flexible option for financial applications that need to share middleware.\n\nBy having an order book that is completely on the blockchain, Serum has made a lot of the benefits \nthat come with traditional order books available to the DeFi ecosystem while still keeping the decentralized exchange effective. \nAdditionally, this method allows other programs to connect to Serum and use its infrastructure to build their own project; \nfor example, a trading application that would use the liquidity on Serum.\n\n## Some useful links\n- [Awesome Serum](https://github.com/project-serum/awesome-serum)\n- [Solnet.Serum](https://github.com/bmresearch/Solnet.Serum) (.NET integration for Serum)\n- [PySerum](https://github.com/serum-community/pyserum) (Python client library for interacting with Serum)\n- [serum-ts](https://github.com/project-serum/serum-ts)\n- [serum-dex](https://github.com/project-serum/serum-dex)\n",
       "stepItems": []
     },
     {
@@ -170,12 +196,40 @@
               "key": "D"
             }
           ]
+        },
+        {
+          "uuid": "69abc052-50d6-458b-baa0-373be56ab1a5",
+          "content": "What are the advantages of Central Limit Order Book over Automated Market Maker?",
+          "answerKeys": [
+            "A",
+            "B",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "It works on First in First Out Principle (FIFO)",
+              "key": "A"
+            },
+            {
+              "content": "It reduces liquidity segmentation",
+              "key": "B"
+            },
+            {
+              "content": "It increases liquidity segmentation",
+              "key": "C"
+            },
+            {
+              "content": "It reduces capital inefficiencies",
+              "key": "D"
+            }
+          ]
         }
       ]
     },
     {
       "uuid": "d3c7cbc6-f9f2-402c-84ff-14cedcca6dee",
-      "name": "Serum based projects",
+      "name": "Ideas for Serum based projects",
       "content": "The project ideas for Serum are numerous. Some of them, like the AMM Bot and cross-chain bridges, \nare about the technical aspects of the project. Other ideas, like Borrow/lending and Sushi Swap, \nare about applications that could be built on top of Serum. still others, like badges and GUI, \nare about ways to make the project more user-friendly.\n[Here](https://docs.projectserum.com/serum-ecosystem/build-on-serum/project-ideas-for-serum#project-ideas) is a non-exhaustive list of projects people have asked for! \nKeep in mind there are loads of other great ideas out there too.\n\n## Newest Project Requests\n* Run Serum Markets on Testnet or Stress competition\n  It would be valuable for people to run Serum markets on testnet and stress test to break them. \n  The following tasks need to be completed in order to do this: \n  - Manage DEX upgrades\n  - List markets with tokens\n  - Provide a faucet (for those tokens) that anyone can use to get and trade on the testnet DEX\n  - Provide a GUI for the testnet DEX\n  - Run cranks on the testnet DEX\n\n* Introduce Streaming for Data from Solana Blockchain\n  It would be beneficial to have the ability to change how Solana collects information from polling to streaming. \n  This would allow for the development of more sophisticated and hybrid apps on Solana. \n  The main issue with data feeds is that the only way to get information from the blockchain is to poll a validator / RPC node. \n  This is a problem for Serum because it makes it difficult to introspect the orderbook and to be notified as a maker when an order is matched. \n  Adding this functionality to the validator codebase would help solve this problem.\n  The current design of a Solana validator uses rocksdb for quick storage of data and state, with periodic commits to a Google BigTable. \n  The proposal is to add code to the rocksdb interface that intercepts all database calls and streams that information out. \n  This would allow a secondary server to handle processing, filtering, analyzing, and distributing that information. \n  The implications of this would be very significant.\n",
       "stepItems": []
     },

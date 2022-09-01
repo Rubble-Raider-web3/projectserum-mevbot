@@ -94,6 +94,17 @@ and low fees- which is exactly what Solana offers.
 - [x]  No sharding is required
 - [x]  Low transaction latency
 
+
+
+
+
+##### What is the typical network fees per transaction on Solana?  
+
+- [ ]  $0.1
+- [x]  $0.0001
+- [ ]  $0.01
+- [ ]  $1
+
     
 
 
@@ -135,6 +146,8 @@ for example, a trading application that would use the liquidity on Serum.
 - [Awesome Serum](https://github.com/project-serum/awesome-serum)
 - [Solnet.Serum](https://github.com/bmresearch/Solnet.Serum) (.NET integration for Serum)
 - [PySerum](https://github.com/serum-community/pyserum) (Python client library for interacting with Serum)
+- [serum-ts](https://github.com/project-serum/serum-ts)
+- [serum-dex](https://github.com/project-serum/serum-dex)
 
 
     
@@ -165,11 +178,22 @@ for example, a trading application that would use the liquidity on Serum.
 - [ ]  High Gas Cost
 - [x]  Low Gas Cost
 
+
+
+
+
+##### What are the advantages of Central Limit Order Book over Automated Market Maker?  
+
+- [x]  It works on First in First Out Principle (FIFO)
+- [x]  It reduces liquidity segmentation
+- [ ]  It increases liquidity segmentation
+- [x]  It reduces capital inefficiencies
+
     
 
 
 ---
-## Serum based projects
+## Ideas for Serum based projects
 
 The project ideas for Serum are numerous. Some of them, like the AMM Bot and cross-chain bridges, 
 are about the technical aspects of the project. Other ideas, like Borrow/lending and Sushi Swap, 
