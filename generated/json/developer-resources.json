@@ -1,0 +1,395 @@
+{
+  "uuid": "5d2b7071-c6a8-4b6b-af52-6a90e9652dd3",
+  "key": "developer-resources",
+  "name": "Developer Resources",
+  "content": "Explains Resources available to developers for building projects on Serum",
+  "guideType": "onboarding",
+  "created": "2022-08-21T04:15:13.911Z",
+  "categories": [
+    "developer",
+    "engineering"
+  ],
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/eth/aave/AAVE_Portals.png",
+  "publishStatus": "Live",
+  "socialShareImage": null,
+  "showIncorrectOnCompletion": true,
+  "steps": [
+    {
+      "uuid": "53a381aa-0bdb-4676-be36-0a959223559a",
+      "name": "Introduction",
+      "content": "## What is Solana?\nSolana is a fast, secure, and censorship-resistant blockchain providing the open infrastructure required for global adoption. \nIt uses a proof-of-stake mechanism as well as a \"proof-of-history\" mechanism to achieve consensus. \nThe latter enables the network to function more quickly because nodes don't need to communicate in order to validate a block.\nAs a decentralized clock, this design is described in the Solana whitepaper. \nFurthermore, proof of history allows network participants to have greater assurance that an event occurred at a specific time. \nAn example of proof of history would be if someone took a picture of today's newspaper with the date and time included\nso that it could be used to verify the authenticity of the newspaper down the line.\n\n## Specifications\nSolana is one of the few blockchains out there that is designed to be able to handle a lot of users and devices \nwithout sacrificing decentralization or security. Its specs include: \n  - supporting 50k transactions per second\n  - block times of approximately 400ms\n  - network fees of $0.0001 per transaction\n  - no sharding is required\n\nWith these specs, Solana can handle hundreds of orders per second per market. \nPlus, it's built to scale with Moore's Law, doubling in capacity around every two years with hardware and processing improvements. \nThe current foreseeable roadmap envisions 1m TPS and 150ms block times.\n\n## Why Solana?\nThe Solana blockchain was selected to be the foundation for Serum for a few key reasons. \nFirstly, Solana is known for being a high-performing blockchain with low transaction latency. \nSecondly, the team behind Serum saw an opportunity for DeFi to grow immensely and cover a value of $10T. \nIn order to achieve such ambitious goals, they knew they needed to build on a blockchain that could support high throughput \nand low fees- which is exactly what Solana offers.\n\n## Some useful links\n- [Solana Program Library](https://github.com/solana-labs/solana-program-library)\n- [Solana Web3 SDK](https://github.com/solana-labs/solana-web3.js)\n- [Solana Explorer](https://github.com/solana-labs/solana/tree/master/explorer)\n- [Solana Hello World](https://github.com/solana-labs/example-helloworld)\n- [Solana Technical Documentation](https://docs.solana.com/)\n- [Solana Discord](https://solana.com/discord)\n- Solana Wormhole - (bidirectional, trustless ERC-20 ⇄ SPL token bridge)\n  * [GitHub repository](https://github.com/certusone/wormhole)\n- [Solnet SDK (.NET integration for Solana)](https://github.com/bmresearch/Solnet)\n- [NFT example](https://spl.solana.com/token#example-create-a-non-fungible-token)\n- [Solana Go](https://github.com/dfuse-io/solana-go)\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "6f004ef7-03e1-491b-8c2e-4b5fad9cbcfe",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "dcde952d-f3c4-4fd3-805a-76968fbdc3af",
+          "content": "What is the block time of Solana?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "4ms",
+              "key": "A"
+            },
+            {
+              "content": "40ms",
+              "key": "B"
+            },
+            {
+              "content": "400ms",
+              "key": "C"
+            },
+            {
+              "content": "4000ms",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "160c4075-c434-4475-b98b-7da03a2146f3",
+          "content": "Which of the following consensus mechanism(s) is used by Solana?",
+          "answerKeys": [
+            "A",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "proof-of-stake",
+              "key": "A"
+            },
+            {
+              "content": "proof-of-network",
+              "key": "B"
+            },
+            {
+              "content": "proof-of-history",
+              "key": "C"
+            },
+            {
+              "content": "proof-of-blockchain",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "88a22db2-5e7f-4014-935d-e66fcb94ea48",
+          "content": "Select the correct specifications of Solana.",
+          "answerKeys": [
+            "C",
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "High network fees per transaction",
+              "key": "A"
+            },
+            {
+              "content": "Sharding is required",
+              "key": "B"
+            },
+            {
+              "content": "No sharding is required",
+              "key": "C"
+            },
+            {
+              "content": "Low transaction latency",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "8edd760d-be46-4be1-bb07-66fd78625d58",
+      "name": "Serum Basics",
+      "content": "## What is Serum?\nSerum is a highly efficient decentralized exchange built using the Solana network which makes it quite scalable and thus widely acceptable exchange. \nThe prime differentiating factor between Serum and other popular DEXs is that it uses Central Limit Order Book (CLOB) rather than \nthe Automated Market Makers (used by others) to enable effective and fast trading on its platform. \nThe inbuilt design of Serum is empowered by its on-chain CLOB which is a largely used mechanism in traditional finance and \nfurther Serum makes it permissionless and decentralized, helping its users to erode a middle party and \ncommunicate directly with a smart contract to execute trades from an order book. Solana, which is one of the key components of the exchange, \nprovides high speed and low cost to the Serum Network making it outshine other popular decentralized exchanges, enabling Serum to perform effectively. \nMoreover, Serum can interact efficiently with Ethereum and it enables high composability within the decentralized finance environment \nby permitting other smart contract protocols to interact with its order book to share liquidity and develop more features on top of it. \nSerum can be used alongside Ethereum.\n\n## Serum's Central Limit Order Book\nSerum has developed a fully decentralized, on-chain order book that allows users to execute orders directly with a smart contract. \nThis system is still flexible with pricing and order sizes. Additionally, the CLOB and the matching engine provide both liquidity and \nprice-time-priority-basis matching to users. As a result, users are able to choose the price, size, and \ndirection of their trades without all of the associated inefficiencies. Moreover, Serum can be used for bootstrapping liquidity and matching services, \nadding an additional layer of composability to other protocols within the space.\n\nBuilding on Solana allows Serum to use the network's high speed and low transaction costs to power its order book functionality and \nfurther reduce capital inefficiency and liquidity segmentation, while still being able to communicate with Ethereum. \nSerum's CLOB is designed to be able to handle any type of Solana-based trading instrument, such as options and futures, \nand is also comprised of other powerful features such as cross-chain swaps (e.g. ETH and BTC). \nIts architecture is designed in a way that makes it easier to add on or take away features as needed. \nThis makes it a more flexible option for financial applications that need to share middleware.\n\nBy having an order book that is completely on the blockchain, Serum has made a lot of the benefits \nthat come with traditional order books available to the DeFi ecosystem while still keeping the decentralized exchange effective. \nAdditionally, this method allows other programs to connect to Serum and use its infrastructure to build their own project; \nfor example, a trading application that would use the liquidity on Serum.\n\n## Some useful links\n- [Awesome Serum](https://github.com/project-serum/awesome-serum)\n- [Solnet.Serum](https://github.com/bmresearch/Solnet.Serum) (.NET integration for Serum)\n- [PySerum](https://github.com/serum-community/pyserum) (Python client library for interacting with Serum)\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "9f9ec248-b6e5-491a-bab2-55d53012d21e",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "21fe6740-50c7-4b86-b12f-174fb73708bb",
+          "content": "Serum uses which of the following blockchains?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Ethereum",
+              "key": "A"
+            },
+            {
+              "content": "Cardano",
+              "key": "B"
+            },
+            {
+              "content": "Solana",
+              "key": "C"
+            },
+            {
+              "content": "Hyperledger",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "6b3cf489-9cac-44fd-afeb-eda8827913fe",
+          "content": "Central Limit Order Book functions well under which of the following scenarios?",
+          "answerKeys": [
+            "A",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Fast Transaction Speed",
+              "key": "A"
+            },
+            {
+              "content": "Slow Transaction Speed",
+              "key": "B"
+            },
+            {
+              "content": "High Gas Cost",
+              "key": "C"
+            },
+            {
+              "content": "Low Gas Cost",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "d3c7cbc6-f9f2-402c-84ff-14cedcca6dee",
+      "name": "Serum based projects",
+      "content": "The project ideas for Serum are numerous. Some of them, like the AMM Bot and cross-chain bridges, \nare about the technical aspects of the project. Other ideas, like Borrow/lending and Sushi Swap, \nare about applications that could be built on top of Serum. still others, like badges and GUI, \nare about ways to make the project more user-friendly.\n[Here](https://docs.projectserum.com/serum-ecosystem/build-on-serum/project-ideas-for-serum#project-ideas) is a non-exhaustive list of projects people have asked for! \nKeep in mind there are loads of other great ideas out there too.\n\n## Newest Project Requests\n* Run Serum Markets on Testnet or Stress competition\n  It would be valuable for people to run Serum markets on testnet and stress test to break them. \n  The following tasks need to be completed in order to do this: \n  - Manage DEX upgrades\n  - List markets with tokens\n  - Provide a faucet (for those tokens) that anyone can use to get and trade on the testnet DEX\n  - Provide a GUI for the testnet DEX\n  - Run cranks on the testnet DEX\n\n* Introduce Streaming for Data from Solana Blockchain\n  It would be beneficial to have the ability to change how Solana collects information from polling to streaming. \n  This would allow for the development of more sophisticated and hybrid apps on Solana. \n  The main issue with data feeds is that the only way to get information from the blockchain is to poll a validator / RPC node. \n  This is a problem for Serum because it makes it difficult to introspect the orderbook and to be notified as a maker when an order is matched. \n  Adding this functionality to the validator codebase would help solve this problem.\n  The current design of a Solana validator uses rocksdb for quick storage of data and state, with periodic commits to a Google BigTable. \n  The proposal is to add code to the rocksdb interface that intercepts all database calls and streams that information out. \n  This would allow a secondary server to handle processing, filtering, analyzing, and distributing that information. \n  The implications of this would be very significant.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "212aaf4e-5e81-4754-8cdb-4c215169a1c1",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "65da4ac4-766c-4fe6-9c7f-e876241d720a",
+          "content": "Which of the following is used by current design of Solana validator for quick storage of data?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Mongodb",
+              "key": "A"
+            },
+            {
+              "content": "Rocksdb",
+              "key": "B"
+            },
+            {
+              "content": "MySql",
+              "key": "C"
+            },
+            {
+              "content": "Redis",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "f726f01a-ec93-4ff2-843a-ee39359ce615",
+          "content": "Which of the following tasks are needed to be done so that people can run Serum markets on Testnet?",
+          "answerKeys": [
+            "A",
+            "B",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "List markets with tokens",
+              "key": "A"
+            },
+            {
+              "content": "Provide a faucet that anyone can use to get and trade on the testnet DEX",
+              "key": "B"
+            },
+            {
+              "content": "Remove rocksdb",
+              "key": "C"
+            },
+            {
+              "content": "Provide a GUI for the testnet DEX",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "2a748ac9-f58a-4448-9b94-ff6184c7f5d0",
+      "name": "What is a Good Project?",
+      "content": "For your project to become huge or big at least, you need to keep a few things in mind so that your project actually adds value.\n  - **Usefulness**: The project has to be useful. Think about what users want. \n    It's important to make sure that, if you build it, people will want to use it. \n    That's why most of the big projects in DeFi focus on areas like borrow/lending, DEXes, oracles, etc. \n    Even among the forks, the ones that have been successful are the ones that kept building and pushing the project in a new direction.\n  - **Well-built**: Efficacy, intuitiveness, security, and reliability are some of the tell-tale traits of a good project. \n    You can always improve upon your work, no matter how good it may be, and there are always things you can do to make it just a little bit better. \n    Sometimes it's the small things that matter most. But in addition to generic improvements, there are also a bunch of specific ways to make your work stand out.\n    * A really common mistake people make is forgetting that the average person doesn't know how to code. \n      Most people are more visual and want an interface that is easy to use and self-explanatory. \n      When designing your project's GUI, think about how someone with no coding experience would use it and \n      what would be the most intuitive way for them to get the information they need from it.\n    * Before you launch a product, you need to make sure that it works well and doesn't have any bugs. \n      The \"audit\" process is often overemphasized; in reality, most projects have so many bugs that they need a thorough set of fixes before an audit can even begin. \n      And many projects that pass an audit still have fatal flaws. To test your product, use it yourself and look for common problems; \n      stress-test it; and show it to other people who you think will be able to give you honest feedback.\n  - **Users**: The hardest part of making something great isn't the actual product creation. \n    It's getting users to adopt and use it. There are a few ways you can go about this:\n    * If you have a large pre-existing user base, show the product to them first \n    * Hire a team for marketing and customer service \n    * Join forces with an existing project that has more reach \n    * In the extreme case, buy ads for it \n    Any of these can be successful in getting users, however, most projects fail because they don't do any of them.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "2fc62623-9025-42d6-85c7-b51c5c730557",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "c36b7087-19e8-4ae2-bc26-55279f6270d4",
+          "content": "What are some of the tell-tale traits of a good project?",
+          "answerKeys": [
+            "A",
+            "B",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Efficacy",
+              "key": "A"
+            },
+            {
+              "content": "Intuitiveness",
+              "key": "B"
+            },
+            {
+              "content": "Security",
+              "key": "C"
+            },
+            {
+              "content": "None of the above",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "c42ca1c8-60d5-46bf-ac96-8884902fdfd1",
+          "content": "Which of the following is not a characteristic of a well-built project?",
+          "answerKeys": [
+            "A",
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Unintuitive GUI",
+              "key": "A"
+            },
+            {
+              "content": "Bugs in project launch",
+              "key": "B"
+            },
+            {
+              "content": "Performing stress-test before launch",
+              "key": "C"
+            },
+            {
+              "content": "High user adoption",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "47ad53ff-cbee-439a-b229-f2e6e1aff10c",
+      "name": "Grant",
+      "content": "**EcoSerum**: EcoSerum is a community of active investors, traders, and developers who are committed to building the Serum ecosystem. \nSerum's success depends on factors like liquidity, accessibility, and community involvement. \nStakers are SRM holders who are committed to Project Serum's long-term growth and supporting the development of user-friendly tools and applications.\n\n**Grants**: Any project that is built using Serum can apply for a grant. This is a great way to get funding for your project, \nand it can help you to improve the quality of your project. This money can help cover expenses related to project development and implementation.\nTo apply for an EcoSerum grant, you'll need to prepare the following:\n- A pitch deck outlining your product vision/roadmap, team, and demos (if any)\n- Grant size request, and specific use of proceeds\n- A thorough explanation of how your project will work with Serum (e.g. composition with Serum order book markets to match spot orders, liquidate positions, rebalance portfolios, etc.)\n\nOnce collected, you can e-mail the above information to grants@projectserum.com along with your request and any inquiries.\n\n**Note**: Although there's no guarantee you'll get a grant, you can always reach out to grants@projectserum.com to see if your project idea is eligible. They may be able to help you out and provide some guidance.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "a6afc8eb-28ce-4676-ae87-837b5ffb35c9",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "6c230ede-4bec-4228-ac78-34bbecabf786",
+          "content": "Select the correct statement(s) about grants?",
+          "answerKeys": [
+            "B",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Only a project with very big user base can apply for grant",
+              "key": "A"
+            },
+            {
+              "content": "Any project that is built using Serum can apply for a grant",
+              "key": "B"
+            },
+            {
+              "content": "There is a guaranteed grant for every project",
+              "key": "C"
+            },
+            {
+              "content": "There is no guaranteed grant for any project",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "c36fa566-8b25-4d54-826b-bf2aabf1908d",
+          "content": "What is EcoSerum?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "A project built using Serum",
+              "key": "A"
+            },
+            {
+              "content": "An eco-friendly version of Serum",
+              "key": "B"
+            },
+            {
+              "content": "A community of active investors, traders, and developers who are committed to building the Serum ecosystem",
+              "key": "C"
+            },
+            {
+              "content": "None of the above",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "081921a7-3470-480a-a9d9-5f6ee7e1de7c",
+      "name": "Your Info",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "0eed5b65-4a28-42a0-b554-41f8cde413f5",
+          "label": "Nick Name",
+          "required": true,
+          "type": "PublicShortInput"
+        },
+        {
+          "uuid": "6f1ff474-3268-4c63-8cd6-920a8ec968d0",
+          "type": "UserDiscordConnect"
+        }
+      ]
+    }
+  ]
+}
