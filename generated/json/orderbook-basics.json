@@ -27,7 +27,7 @@
       "stepItems": [
         {
           "uuid": "12a809d7-34b0-4edd-a4d1-d62a0e1354ec",
-          "content": "What is the difference between Invitation for Bid and Request For Quote?",
+          "content": "What is the difference between Invitation for Bid(IFB) and Request For Quote(RFQ)?",
           "answerKeys": [
             "C"
           ],
@@ -322,7 +322,7 @@
     {
       "uuid": "6fc6f39c-81a8-4796-aade-bfff10267e15",
       "name": "Advantages of CLOB",
-      "content": "Some of advantages of CLOB model are:\n\n* Users can execute orders using smart contracts in Serum's fully decentralized, on-chain order book while keeping pricing and order size flexibility.\n\n* Similar to a standard CLOB, users have the option to specify the price, quantity, and direction of their transactions. This technique provides high liquidity by matching orders based on price, time, and priority.\n\n* Serum enhances composability as it can be used by other protocols in the area to bootstrap liquidity and provide matching services.\n\n* The fast throughput and low transaction costs of the Solana network assist the Serum order book in minimising capital inefficiencies and liquidity segmentation.\n\n* Serum's CLOB is built to be asset agnostic and has additional strong features like cross-chain swaps. It may create an order book that corresponds to any trading product offered by Solana, including options and futures (e.g. ETH and BTC).\n\n* Due to Serum's flexible protocol, a wide range of participants and applications can share middleware in one place. This is made possible by the backend matching engine's versatility, which allows it to be extended to almost any financial or non-financial item.\n\n* Other applications can connect to Serum and leverage its infrastructure to build their own projects thanks to on-chain CLOB, such as a trading application that utilizes Serum's liquidity.   \n",
+      "content": "Some of advantages of Center Limit Order Book(CLOB) model are:\n\n* Users can execute orders using smart contracts in Serum's fully decentralized, on-chain order book while keeping pricing and order size flexibility.\n\n* Similar to a standard CLOB, users have the option to specify the price, quantity, and direction of their transactions. This technique provides high liquidity by matching orders based on price, time, and priority.\n\n* Serum enhances composability as it can be used by other protocols in the area to bootstrap liquidity and provide matching services.\n\n* The fast throughput and low transaction costs of the Solana network assist the Serum order book in minimising capital inefficiencies and liquidity segmentation.\n\n* Serum's CLOB is built to be asset agnostic and has additional strong features like cross-chain swaps. It may create an order book that corresponds to any trading product offered by Solana, including options and futures (e.g. ETH and BTC).\n\n* Due to Serum's flexible protocol, a wide range of participants and applications can share middleware in one place. This is made possible by the backend matching engine's versatility, which allows it to be extended to almost any financial or non-financial item.\n\n* Other applications can connect to Serum and leverage its infrastructure to build their own projects thanks to on-chain CLOB, such as a trading application that utilizes Serum's liquidity.   \n",
       "stepItems": []
     },
     {
