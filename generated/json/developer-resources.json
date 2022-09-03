@@ -85,7 +85,7 @@
             "C",
             "D"
           ],
-          "type": "SingleChoice",
+          "type": "MultipleChoice",
           "choices": [
             {
               "content": "High network fees per transaction",
@@ -340,7 +340,7 @@
             "A",
             "B"
           ],
-          "type": "SingleChoice",
+          "type": "MultipleChoice",
           "choices": [
             {
               "content": "Unintuitive GUI",
