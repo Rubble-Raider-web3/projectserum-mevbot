@@ -16,6 +16,9 @@ steps:
     name: |
       @project-serum/borsch, @project-serum/common
     content: |
+    
+     Serum is a Decentralized exchange on the solana blockchain. It is built with the motive of bringing reducing the transaction costs and improving the speed 
+     of functioning of decentralized exchanges. It is a monorepo with many packages. In this guide we will be taking a look at some of them.
 
      ##borsch-ts:
      Borsch is a serialization format used to convert human readable code to binary code and the respective binary code back to human 
@@ -45,11 +48,11 @@ steps:
       ##common-ts:
       Contains some common utilities to interact with project-serum. 
       Contains methods like
-      getMultipleSolanaAccounts which returns an array of account details of solana accounts based on the array of public keys passed into the function.
-      The createMint function allows to create mints based on the values of provider, authority and value passed in using. 
-      createMintInstructions allows to set instructions for the createMint function. 
-      The createMint function calls the createMintInstructions to createMint based on the instructions passed in.
-      createTokenAccount lets you create a token account. Also has createMintAndVault function.
+      `getMultipleSolanaAccounts()` - returns an array of account details of solana accounts based on the array of public keys passed into the function.
+      `createMint()` - function allows to create mints based on the values of provider, authority and value passed in using. 
+      `createMintInstructions()` - allows to set instructions for the createMint function. 
+      The `createMint()` function calls the `createMintInstructions()` to createMint based on the instructions passed in.
+      `createTokenAccount()` - lets you create a token account, common-ts also has `createMintAndVault()` function.
       Also includes getter methods which let the user query mint info, account info, owned token accounts, and also functions to parse data like pareMintData etc.,.
     stepItems: []
 
@@ -124,9 +127,10 @@ steps:
     content: |
 
      ##@project-serum/serum:
-     It is a library with methods to interact with the serum DEX. 
+     Its a JavaScript client library for interacting with the Project Serum DEX.
 
-     Like any other library, serum Contains various methods for different modules, let us take an example of market.ts
+     Like any other client library, @project-serum/serum contains various methods for to make it easy for the developer to write applications on top of serum DEX. 
+     Let us take an example of market.ts,
      market.load() allows the user to connect to the market with specified market address.
      market.loadBids() allows user to load(retrieve) the bids in the given connection.
      market.loadAsks() allows the user to load asks in a given connection.
