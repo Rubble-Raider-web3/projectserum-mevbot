@@ -7,7 +7,7 @@ created: "2022-08-21T04:15:13.911Z"
 categories:
   - developer
   - engineering
-thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/eth/aave/AAVE_Portals.png
+thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/serum_tokenomics.png
 publishStatus: Live
 socialShareImage:
 showIncorrectOnCompletion: true
@@ -64,7 +64,7 @@ steps:
             key: C
           - content: August 30, 2020
             key: D
-      
+
       - uuid: 81d6fa71-b790-432d-b121-81a840a5a71a
         content: Serum uses which of the following blockchains?
         answerKeys:
@@ -79,7 +79,7 @@ steps:
             key: C
           - content: Hyperledger
             key: D
-      
+
       - uuid: f6dee42d-7ddb-477a-bbfc-3027539ded87
         content: Select the correct statements.
         answerKeys:
@@ -117,7 +117,7 @@ steps:
   - uuid: 54ebd165-8dd7-4bfa-a189-dfab52d3416b
     name: Evaluation
     content: |
-    stepItems: 
+    stepItems:
       - uuid: 115d1cd5-4b4c-4467-97fe-37eca95c9177
         content: Serum uses which of the following blockchains?
         answerKeys:
@@ -257,7 +257,7 @@ steps:
   - uuid: fe253056-b1fa-48af-bede-51b1e9fa66c5
     name: Evaluation
     content: |
-    stepItems: 
+    stepItems:
       - uuid: 6863739d-aeb7-4e92-8245-3ec9b4c1b81c
         content: What is the maker fees on any amount of SRM trade?
         answerKeys:
@@ -352,6 +352,5 @@ steps:
          type: UserDiscordConnect
 
 
-      
 
-    
+
