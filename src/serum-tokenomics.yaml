@@ -1,9 +1,9 @@
-uuid: 45a31914-5cd7-4875-b099-c28dc55eed0d
+uuid: 91fa6e9f-ac9d-4135-8b84-aa05ba673389
 key: serum-tokenomics
-name: Build on Serum's Dex
-content: Explains how devs can build on top of Project Serum's DEX
+name: Serum Tokenomics
+content: Explains SRM tokens
 guideType: onboarding
-created: "2022-08-02T04:15:13.911Z"
+created: "2022-08-21T04:15:13.911Z"
 categories:
   - developer
   - engineering
@@ -12,8 +12,364 @@ publishStatus: Live
 socialShareImage:
 showIncorrectOnCompletion: true
 steps:
-  - uuid: 1f2a1def-610b-4c47-ac4a-162aa055103e
-    name: Developer Guide
+  - uuid: 46c146d5-ff73-4099-bb13-b0161fe90152
+    name: Introduction
     content: |
-      Hard core developer guide which explains what APIs to call to integrate with Serum DEX
+      ## What is Serum?
+      Serum is a protocol designed to supercharge decentralized finance applications. Launched on August 31, 2020, it is 
+      built on Solana and completely permissionless, which means anyone can use it to create robust financial markets composites. 
+      
+      Serum's on-chain central limit order book and the matching engine provide liquidity and price-time-priority matching 
+      to traders and composing projects. This makes it possible for ecosystem partners to share liquidity and create 
+      market-based features for institutional and retail users. Users can customize their trades by choosing the price, 
+      size, and direction that works best for them. Composing projects also benefit from Serum’s existing architecture, 
+      bootstrapped liquidity, and matching service.
+
+      ## What is Tokenomics?
+      Token economics or "tokenomics" is the study of economic incentive models and token distribution within cryptocurrencies. 
+      Token economics or "tokenomics" is the study of economic incentive models and token distribution within cryptocurrencies. 
+      A token's economic model includes the factors that impact a token's use and value, such as how the token is created and distributed, 
+      its supply and demand, incentive mechanisms, and token burn schedules.
+
+      Key token economic models:
+
+      #### Deflationary model 
+      Deflationary models have a hard cap on the number of tokens that can be created, meaning 
+      that the token supply can only decrease over time. Deflationary models are made possible by the token burn mechanism, 
+      which is the process of permanently removing a token from the system. Buyback & burn and Burn on transaction are 
+      generally two ways in which token burns are carried out. Token burning can also happen when users lose or forget 
+      their private keys to wallets, making the tokens unrecoverable. So pretty much any token model with limited supply 
+      becomes deflationary.
+      
+
+      #### Inflationary model
+      In Inflationary models the supply of tokens will only continue to grow over time. There are different 
+      examples of the inflationary model in use: some release tokens on a fixed schedule, some use non-linear functions, 
+      and others simply mint new tokens as needed. Minting new tokens through staking or mining is the main driving 
+      force behind inflationary models.
+      
+      You can also identify other inflationary assets, such as Bitcoin, which feature inflation only to a specific limit
+
     stepItems: []
+  - uuid: cc3a4f6b-9cc9-4122-a801-b701c611718d
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: fa117b31-723d-4ca3-9482-630617f87eaf
+        content: What is the study of economic incentive models and token distribution within cryptocurrencies known as?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: Economics
+            key: A
+          - content: Finance
+            key: B
+          - content: Tokenomics
+            key: C
+          - content: Business
+            key: D
+
+      - uuid: b1a59b66-1817-4278-8411-4cbeef5018ec
+        content: When was Serum launched?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: August 31, 2021
+            key: A
+          - content: August 31, 2020
+            key: B
+          - content: August 30, 2022
+            key: C
+          - content: August 30, 2019
+            key: D
+
+      - uuid: 81d6fa71-b790-432d-b121-81a840a5a71a
+        content: Serum uses which of the following blockchains?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: Ethereum
+            key: A
+          - content: Cardano
+            key: B
+          - content: Solana
+            key: C
+          - content: Hyperledger
+            key: D
+
+      - uuid: f6dee42d-7ddb-477a-bbfc-3027539ded87
+        content: Select the correct statements.
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: There is no set limit to the number of tokens that can be created in an inflationary token economic model
+            key: A
+          - content: There is no set limit to the number of tokens that can be created in an deflationary token economic model
+            key: B
+          - content: Deflationary model makes it easier to increase token value over time since the supply only becomes lower.
+            key: C
+          - content: Inflationary model makes it easier to increase token value over time since the supply only becomes lower.
+            key: D
+
+  - uuid: a25dfaa8-a45e-4b3d-89d0-2e9bf1d610c0
+    name: SRM and MSRM
+    content: |
+      **Serum (SRM)** is the native utility and governance token of the Serum blockchain. If you hold SRM in your wallet, you receive a discount on fees. SRM is available on both the Solana and Ethereum blockchains, as an SPL token (natively) and an ERC20 token (cross-listed), respectively.
+
+      **MegaSerum (MSRM)** is a stack of 1,000,000 SRM. Both SRM and MSRM can be found on the Serum blockchain. You can create 1 MSRM by locking up 1 million SRM, and you can redeem the MSRM back out for 1 million SRM. However, because there is a limit of 1,000 MSRM in the world, they are quite scarce. Generally speaking, you receive benefits for holding SRM and even greater benefits for holding MSRM.
+
+      Both SRM and MSRM can be swapped between Ethereum and Solana at a 1-1 ratio.
+
+      Serum (SRM) and MegaSerum (MSRM) are designed with the following principles in mind:
+      - The best way to create value is through utility, not hyperinflation.
+      - 91.25% of all tokens have long-term unlocking periods, underscoring commitment to Serum.
+      - SRM gives specialized governance power over Serum.
+      - SRM governance over all the net revenues generated by the platform, which can be utilized as SRM stakers’ vote, including via yield, buy/burns, grants, or other usages.
+      - MegaSerum (MSRM) is a scarce asset that gives increased utility to core believers in Serum.
+      - All seed sales have long-term lockups; they are meant for long-term supporters of the Serum ecosystem, not for those looking to make a quick profit.
+
+    stepItems: []
+  - uuid: 54ebd165-8dd7-4bfa-a189-dfab52d3416b
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 115d1cd5-4b4c-4467-97fe-37eca95c9177
+        content: Serum uses which of the following blockchains?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: Ethereum
+            key: A
+          - content: Cardano
+            key: B
+          - content: Solana
+            key: C
+          - content: Hyperledger
+            key: D
+      - uuid: ce96affd-84b5-404e-9fbd-ebfd4a8e5c3c
+        content: Select the correct statement.
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: MegaSerum (MSRM) is a stack of 1,000 SRM
+            key: A
+          - content: MegaSerum (MSRM) is a stack of 1,000,000 SRM
+            key: B
+          - content: MegaSerum (MSRM) is a stack of 100,000 SRM
+            key: C
+          - content: MegaSerum (MSRM) is a stack of 10,000 SRM
+            key: D
+
+      - uuid: 06376e56-5624-4a82-9e27-5ceebaee0b6f
+        content: Select the correct statment(s).
+        answerKeys:
+          - A
+          - D
+        type: MultipleChoice
+        choices:
+          - content: SRM and MSRM are available on both the Solana and Ethereum blockchains
+            key: A
+          - content: All seed sales have short-term lockups
+            key: B
+          - content: You can create 1 SRM by locking up 1 million MSRM
+            key: C
+          - content: 91.25% of all tokens have long-term unlocking periods
+            key: D
+
+  - uuid: 1a06c3b5-35d0-4c8e-9d64-c9b56666ed9a
+    name: Tokenomics (Token Economics)
+    content: |
+      Supply and demand are the primary driving forces behind the price of any good or service - and this is no different when it comes to cryptocurrency. There are a few key metrics that measure a token's supply, which can in turn impact its price.
+
+      **Maximum Supply** This refers to the maximum number of tokens that can be created for a particular cryptocurrency. Maximum Supply of SRM = 10,000,000,000.
+
+      **Circulating Supply**: The number of tokens that are currently in circulation. This can be affected by things like minting and burning of tokens, or if they are locked up in some way. Circulating Supply of SRM is 372,158,620.
+      
+      ## SRM token supply breakdown
+      - Project Contributors: 22%
+      - Partner and Collaborator Fund: 27%
+      - Team and Advisors: 20%
+      - Locked Seed and Auction Purchaser: 4%
+      - Ecosystem Incentive Fund: 27%
+
+      **Lockups**: The term token lockup refers to a specific period of time in which cryptocurrency tokens cannot be transacted or traded. Typically, these lockups are used as a preventive strategy to maintain a stable long-term value of a particular asset. This may help to prevent the holders of big bags to sell their tokens all at once in the market, which would likely cause prices to tank very quickly. Token lockups may also be called vesting periods.
+
+      10% of all SRM tokens begin unlocked. The other 90% all have the same unlock schedule. They are fully locked for the first year, and then unlock linearly over the next 6 years, beginning on the 11th of August 2021, at approximately 1/2190 per day. All seed sales were locked.
+
+      Currently, Unlocked Supply of SRM is 1,092,844,982.
+
+      ## Unlocked Token Distribution
+      - The initial circulating supply was 175m tokens, primarily for providing liquidity
+      - Holders of unlocked tokens voluntarily moved tokens into reserves, reducing circulating supply, with plans to re-introduce tokens into circulating only to provide liquidity to extraordinary buy-side demand
+      - 825m was set aside for ecosystem incentives for SRM holders and Serum users
+      - Currently, the circulating supply is approximately 125m
+
+
+    stepItems: []
+  - uuid: 2b0067ea-83a5-49cf-a00c-adda5f33957b
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 188364d9-da34-494c-bb4f-8c1100ecea3e
+        content: What is the total supply of Serum (SRM)?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: 1B
+            key: A
+          - content: 10B
+            key: B
+          - content: 100M
+            key: C
+          - content: 10M
+            key: D
+
+      - uuid: 938d0ad8-eeaf-41b5-b022-7faaf51e2982
+        content: What was the initial circulating supply of Serum (SRM)?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: 125M
+            key: A
+          - content: 825M
+            key: B
+          - content: 175M
+            key: C
+          - content: 100M
+            key: D
+
+  - uuid: dc8b0b36-5003-49e9-a69a-260ceafd1deb
+    name: Fees
+    content: |
+      When placing trades that use Serum's order book, you may be charged fees by the application that hosts the GUI. Other applications, such as Raydium and Bonfida, may also charge their own fees in addition to any fees Serum charges. Fees charged by Serum go to the benefit of SRM. 100% of the exchange fees flow back into SRM, generally via a buy and burn, and also potentially into staking rewards or other ecosystem grants. Node staking has governance over the use of fees in Serum and nodes may alter rules around the usage at any time.
+
+      Staking is the process of token holders validating transactions and maintaining the security of a network. As a result, validators receive token rewards for supporting the network.
+
+      The fees on trades are (taker/maker):
+      - Hold < 100 SRM: 4 bps / 0 bps
+      - 100 SRM: 3.9 bps / 0 bps
+      - 1,000 SRM: 3.8 bps / 0 bps
+      - 10,000 SRM: 3.6 bps / 0 bps
+      - 100,000 SRM : 3.4 bps / 0 bps
+      - 1m SRM: 3.2 bps / 0 bps
+      - 1 MSRM: 3 bps / 0 bps
+
+      Bps: One bps or basis point is equal to 1/100th of 1%, or 0.01%.
+      Maker Fee: An order that adds liquidity to an order book is known as a "maker" order. This type of order helps to "make the market" by providing new options for other traders. For instance, a limit order for trade on an exchange is usually not immediately filled. It is only triggered once the price of an asset rises or falls below a certain limit. Therefore, a trader who places an order like this "makes liquidity in a market" for other traders. Fees paid on such an order is maker fee.
+      Taker Fee: "Takers" are traders who are looking for trading options that they can fill immediately. Such an option could be a market order. Takers place buy orders or sell orders for filling orders available in an order book and pay taker fees upon execution.
+
+      Utilizing Generated Fees:
+      - 68% of net fees go to buy and burn of SRM
+      - 20% of net fees to the project or GUI hosting the activity
+      - 10% go to nodes as staking rewards
+      - 2% goes to Ecoserum
+
+    stepItems: []
+  - uuid: fe253056-b1fa-48af-bede-51b1e9fa66c5
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 6863739d-aeb7-4e92-8245-3ec9b4c1b81c
+        content: What is the maker fees on any amount of SRM trade?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: 4 bps
+            key: A
+          - content: 3 bps
+            key: B
+          - content: 0 bps
+            key: C
+          - content: 3.2 bps
+            key: D
+
+      - uuid: ef4e62db-9c11-443f-801c-d13db611a526
+        content: What percentage of net generated fees goes to the project or GUI hosting activity?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: 68%
+            key: A
+          - content: 20%
+            key: B
+          - content: 10%
+            key: C
+          - content: 2%
+            key: D
+  - uuid: 33832963-ed44-4e28-826a-2b04965a872c
+    name: Voting Escrow Tokenomics for Serum (veSRM)
+    content: |
+      Recently, a proposal has been passed which will introduce Vote Escrow Tokens (veSRM) to incentivize participants to take a longer-term stake in the protocol, align incentives between traders and governance, and drive community engagement.
+
+      ## Voting Escrow
+      Curve Finance was the first to introduce the concept of a voting escrow with its veCRV token. In a voting escrow, users lock up their governance tokens in exchange for voting power. This voting power is represented by a new voting escrow token, or veToken (e.g. veCRV). Users receive veToken proportional to the length of time they lock their governance tokens.
+
+      Serum's voting escrow program will work similarly to Curve's, in that it will enable SRM token holders to lock their SRM tokens in a voting escrow in exchange for veSRM. Users will be able to lock SRM tokens for a set amount of time within a minimum and maximum lock duration, which has yet to be determined but is likely to fall somewhere between 1 year and 4 years. The conversion from SRM to veSRM will be linear from 0 to 1 over the maximum duration, with MSRM having a slightly more favorable conversion rate. This design gives more voting power to users who take a larger long-term stake in the exchange.
+
+      The veSRM token has three main functions:
+      - **Fee sharing**: Token holders receive a share of Serum’s trading fees proportional to the amount of veSRM held
+      - **Trading rewards**: Traders can use veSRM to boost their volume-based trading rewards
+      - **Voting**: veSRM can be used to vote on reward pool parameters and DAO proposals
+
+      ## Benefits for Serum
+      veSRM is designed to improve the fairness and accessibility of Serum governance, by giving more power to those who take a longer-term stake in the protocol. The token’s added utility will also align the incentives of traders on the exchange with the protocol itself, thus creating a more stable and efficient ecosystem for all participants.
+
+      Vote locking will take SRM out of circulation, supporting the price by limiting supply. Also, using fees as a way to incentive investors for locking up SRM has the potential to take more SRM out of circulation than could be burned with fees. The additional utility of veSRM should further support SRM’s price by driving demand. The token utility also highly incentivizes protocols built on top of Serum to accumulate veSRM, so that rewards can be passed to their users. This could lead to a phenomenon similar to the "Curve wars," where protocols like Yearn and Convex competed to hold the most veCRV and therefore reap the most rewards. These dynamics should drive more volume to Serum, encourage more ecosystem growth around Serum, and generally create excitement and engagement that grows the Serum community.
+
+    stepItems: []
+  - uuid: 1bcea938-6005-4d70-9255-22fa3f4a9595
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: b1e230ce-331a-4e1c-90d4-1e96db2bbc12
+        content: Which protocol introduced the concept of a voting escrow first?
+        answerKeys:
+          - A
+        type: SingleChoice
+        choices:
+          - content: Curve Finance
+            key: A
+          - content: Serum
+            key: B
+          - content: Solana
+            key: C
+          - content: Convex
+            key: D
+      - uuid: 47b68c27-7fe5-451a-9a63-3198a325d22a
+        content: Which of the following will be the voting escrow token of Serum?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: SRM
+            key: A
+          - content: MSRM
+            key: B
+          - content: veSRM
+            key: C
+          - content: veCRV
+            key: D
+  - uuid: 7528cff5-5671-4e47-bd73-b88ddcdef4cb
+    name: Your Info
+    content: |
+    stepItems:
+       - uuid: ced8018f-df75-4640-9413-39277084ae33
+         label: Nick Name
+         required: true
+         type: PublicShortInput
+       - uuid: 4dcdf0aa-5f7a-44bb-a09a-5571cc787a6b
+         type: UserDiscordConnect
+
+
+
+
