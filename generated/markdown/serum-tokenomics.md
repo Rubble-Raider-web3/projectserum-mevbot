@@ -14,19 +14,39 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 ## Introduction
 
 ## What is Serum?
-Serum is a protocol designed to supercharge decentralized finance applications. Launched on August 31, 2020, it is built on Solana and completely permissionless, which means anyone can use it to create robust financial markets composites. 
-Serum's on-chain central limit order book and the matching engine provide liquidity and price-time-priority matching to traders and composing projects. This makes it possible for ecosystem partners to share liquidity and create market-based features for institutional and retail users. Users can customize their trades by choosing the price, size, and direction that works best for them. Composing projects also benefit from Serum’s existing architecture, bootstrapped liquidity, and matching service.
+Serum is a protocol designed to supercharge decentralized finance applications. Launched on August 31, 2020, it is 
+built on Solana and completely permissionless, which means anyone can use it to create robust financial markets composites. 
+
+Serum's on-chain central limit order book and the matching engine provide liquidity and price-time-priority matching 
+to traders and composing projects. This makes it possible for ecosystem partners to share liquidity and create 
+market-based features for institutional and retail users. Users can customize their trades by choosing the price, 
+size, and direction that works best for them. Composing projects also benefit from Serum’s existing architecture, 
+bootstrapped liquidity, and matching service.
 
 ## What is Tokenomics?
-Token economics or "tokenomics" is the study of economic incentive models and token distribution within cryptocurrencies. Token economics or "tokenomics" is the study of economic incentive models and token distribution within cryptocurrencies. A token's economic model includes the factors that impact a token's use and value, such as how the token is created and distributed, its supply and demand, incentive mechanisms, and token burn schedules.
+Token economics or "tokenomics" is the study of economic incentive models and token distribution within cryptocurrencies. 
+Token economics or "tokenomics" is the study of economic incentive models and token distribution within cryptocurrencies. 
+A token's economic model includes the factors that impact a token's use and value, such as how the token is created and distributed, 
+its supply and demand, incentive mechanisms, and token burn schedules.
 
 Key token economic models:
 
-- **Deflationary model**: Deflationary models have a hard cap on the number of tokens that can be created, meaning that the token supply can only decrease over time. Deflationary models are made possible by the token burn mechanism, which is the process of permanently removing a token from the system. Buyback & burn and Burn on transaction are generally two ways in which token burns are carried out. Token burning can also happen when users lose or forget their private keys to wallets, making the tokens unrecoverable. So pretty much any token model with limited supply becomes deflationary.
-Many new projects choose deflationary token models for their tokenomics because they are generally simpler to design. A deflationary model makes it easier to increase token value over time since the supply only becomes lower.
+#### Deflationary model 
+Deflationary models have a hard cap on the number of tokens that can be created, meaning 
+that the token supply can only decrease over time. Deflationary models are made possible by the token burn mechanism, 
+which is the process of permanently removing a token from the system. Buyback & burn and Burn on transaction are 
+generally two ways in which token burns are carried out. Token burning can also happen when users lose or forget 
+their private keys to wallets, making the tokens unrecoverable. So pretty much any token model with limited supply 
+becomes deflationary.
 
-- **Inflationary model**: There is no set limit to the number of tokens that can be created in an inflationary token economic model, which means that the supply of tokens will only continue to grow over time. There are different examples of the inflationary model in use: some release tokens on a fixed schedule, some use non-linear functions, and others simply mint new tokens as needed. Minting new tokens through staking or mining is the main driving force behind inflationary models.
-Just as with fiat currencies, inflationary tokens can continue increasing the token supply endlessly, which can result in severe inflation and token devaluation.
+
+#### Inflationary model
+In Inflationary models the supply of tokens will only continue to grow over time. There are different 
+examples of the inflationary model in use: some release tokens on a fixed schedule, some use non-linear functions, 
+and others simply mint new tokens as needed. Minting new tokens through staking or mining is the main driving 
+force behind inflationary models.
+
+You can also identify other inflationary assets, such as Bitcoin, which feature inflation only to a specific limit
 
 
     
@@ -54,8 +74,8 @@ Just as with fiat currencies, inflationary tokens can continue increasing the to
 
 - [ ]  August 31, 2021
 - [x]  August 31, 2020
-- [ ]  August 30, 2021
-- [ ]  August 30, 2020
+- [ ]  August 30, 2022
+- [ ]  August 30, 2019
 
 
 
@@ -74,7 +94,7 @@ Just as with fiat currencies, inflationary tokens can continue increasing the to
 
 ##### Select the correct statements.  
 
-- [x]  There is no set limit to the number of tokens that can be created in an inflationary token economic model
+- [ ]  There is no set limit to the number of tokens that can be created in an inflationary token economic model
 - [ ]  There is no set limit to the number of tokens that can be created in an deflationary token economic model
 - [x]  Deflationary model makes it easier to increase token value over time since the supply only becomes lower.
 - [ ]  Inflationary model makes it easier to increase token value over time since the supply only becomes lower.
