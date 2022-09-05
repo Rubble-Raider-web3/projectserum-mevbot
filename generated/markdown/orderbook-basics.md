@@ -42,7 +42,7 @@ Before Knowing the CLOB in detail one must understand the following terms:
 
 
 
-##### What is the difference between Invitation for Bid and Request For Quote?  
+##### What is the difference between Invitation for Bid(IFB) and Request For Quote(RFQ)?  
 
 - [ ]  IFB is given to small contractors whereas, RFQ is for big ones.
 - [ ]  Projects under IFB require less time to complete whereas, RFQ require large amount of time.
@@ -206,7 +206,7 @@ AMM gives consumers the ability to exchange their assets directly between themse
 ---
 ## Advantages of CLOB
 
-Some of advantages of CLOB model are:
+Some of advantages of Center Limit Order Book(CLOB) model are:
 
 * Users can execute orders using smart contracts in Serum's fully decentralized, on-chain order book while keeping pricing and order size flexibility.
 

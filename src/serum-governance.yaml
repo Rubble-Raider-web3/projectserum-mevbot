@@ -120,13 +120,13 @@ steps:
           - D
         type: SingleChoice
         choices:
-          - content: 10
+          - content: 10 days
             key: A
-          - content: 1
+          - content: 1 days
             key: B
-          - content: 3
+          - content: 3 days
             key: C
-          - content: 7
+          - content: 7 days
             key: D
 
   - uuid: 83dfdf4c-47c7-428e-a82b-ec62f4ce4a43
@@ -156,13 +156,13 @@ steps:
           - A
         type: SingleChoice
         choices:
-          - content: 3
+          - content: 3 days
             key: A
-          - content: 7
+          - content: 7 days
             key: B
-          - content: 1
+          - content: 1 days
             key: C
-          - content: 2
+          - content: 2 days
             key: D
 
       - uuid: db9bfe8d-d45d-4727-b3aa-11e438bb921a
