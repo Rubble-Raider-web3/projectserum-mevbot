@@ -1,4 +1,4 @@
-uuid: 87274e3c-e23a-4ea8-8652-622080d275fb
+uuid: 42e99666-c32a-4d66-856b-546e415107f2
 key: serum-ts
 name: Serum Typescript
 content: Explains about various utilities present in Serum Typescript Library
@@ -7,13 +7,347 @@ created: "2022-08-02T04:15:13.911Z"
 categories:
   - developer
   - engineering
-thumbnail: ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8
+thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/serum_typescript.png
 publishStatus: Live
 socialShareImage:
 showIncorrectOnCompletion: true
 steps:
-  - uuid: f198c6ff-c49b-4ca6-9a8e-23bfec01e1f8
-    name: Developer Guide
+  - uuid: fa9bd19a-c94b-43cc-b154-2e8f8e338307
+    name: |
+      @project-serum/borsch, @project-serum/common
     content: |
-      Hard core developer guide which explains what APIs to call to integrate with Serum DEX
+    
+     Serum is a Decentralized exchange on the solana blockchain. It is built with the motive of bringing reducing the transaction costs and improving the speed 
+     of functioning of decentralized exchanges. It is a monorepo with many packages. In this guide we will be taking a look at some of them.
+
+     ##borsch-ts:
+     Borsch is a serialization format used to convert human readable code to binary code and the respective binary code back to human 
+     interpretable code. It stands for "Binary Object Representation Serializer for Hashing". While there are other such serialization formats 
+     like Serde and bincode, the team behind borsch argues that borsch is the first attempt of its kind which is meant to be used in "security crucial 
+     projects as it priotizes speed, consistency, safety and comes with strict specifications for usage."
+     |
+     **Consistent:** 
+     Consistent means there is a one-to-one mapping between objects and their binary representations, meaning that the binary representation of each object is unique. 
+     This is extremely useful for applications that use binary representation to compute hash.
+     **Specifications:** 
+     Borsh comes with a full specification that can be used for implementations in other languages.
+     **Safety:** 
+     Borsh implementations use safe coding practices. In Rust, Borsh uses almost only safe code, with a few exceptions.
+     **Speed:** 
+     Borsh achieves high performance by opting out from Serde which makes it faster than bincode in some cases, which also reduces the code size.
+
+     **Features:**
+      Opting out from Serde allows borsh to have some features that currently unavailable for serde-compatible serializers. 
+      Currently borsch supports two features,
+       borsh_init and borsh_skip (the former one not available in Serde).
+      borsh_init allows to immedeately run an initialization function after deserialization of an object. 
+      This adds a lot of convenience for objects that are architectured to be used as strictly immutable. 
+
+      borsh_skip allows to skip serializing/deserializing fields, assuming they implement Default trait, similary to #[serde(skip)].
+
+      ##common-ts:
+      Contains some common utilities to interact with project-serum. 
+      Contains methods like
+      `getMultipleSolanaAccounts()` - returns an array of account details of solana accounts based on the array of public keys passed into the function.
+      `createMint()` - function allows to create mints based on the values of provider, authority and value passed in using. 
+      `createMintInstructions()` - allows to set instructions for the createMint function. 
+      The `createMint()` function calls the `createMintInstructions()` to createMint based on the instructions passed in.
+      `createTokenAccount()` - lets you create a token account, common-ts also has `createMintAndVault()` function.
+      Also includes getter methods which let the user query mint info, account info, owned token accounts, and also functions to parse data like pareMintData etc.,.
     stepItems: []
+
+  - uuid: d6a43d88-f59c-4c10-828f-57dfe30608b0
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: d82f3894-3a1b-41ea-9baa-5de8f5303e6d
+        content: Why is there a need for borch when there are other serialization formats available?
+        answerKeys:
+          - A
+          - B
+          - C
+        type: MultipleChoice
+        choices:
+          - content: It is sometimes faster than its counterparts
+            key: A
+          - content: The serialized values are unique, no two objects can point to the same serialization
+            key: B
+          - content: Implementation in other languages is made easier
+            key: C
+          - content: It is always faster than its counterparts
+            key: D
+      - uuid: 32a938f5-8598-4ff8-a3c7-d948de108352
+        content: What is the significance of borsh opting out of Serde?
+        answerKeys:
+          - C
+          - B
+          - D
+        type: MultipleChoice
+        choices:
+           - content: Allows implementation of a method to skip serializing fields, which is not currently available in serde-compatible serializers
+             key: A
+           - content: Allows borsh to function more efficiently 
+             key: B
+           - content: Allows borsh to have methods not supported by other serde-compatible serializers
+             key: C
+           - content: Allows implementation of a method to run initialization function immedeately after deserialization of an object
+              which is not currently possible in serde-compatible serializers
+             key: D
+      - uuid: 4cf6bf38-bc88-4967-bbda-b753029e2c2e
+        content: common-ts provides the user methods to do which of these?
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: To query account information
+            key: A
+          - content: To parse various data
+            key: B
+          - content: createMint, createMintAndVault 
+            key: C
+          - content: All of these
+            key: D
+      - uuid: e5640997-a2b2-4a46-ab6a-f3b4aa9e2ba3
+        content: what is the use of borsh, what does it stand for?
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: To query accounts information on solana 
+            key: A
+          - content: To serialize data into a storable, transferrable format (byte code) and vice-versa
+            key: B
+          - content: Borsch stands for - Binary Object Representation Serializer for Hashing
+            key: C
+          - content: Both C and D
+            key: D
+  - uuid: 99c73e37-f3e3-4c1b-b844-9bacbae73123
+    name: |
+      @project-serum/serum, @project-serum/pool
+    content: |
+
+     ##@project-serum/serum:
+     Its a JavaScript client library for interacting with the Project Serum DEX.
+
+     Like any other client library, @project-serum/serum contains various methods for to make it easy for the developer to write applications on top of serum DEX. 
+     Let us take an example of market.ts,
+     market.load() allows the user to connect to the market with specified market address.
+     market.loadBids() allows user to load(retrieve) the bids in the given connection.
+     market.loadAsks() allows the user to load asks in a given connection.
+     market.placeOrder()  allows the user to place an order, specifying the buyer, seller, the amount and the type of order.
+     market.cancelOrder() cancels the order.
+     market.loadOrdersForOwner() loads the open orders of the owner.
+     market.settleFunds() used to settle the funds of an order.
+     market.findOpenOrdersAccountsForOwner() The open orders and accounts associated can be retireved by this method.
+    
+     queue.ts contains methods to decode EventQueues, RequestQueues and methods that deal with different implications of them, like 
+     decodeEventsSince(), which decodes the event queues of all events since a certain time period.
+     |
+     It contains other modules like token_and_markets.ts, 
+     fees.ts :
+     contains methods to retireve feeRates (getFeeRates()) and feeTiers (getFreeTiers()). 
+     and, error.ts:
+     contains errors to be thrown under various circumstances.
+     |
+     It can be installed by,
+     Using npm:
+     npm install @solana/web3.js @project-serum/serum
+     
+     Using yarn:
+     yarn add @solana/web3.js @project-serum/serum
+    
+     ##@project-serum/pool:
+    
+     It is a client library for interacting with project-serum pools.
+     Offers methods like,
+     getPoolBasket() fetches the current pool basket (the quantity of each token needed to create N pool tokens or the quantity of each token received for redeeming N pool tokens).
+     loadPoolInfo() Fetches the pool state. Once fetched, the data can be decoded using decodePoolState().
+     Pool tokens can be created and reedemed by sending transactions. 
+     transactions can be executed by writing the code and passing it as parameter inside the poolTransactions.execute() function.
+      
+     To install,
+
+     Using npm:
+     npm install @solana/web3.js @project-serum/pool
+
+     Using yarn:
+     yarn add @solana/web3.js @project-serum/pool
+
+
+    stepItems: []
+
+  - uuid: 28c9ede4-fb31-4e79-957a-922f01817402
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 1817f80d-f19e-495e-8613-6c384df32635
+        content: What are some of the different modules in @project-serum/serum?
+        answerKeys:
+          - A
+          - B
+          - C
+        type: MultipleChoice
+        choices:
+          - content: market.ts
+            key: A
+          - content: queue.ts
+            key: B
+          - content: error.ts
+            key: C
+          - content: pool.ts
+            key: D
+      - uuid: 57f09538-cdb7-46d2-9bce-f2fd52f8f2e1
+        content: Which of these is the right definition of the given functions?
+        answerKeys:
+          - C
+          - D
+        type: MultipleChoice
+        choices:
+           - content: market.loadOrdersForOwner() loads the possible orders the owner might be interested in.
+             key: A
+           - content: market.loadAsks() allows the user to ask in a given connection.
+             key: B
+           - content: market.loadBids() allows user to load(retrieve) the bids in the given connection
+             key: C
+           - content: market.load() allows the user to connect to the market with specified market address.
+             key: D
+      - uuid: 100f8eab-4f0d-4109-94b1-24d3e044173e
+        content: fees.ts provides methods for which of these actions?
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: To retrieve feeRates
+            key: A
+          - content: To decodeEventQueues
+            key: B
+          - content: To retrieve feeTiers
+            key: C
+          - content: Both A and C
+            key: D
+      - uuid: 432df1f6-0003-47f3-99ec-d0a918864ef2
+        content: can pool package can be utilized to create and redeem pool tokens? how?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: No, it strictly deals with pool info.
+            key: A
+          - content: Yes, by sending a transaction.
+            key: B
+
+  - uuid: be0cbd0c-b164-4a7e-9f7d-add8d0d03f7d
+    name: |
+      @project-serum/spl-token-swap, @project-serum/tokens
+    content: |
+     
+     ##@project-serum/spl-token-swap (previously, @project-serum/swap):
+
+     Contains modules to deal with various phases of swapping in project project-serum.
+
+     **instructions.ts:**
+     Deals with the getting/setting of instructions on transfers, deposits and so on in project-serum.
+     Contains instructions (structs) for each of the components of swapping in serum, like:
+     TokenSwapLayoutLegacyV0
+     TokenSwapLayoutV1
+     FeeLayout
+
+     also, contains methods 
+     getLayoutForProgramId() returns the tokenswap layout used in the program with given id.
+     getCreateInitSwapInstructionV2Layout() depending on curveType, returns a InitSwapInstructionV2Layout struct.
+     Contains methods like, depositInstruction, withdrawInstruction etc., to set instructions for each of the actions.
+     parseTokenAccount() parses the account data.
+
+    
+     **pools.ts**
+     Deals with pools in case of swapping functions.
+     Contains getter methods which fetch 
+     publicKey, programId, isLatest, holdingAccounts, tokenMints, feeAccount, CachedMintAccount, CachedTokenAccount, 
+     methods to add/remove LiquidityTransaction (makeAdd/RemoveLiquidityTransaction), SingleSidedLiquidityTransaction etc.,.
+     Also has functions to initializePool, removeLiquidity, addLiquidity, sendTransaction, approveTransfer etc., 
+   
+     **Types.ts**
+     This smart-contract contains the interfaces and enums (CurveType(enum), TokenAccount, PoolConfig, PoolOptions) to be utilized by the rest of the package.
+     
+     **utils.ts**
+     Contains functions to perform math specific to the working of this package.( divideBnToNumber(), getTokenMultiplierFromDecimals()).
+
+     ##@project-serum/tokens:
+     This package contains json and ts files that specify the token addresses that are used in project-serum (mainnet, testnet and devnet) 
+     and their type respectively(MAINET/ DEVNET/ TESTNET_TOKENS).
+
+    stepItems: []
+
+  - uuid: ea121b3c-314c-4263-9121-c3f548ef3d16
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: c26ea562-3933-4ff4-94ba-1a794efea192
+        content: instructions.ts contains provision to perform which of these?
+        answerKeys:
+          - B
+          - C
+          - D
+        type: MultipleChoice
+        choices:
+          - content: to set instructions about the market connection
+            key: A
+          - content: contains structs for TokenSwapLayout(s).
+            key: B
+          - content: sets instructions for the swapLayout based on the CurveType
+            key: C
+          - content: set instructions for withdraw, deposit functions.
+            key: D
+      - uuid: 5edd19b8-6a17-49df-8a73-ee8a81e12fb4
+        content: types.ts contains?
+        answerKeys:
+          - A
+          - B
+          - C
+        type: MultipleChoice
+        choices:
+           - content: CurveType as enums
+             key: A
+           - content: PoolConfig and PoolOptions as interfaces
+             key: B
+           - content: TokenAccount interface
+             key: C
+           - content: PoolConfig enum
+             key: D
+      - uuid: d443f606-b895-46fd-b7a4-07ee5020e0fe
+        content: functions dealing with adding and removing of liquidity transactions in spl-token-swap are part of?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: instructions.ts
+            key: A
+          - content: pools.ts
+            key: B
+          - content: market.ts
+            key: C
+          - content: Both A and B
+            key: D
+      - uuid: 71871a59-4ba2-4009-a879-f1675d843fac
+        content: tokens package contains data related to tokens in serum, what data is it exactly?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: Determines the token addresses used in mainnet, testnet and devnet.
+            key: A
+          - content: Determines token addresses used in mainnet and testnet alone. 
+            key: B
+          - content: Contains enums to determine if the given token address is used in mainnet, testnet or devnet.
+            key: C
+          - content: Contains methods to get and set the value of each of token addresses in the market.
+            key: D
+
+    
+    
+        
+
+
+
+      
+

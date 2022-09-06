@@ -9,7 +9,7 @@
     "developer",
     "engineering"
   ],
-  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/eth/aave/AAVE_Portals.png",
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/serum_governance.png",
   "publishStatus": "Live",
   "socialShareImage": null,
   "showIncorrectOnCompletion": true,
@@ -85,7 +85,7 @@
             "C",
             "D"
           ],
-          "type": "SingleChoice",
+          "type": "MultipleChoice",
           "choices": [
             {
               "content": "High network fees per transaction",
@@ -340,7 +340,7 @@
             "A",
             "B"
           ],
-          "type": "SingleChoice",
+          "type": "MultipleChoice",
           "choices": [
             {
               "content": "Unintuitive GUI",
