@@ -17,7 +17,7 @@
     {
       "uuid": "628e184c-5fe6-49d1-b6a5-4add0747a3f1",
       "name": "Introduction",
-      "content": "## Introduction:-\nThe Serum DEX is a program on the Solana blockchain. Solana has block times of 400ms, and can currently process roughly 50,000 transactions per second.\nThis allows Serum to handle hundreds of orders per second per market.\nTokens on Solana are instrumented as instances of the SPL Token Program. An Solana Program Library (SPL) token on Solana is analogous to an ERC20 token on Ethereum.\nNow, before going to Trade Lifecycle, let's first understand some terminologies related to accounts specifically global accounts:-\n  * **Request Queue**: This account maintains all submitted but unprocessed order placement and cancellation requests.\n  * **Orderbook**: Speaks for itself. There's one account for bids and another for asks, but for simplicity,\n  we'll refer to both of them collectively as Orderbook going forward.\n  * **Event Queue**: Reports the list of outputs from order matching: trades, for instance\n  * **Market**: Holds metadata about the market (e.g. important constants like tick size and references to the other accounts below)\n  * **Base Currency Vault**: An SPL token account that holds base currency balances\n  * **Quote Currency Vault**: An SPL token account that holds quote currency balances\n\nAnd the user-specific accounts: to interact with the DEX, a given user must create an **OpenOrders account**. This account stores the following:\n  * How much of the base and quote currency the user has locked in open orders or settleable\n  * A list of open orders for that user on that market\n",
+      "content": "## Introduction:\nThe Serum DEX is a program on the Solana blockchain. Solana has block times of 400ms, and can currently process roughly 50,000 transactions per second.\nThis allows Serum to handle hundreds of orders per second per market.\nTokens on Solana are instrumented as instances of the SPL Token Program. An Solana Program Library (SPL) token on Solana is analogous to an ERC20 token on Ethereum.\nNow, before going to Trade Lifecycle, let's first understand some terminologies related to accounts specifically global accounts:\n  * **Request Queue**: This account maintains all submitted but unprocessed order placement and cancellation requests.\n  * **Orderbook**: Speaks for itself. There's one account for bids and another for asks, but for simplicity,\n  we'll refer to both of them collectively as Orderbook going forward.\n  * **Event Queue**: Reports the list of outputs from order matching: trades, for instance\n  * **Market**: Holds metadata about the market (e.g. important constants like tick size and references to the other accounts below)\n  * **Base Currency Vault**: An SPL token account that holds **base currency** balances. Base currency is also known as the transaction currency and is always listed first in a currency pair quotation. \n  * **Quote Currency Vault**: An SPL token account that holds **quote currency** balances. Quote currency is also known as the counter currency and is always listed second in a currency pair quotation.\n  * **Open Order Account**: It is like an accounting system that calculates a user's position for a given currency pair quotation. For example, if a currency pair quotation has USDC (base currency) and ETH (quote currency) in a market, then a user trade in this market might have a certain amount of each currency stored in the order book or free for withdrawal. This system manages the accounting differences between USDC (base currency) and ETH (quote currency) for each user. Open Order Accounts are created by the user but maintained by protocol or DEX.\n\nAnd the user-specific accounts: to interact with the DEX, a given user must create an **Open Orders Account**. This account stores the following:\n  * How much of the base and quote currency the user has locked in open orders or settleable\n  * A list of open orders for that user on that market\n",
       "stepItems": []
     },
     {
@@ -53,9 +53,9 @@
         },
         {
           "uuid": "8d10ae65-4897-4f65-97d8-c32826c33b9f",
-          "content": "Which of the following maintains all submitted but unprocessed order placement and cancellation requests?",
+          "content": "Which of the following reports the list of outputs from order matching?",
           "answerKeys": [
-            "B"
+            "A"
           ],
           "type": "SingleChoice",
           "choices": [
@@ -108,7 +108,7 @@
     {
       "uuid": "7435646e-206d-4b76-b402-628746f9f160",
       "name": "Trade Lifecycle - Placing Orders",
-      "content": "The trade lifecycle generally consists of four main stages: placing orders, matching orders, consuming events, and settlement.\nLet's see each in detail:-\n\n## 1. Placing orders:\nA user funds an intermediary account (their OpenOrders account) from their SPL token account (wallet) and adds an order placement request to the Request Queue.\n### Necessary steps required in placing successful orders:-\n  * 1. A user submits a **Place Order** instruction to the DEX program, passing:\n    * Order details: the market size, price, order type, side\n    * Their OpenOrders account on that market\n    * Their SPL token account for the market's base currency (if selling) or quote currency (if buying)\n  * 2. The **DEX program** then:\n    -Transfers funds:\n      * Determines the max funds required for this order (the size if selling, or size * price if buying)\n      * Notes the free balance for the corresponding currency indicated in the OpenOrders account\n      * Transfers the difference between the required amount and free OpenOrders balance from the SPL token account to the Base Currency Vault or Quote Currency Vault.\n      * Increments the OpenOrders account's total balance for the corresponding currency by the amount transferred\n    - Increments and retrieves a sequence number from the Request Queue: this, along with the order's price, determines the new order's ID.\n    - Adds an item to the Request Queue specifying the order details (size, price, order type, side)\n    - Adds an item representing the new order to an array in the OpenOrders account in an available slot\n",
+      "content": "The trade lifecycle generally consists of four main stages: placing orders, matching orders, consuming events, and settlement.\nLet's see each in detail:\n\n## 1. Placing orders:\nA user funds an intermediary account (their Open Order Account) from their SPL token account (wallet) and adds an order placement request to the Request Queue.\n### Necessary steps required in placing successful orders:\n  * 1. A user submits a **Place Order** instruction to the DEX program, passing:\n    * Order details: the market size, price, order type, side\n    * Their Open Order Account on that market\n    * Their SPL token account for the market's base currency (if selling) or quote currency (if buying)\n  * 2. The **DEX program** then:\n    -Transfers funds:\n      * Determines the max funds required for this order (the market size if selling, or the market size * price if buying)\n      * Notes the free balance for the corresponding currency indicated in the Open Order Account\n      * Transfers the difference between the required amount and free Open Orders balance from the SPL token account to the Base Currency Vault or Quote Currency Vault.\n      * Increments the Open Order Account's previous total balance for the corresponding currency by the extra amount transferred (i.e the residual amount from the last transaction).\n    - Increments and retrieves a sequence number from the Request Queue: this, along with the order's price, determines the new order's ID.\n    - Adds an item to the Request Queue specifying the order details (market size, price, order type, side)\n    - Adds an item representing the new order to an array in the Open Order Account in an available slot and it looks like:\n      *[ Order1(size, price, order type, side), Order2(size, price, order type, side), Order3(size, price, order type, side), and so on... ]\n",
       "stepItems": []
     },
     {
@@ -125,7 +125,7 @@
           "type": "SingleChoice",
           "choices": [
             {
-              "content": "User's OpenOrders account on the market",
+              "content": "User's Open Order account on the market",
               "key": "A"
             },
             {
@@ -173,7 +173,7 @@
     {
       "uuid": "0a13a877-4d98-4d84-9667-482117c97ec3",
       "name": "Trade Lifecycle - Matching Orders",
-      "content": "## 2. Matching orders:\n  * The request is popped off the Request Queue and processed, and then placed on the Orderbook. Any resulting trades get reported in the Event Queue.\n  * In a Match Orders transaction, clients (or crank turners: who perform the order matching process) provide a limit parameter,\n  which specifies the number of requests to process from the Request Queue.\n  -Each request is processed as follows:\n    * It is popped off of the RequestQueue account\n    * The corresponding cancellation or order placement is made on the Orderbook (the order book consists of one tree per side, and \n    so finding the relevant part of the appropriate tree is made easier by the comparison property of Order IDs mentioned earlier)\n    * In the case of a new order that stays on the book, the Orderbook stores details about it, including the obvious specs (side, price, remaining size),\n    the public key of the order placer's OpenOrders account, and the index of this order in that OpenOrders account's order array (the slot number).\n    * Order types like IOC and post-only are enforced\n    * For any trades, two corresponding Fill items are added to the Event Queue\n    * In the case of a trade, cancel, or IOC order that is missed, Out items, are added to the Event Queue\n  - The two types of event queue objects store the following information, which will be useful for the Consume Events step:\n    - Fill:\n      * Side\n      * If this side of the trade was the maker\n      * The quantity paid by this counterparty (the currency is inferable from the Side: if buying, this quantity is always denominated in the quote currency)\n      * Quantity received by this counterparty (if buying, this quantity is always denominated in the base currency)\n      * Quantity of any fees paid (always in the quote currency)\n    - Out:\n      * Side\n      * Quantity unlocked\n      * Quantity still locked in the order (0 in the case of cancel or full fill, nonzero in the case of partial fill)\n  - And they both also store: the order's ID and slot number, the public key of the corresponding OpenOrders account\n",
+      "content": "## 2. Matching orders:\n  * The request is popped off the Request Queue and processed, and then placed on the Orderbook. Any resulting trades get reported in the Event Queue.\n  * In a Match Orders transaction, clients (or crank turners: who perform the order matching process) provide a limit parameter,\n  which specifies the number of requests to process from the Request Queue.\n  -Each request is processed as follows:\n    * It is popped off of the RequestQueue account\n    * The corresponding cancellation or order placement is made on the Orderbook (the order book consists of one tree per side, and \n    so finding the relevant part of the appropriate tree is made easier by the comparison property of Order IDs mentioned earlier)\n    * In the case of a new order that stays on the book, the Orderbook stores details about it, including the obvious specs (side, price, remaining size),\n    the public key of the order placer's Open Order account, and the index of this order in that Open Order account's order array (the slot number).\n    * Order types like **IOC**(Immediate Or Cancel order) and **Post-Only** are enforced. Let's see what does IOC and Post-Only means:-\n      * **IOC**- An immediate or cancel order (IOC) is an order that is mostly filled within the next few seconds and then the remainder is canceled.\n      * **Post-Only**- The 'Post Only' order condition means that your order can only be posted when it can enter the Order Book. In other words, this condition is designed to ensure that you will receive a maker rebate. If your order can't enter the Order Book, it will be immediately canceled.\n    * For any trades, two corresponding Fill items are added to the Event Queue\n    * In the case of a trade, cancel, or IOC order that is missed, Out items, are added to the Event Queue\n  - The two types of event queue objects store the following information, which will be useful for the Consume Events step:\n    - Fill:\n      * Side\n      * If this side of the trade was the maker\n      * The quantity paid by this counterparty (the currency is inferable from the Side: if buying, this quantity is always denominated in the quote currency)\n      * Quantity received by this counterparty (if buying, this quantity is always denominated in the base currency)\n      * Quantity of any fees paid (always in the quote currency)\n    - Out:\n      * Side\n      * Quantity unlocked\n      * Quantity still locked in the order (0 in the case of cancel or full fill, nonzero in the case of partial fill)\n  - And they both also store: the order's ID and slot number, the public key of the corresponding Open Order account\n",
       "stepItems": []
     },
     {
@@ -200,11 +200,11 @@
               "key": "B"
             },
             {
-              "content": "Private key of the OpenOrders account",
+              "content": "Private key of the Open Order account",
               "key": "C"
             },
             {
-              "content": "Public key of the OpenOrders account",
+              "content": "Public key of the Open Order account",
               "key": "D"
             }
           ]
@@ -241,7 +241,7 @@
     {
       "uuid": "740108b1-a6a6-4480-9f68-4b593e03df36",
       "name": "Trade Lifecycle - Consuming Events",
-      "content": "## 3. Consuming events:\n  * Events are popped off of the Event Queue and processed. This usually results in OpenOrders account balances being updated as a result of the trade.\n  ### Necessary steps required in successfully consuming events:-\n    * The next event in the Event Queue is considered. If its OpenOrders account public key is found (via binary search - hence the sorting requirement)\n    in the account list submitted by the client as writable, then continue. Otherwise, abort.\n    * That event is popped off the queue and processed\n      - Fill:\n        * The OpenOrders account's total balances are decremented by the quantity paid\n        * The OpenOrders account's total and free balances are incremented by the quantity received\n        * The Market's total fees paid counter increments by the number of fees paid\n      - Out:\n        * The OpenOrders account's free balance increments by quantity unlocked\n        * If the event's specified quantity still locked is zero, then remove the order from the OpenOrders account's account list.\n        Note that this can happen in constant time because the slot number is provided in the event.\n",
+      "content": "## 3. Consuming events:\n  * Events are popped off of the Event Queue and processed. This usually results in Open Order account balances being updated as a result of the trade.\n  ### Necessary steps required in successfully consuming events:\n    - The next event in the Event Queue is considered. If its Open Order account public key is found (via binary search - hence the sorting requirement)\n    in the account list submitted by the client as writable, then continue. Otherwise, abort.\n    - That event is popped off the queue and processed.\n      - Fill:\n        * The Open Order account's total balances are decremented by the quantity paid\n        * The Open Order account's total and free balances are incremented by the quantity received\n        * The Market's total fees paid counter increments by the number of fees paid\n      - Out:\n        * The Open Order account's free balance increments by quantity unlocked\n        * If the event's specified quantity still locked is zero, then remove the order from the Open Order account's account list.\n        Note that this can happen in constant time because the slot number is provided in the event.\n",
       "stepItems": []
     },
     {
@@ -259,26 +259,26 @@
           "type": "MultipleChoice",
           "choices": [
             {
-              "content": "The OpenOrders account's total balances are decremented by the quantity paid",
+              "content": "The Open Order account's total balances are decremented by the quantity paid",
               "key": "A"
             },
             {
-              "content": "The OpenOrders account's total balances are incremented by the quantity paid",
+              "content": "The Open Order account's total balances are incremented by the quantity paid",
               "key": "B"
             },
             {
-              "content": "The OpenOrders account's free balance increments by quantity unlocked",
+              "content": "The Open Order account's free balance increments by quantity unlocked",
               "key": "C"
             },
             {
-              "content": "The OpenOrders account's total and free balances are incremented by the quantity received",
+              "content": "The Open Order account's total and free balances are incremented by the quantity received",
               "key": "D"
             }
           ]
         },
         {
           "uuid": "db66938d-393c-4db7-91eb-3e60cc132a41",
-          "content": "Which of the following searching algorithms is used to find OpenOrders account public key?",
+          "content": "Which of the following searching algorithms is used to find  s account public key?",
           "answerKeys": [
             "B"
           ],
@@ -307,7 +307,7 @@
     {
       "uuid": "19a2d5a0-fcf2-4ce8-9124-a916016805ca",
       "name": "Trade Lifecycle - Settlement",
-      "content": "## 4. Settlement:\n  * Users can settle free funds from their OpenOrders back to their SPL token account at any time.\n  - Step required in the settlement:-\n    * The user passes their OpenOrders account and their SPL token accounts for the base and quotes currency,\n    signs with the “owner” of all of them (the same key pair that signed for placing orders using these same accounts),\n    and the runtime does the following:\n      * Using a cross-program invocation to the SPL token program moves funds from the Base Currency Vault \n      and Quote Currency Vault to the provided SPL token accounts equal to the free balance amount in the OpenOrders for each currency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two. \n",
+      "content": "## 4. Settlement:\n  * Users can settle free funds from their Open Orders back to their SPL token account at any time.\n  - Step required in the settlement:\n    * The user passes their Open Orders account and their SPL token accounts for the base and quotes currency,\n    signs with the “owner” of all of them (the same key pair that signed for placing orders using these same accounts),\n    and the runtime does the following:\n      * Using a cross-program invocation to the SPL token program moves funds from the Base Currency Vault \n      and Quote Currency Vault to the provided SPL token accounts equal to the free balance amount in the Open Orders for each currency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two. \n",
       "stepItems": []
     },
     {
@@ -324,19 +324,19 @@
           "type": "SingleChoice",
           "choices": [
             {
-              "content": "Users can not settle free funds from their OpenOrders back to their SPL token account at any time",
+              "content": "Users can not settle free funds from their Open Orders back to their SPL token account at any time",
               "key": "A"
             },
             {
-              "content": "Users can settle free funds from their OpenOrders back to their SPL token account at any time",
+              "content": "Users can settle free funds from their Open Orders back to their SPL token account at any time",
               "key": "B"
             },
             {
-              "content": "Users can settle free funds from their OpenOrders back to the Base Currency Vault at any time",
+              "content": "Users can settle free funds from their Open Orders back to the Base Currency Vault at any time",
               "key": "C"
             },
             {
-              "content": "Users can settle free funds from their OpenOrders back to the Quote Currency Vault at any time",
+              "content": "Users can settle free funds from their Open Orders back to the Quote Currency Vault at any time",
               "key": "D"
             }
           ]
