@@ -63,10 +63,10 @@ steps:
   - uuid: 9084a935-3399-4ed1-9b1f-8d540604ad24
     name: Rules and Guidelines
     content: |
-      If you're familiar with the DAO Voting Platform UI, you'll know what a realm, governance, and proposal are. If not, here's a quick guide: 
-      **Realm** — an instance of the DAO 
+      If you're familiar with the DAO Voting Platform UI, you'll know what realms, governance, and proposal are. If not, here's a quick guide: 
+      **Realms** — An instance of the DAO. Realms provides a platform for builders on Solana to create a DAO, manage their members, vote on proposals, and allocate their treasury. 
       **Governance** — an address governed by the DAO (e.g. a token account or program upgrade authority) 
-      **Proposal** — an action to vote on, e.g., transferring tokens or upgrading a program
+      **Proposal** — A DAO proposal is an idea that a community or DAO member wants the DAO to consider. It’s typically a document describing an idea, how it will be implemented, and the funding requirements for executing the idea. In order for a DAO proposal to be accepted, it must go through a voting process in which the community or DAO members vote on whether or not to accept the proposal.
 
       The expectations and guidelines for this governance process are laid out below:
       - An informal discussion will naturally emerge across various channels such as Discord. The Serum LinkTree lists some popular channels: @projectserum | Linktree.
