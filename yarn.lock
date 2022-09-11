@@ -19,7 +19,7 @@
   "resolved" "https://registry.npmjs.org/dedent-js/-/dedent-js-1.0.1.tgz"
   "version" "1.0.1"
 
-"dodao-guides-processor@0.1.6":
+"dodao-guides-processor@^0.1.6":
   "integrity" "sha512-4a0K4hU9zQBHoUHs+n2Jd+WVf3UqP/miM+Seg2yB6YNaAgUTolCMtBbCwotjOu6gF4hOiawYSNmAeWqGcZOLMQ=="
   "resolved" "https://registry.npmjs.org/dodao-guides-processor/-/dodao-guides-processor-0.1.6.tgz"
   "version" "0.1.6"
