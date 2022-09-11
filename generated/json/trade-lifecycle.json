@@ -9,7 +9,7 @@
     "developer",
     "engineering"
   ],
-  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/eth/aave/AAVE_Portals.png",
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/intro_to_clob.png",
   "publishStatus": "Live",
   "socialShareImage": null,
   "showIncorrectOnCompletion": true,
@@ -307,7 +307,7 @@
     {
       "uuid": "19a2d5a0-fcf2-4ce8-9124-a916016805ca",
       "name": "Trade Lifecycle - Settlement",
-      "content": "## 4. Settlement:\n  * Users can settle free funds from their Open Orders back to their SPL token account at any time.\n  - Step required in the settlement:\n    * The user passes their Open Orders account and their SPL token accounts for the base and quotes currency,\n    signs with the “owner” of all of them (the same key pair that signed for placing orders using these same accounts),\n    and the runtime does the following:\n      * Using a cross-program invocation to the SPL token program moves funds from the Base Currency Vault \n      and Quote Currency Vault to the provided SPL token accounts equal to the free balance amount in the Open Orders for each currency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two. \n",
+      "content": "## 4. Settlement:\n  * Users can settle free funds from their Open Orders back to their SPL token account at any time.\n  - Step required in the settlement:\n    * The user passes their Open Orders account and their SPL token accounts for the base and quotes currency,\n    signs with the “owner” of all of them (the same key pair that signed for placing orders using these same accounts),\n    and the runtime does the following:\n      * Using a cross-program invocation to the SPL token program moves funds from the Base Currency Vault \n      and Quote Currency Vault to the provided SPL token accounts equal to the free balance amount in the Open Orders for each currency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.\n",
       "stepItems": []
     },
     {

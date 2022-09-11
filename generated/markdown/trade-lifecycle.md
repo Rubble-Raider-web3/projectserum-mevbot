@@ -255,7 +255,7 @@ A user funds an intermediary account (their Open Order Account) from their SPL t
       * Using a cross-program invocation to the SPL token program moves funds from the Base Currency Vault 
       and Quote Currency Vault to the provided SPL token accounts equal to the free balance amount in the Open Orders for each currency.
 
-The whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two. 
+The whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.
 
 
     

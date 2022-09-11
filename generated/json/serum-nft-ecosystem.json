@@ -9,8 +9,8 @@
     "developer",
     "engineering"
   ],
-  "thumbnail": "ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8",
-  "publishStatus": "Live",
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/liquidity_pools.png",
+  "publishStatus": "Draft",
   "socialShareImage": null,
   "showIncorrectOnCompletion": true,
   "steps": [

@@ -9,34 +9,499 @@
     "developer",
     "engineering"
   ],
-  "thumbnail": "ipfs://QmNd8S5Z9T8cWv95UUjn5fYR1wU8nLWjeHzXoRC5oVcVe8",
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/intro_to_clob.png",
   "publishStatus": "Live",
   "socialShareImage": null,
   "showIncorrectOnCompletion": true,
   "steps": [
     {
-      "uuid": "ab3008c0-1531-4ac2-9c69-3a176ab43a4f",
-      "name": "Central limit order book",
-      "content": "[https://www.youtube.com/watch?v=W7ZuXOMH7Fk](https://www.youtube.com/watch?v=W7ZuXOMH7Fk)\n",
+      "uuid": "a3828360-dd2b-4d0a-bda3-8fefaabaf7d3",
+      "name": "Intro & Terms",
+      "content": "Before Knowing the CLOB in detail one must understand the following terms:\n\n1. `Limit order`: You can purchase or sell a stock using a limit order at the price you specify or a higher one. You can make a purchase or sell order at the price you want by using a limit order.\n\n2. `Automated Market Maker (AMM)`: AMMs allow for the unrestricted trading of digital assets utilising pre-established algorithms placed inside of liquidity pools. Uniswap (a DEX) uses AMM to trade on its platform.\n\n3. `Request for Quote (RFQ)`: When an organisation needs supplies or services they contact potential vendors to send their price quotations. This helps suppliers stand a chance to get an order. \n\n4. `Invitation for Bid (IFB)`: A business or organisation issues an invitation to bid to request proposals from vendors for a particular good or service that an organisation is aware it wants or needs.\n\n5. `Market Liquidity (ML)`: It refers to how quickly or easily an asset may be turned into cash without affecting its market value.\n\n6. `Price discovery (PD)`: Price discovery is the process of determining an asset's value through exchanges between buyers and sellers in the market at a cost that both sides deem tolerable.\n\n7. `Liquidity Providers (LPs)`: It is the duty of this individual or organisation to support trade on decentralised exchanges by contributing money to the liquidity pools and profiting from their investment.\n\n8. `Market Fragmentation`: Market fragmentation is the division of a homogeneous market into numerous groups, each of which has its own unique needs, demands, and preferences.   \n",
       "stepItems": []
     },
     {
-      "uuid": "3601deed-f6ad-436b-b5d5-cafa452d472f",
-      "name": "What is AMM",
-      "content": "https://ga245xphr2gqozusue66acdwqe2jdoflnonum32n5rvyr2dy.arweave.net/MDXO3eeOjQdmkq_E94Ah2gTS_RuKtrm0ZvTexriOh4M\n",
+      "uuid": "0d22ec66-17d5-470e-81d9-43b207e344f4",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "12a809d7-34b0-4edd-a4d1-d62a0e1354ec",
+          "content": "What is the difference between Invitation for Bid(IFB) and Request For Quote(RFQ)?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "IFB is given to small contractors whereas, RFQ is for big ones.",
+              "key": "A"
+            },
+            {
+              "content": "Projects under IFB require less time to complete whereas, RFQ require large amount of time.",
+              "key": "B"
+            },
+            {
+              "content": "IFB is pre-planned and only execution is required whereas in RFQ, contractors propose how they will complete the project.",
+              "key": "C"
+            },
+            {
+              "content": "RFQ projects are very high-budget and IFB are low-ones.",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "6ed32108-60ec-46ce-9ffe-4a90ebef275d",
+          "content": "Which of the following quantities are affected if an asset cannot be readily converted into cash?",
+          "answerKeys": [
+            "A",
+            "B"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Price Discovery",
+              "key": "A"
+            },
+            {
+              "content": "Market Liquidity",
+              "key": "B"
+            },
+            {
+              "content": "Market Fragmentation",
+              "key": "C"
+            },
+            {
+              "content": "None of these",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "6f11766f-8bfb-4a62-ab2b-f4e91ca299fa",
+          "content": "Which of the following DEXs use AMM?",
+          "answerKeys": [
+            "A",
+            "B",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Uniswap",
+              "key": "A"
+            },
+            {
+              "content": "Curve",
+              "key": "B"
+            },
+            {
+              "content": "Serum",
+              "key": "C"
+            },
+            {
+              "content": "Balancer",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "984d2c1a-b521-433f-98ca-3a84035942bb",
+          "content": "Which of the following Decentralised Exchanges use Central Limit Order Book?",
+          "answerKeys": [
+            "A",
+            "B",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Serum",
+              "key": "A"
+            },
+            {
+              "content": "Coinbase",
+              "key": "B"
+            },
+            {
+              "content": "Kraken",
+              "key": "C"
+            },
+            {
+              "content": "TerraSwap",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "b665e2cb-dd10-45c4-8de0-bf1595eb18aa",
+      "name": "Serum-Deep Dive",
+      "content": "### Introduction to Serum\nBuilt on the Solana network, Serum is a very effective decentralised exchange that is also quite scalable and therefore widely accepted. Serum's platform uses Central Limit Order Book (CLOB) rather than Automated Market Makers (used by others) to facilitate efficient and quick trading, which is the key distinction between Serum and other well-known DEXs. \n\nSerum's built-in functionality is enhanced by its on-chain CLOB, a commonly used mechanism in traditional finance. Additionally, Serum makes it permissionless and decentralised, enabling users to communicate with a smart contract directly to execute trades from an order book without the need for a middleman.\n\n### Central Limit Order Book \nThe CLOB model, which enables users to clearly match their other with others on a \"price-time-priority\" basis, is one of Serum's most helpful design elements. Customers could opt to cross this bid-ask spread and have their order promptly filled in this model's order book where the market price is represented by the highest bid and lowest ask.\n\nHigh levels of transparency offered by the CLOB model allow customers to monitor market depth in real time. Although CLOB has very powerful features, integrating it into an on-chain system is exceedingly difficult. The key reasons for this difficulty are order books' high throughput and cheap execution costs. Therefore, low gas costs and rapid transactions are necessary for a CLOB to operate on-chain.\n\nMany of the first DEX protocols were conscious of these challenges and made an effort to replace the traditional CLOB paradigm with an AMM. By employing their AMM technology, Uniswap's Defi users were able to complete transactions rapidly and affordably.    \n",
       "stepItems": []
     },
     {
-      "uuid": "7994939b-5188-4951-aaf1-e3a268725fb6",
+      "uuid": "4dfc846e-09b4-4c51-8374-dfd1e3e5048e",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "c7b5cdea-2928-4dd7-8da2-d786fd98187f",
+          "content": "Serum uses which of the following blockchains?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Ethereum",
+              "key": "A"
+            },
+            {
+              "content": "Hyperledger",
+              "key": "B"
+            },
+            {
+              "content": "Solana",
+              "key": "C"
+            },
+            {
+              "content": "R3",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "44a8a64e-2fb5-43c9-9392-36a61334831d",
+          "content": "Serum Central Limit Order Book works on the basis of-",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Last In Last Out on Price and Time",
+              "key": "A"
+            },
+            {
+              "content": "First In First Out on Price and Time",
+              "key": "B"
+            },
+            {
+              "content": "First In Last Out on Price and Time",
+              "key": "C"
+            },
+            {
+              "content": "Last In First Out on Price and Time",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "28f4dd9e-468f-4788-b586-8b2bbccd7102",
+          "content": "What are the requirements for the functioning of Central Limit Order Book?",
+          "answerKeys": [
+            "B",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "High Gas cost",
+              "key": "A"
+            },
+            {
+              "content": "Low Gas Cost",
+              "key": "B"
+            },
+            {
+              "content": "Fast Transaction",
+              "key": "C"
+            },
+            {
+              "content": "High Congestion in Network",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "a0271380-9bc8-49c0-b825-f6e9149bb4fe",
       "name": "Orderbook vs AMM",
-      "content": "All the use cases\n",
+      "content": "Orderbook and Automated market maker are two most popular trading models. They primarily differentiate on the basis on structure and underlying working principle.\n\n### Structural Differences \n\nAn order book works on the principle of Price and Time. An algorithm, in the Order Book, organizes the list of traders who submitted their intent to transact to buy or to sell and subsequently organizes them in a database i.e. order book. This database is then made public to all the participating traders.\n\nAMM is a trading model that is automated. The main distinction between the two is that AMM employs two-sided liquidity pools, whereas in an order book both buyers and sellers serve as the liquidity custodian. Given its support for intermediary intervention and manual components, the Order Book trading model is popular among centralized exchanges, whereas AMM is the fundamental protocol utilized by decentralized exchanges to do away with middlemen when trading crypto assets.\n\n### Working Principle Differences\n\nThe orderbook principle comes into play when  the exchange encounters overlapping orders in the order book especially when there are multiple requests regarding the same value and quantity of a traded asset, in such cases the exchange that uses an order book concept steps into matching first by price and then for the same price match, it gives priority to the orders that came in first/before. \n\nAMM gives consumers the ability to exchange their assets directly between themselves, without the use of a middleman. While an AMM is constantly active, an order book only activates when there are overlapping transactions. To compute the exchange rate, this AMM uses the Constant Market Maker Model: The number of X-type cryptos multiplied by the number of Y-type cryptos equals K, or X * Y.   \n",
       "stepItems": []
     },
     {
-      "uuid": "f317cc4e-1f45-496d-b01a-61ca28156997",
-      "name": "AMM on top of Order Book",
-      "content": "AMM on top of Order Book\n",
+      "uuid": "3cf47c18-7544-4491-ad86-e5220a0c8a73",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "9a837714-e236-4ee5-b084-2d0fe5729b03",
+          "content": "How does Central Limit Order Book and Automated Market Maker differ on the basis of contributors?",
+          "answerKeys": [
+            "A"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Central Limit Order Book has two liquidity custodians and Automated Market Maker has liquidity pools.",
+              "key": "A"
+            },
+            {
+              "content": "Central Limit Order Book has liquidity pools and Automated Market Maker has two liquidity custodians.",
+              "key": "B"
+            },
+            {
+              "content": "Automated Market Maker uses one liquidity custodian whereas Central Limit Order Book uses two.",
+              "key": "C"
+            },
+            {
+              "content": "Central Limit Order Book and Automated Market Maker both use liqidity pools.",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "6b31471a-e40a-470c-9d34-3b5356dc19f3",
+          "content": "When does Central Limit Order Book mechanism come into play?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Distinct Orders",
+              "key": "A"
+            },
+            {
+              "content": "Overlapping Orders",
+              "key": "B"
+            },
+            {
+              "content": "Frequent Orders",
+              "key": "C"
+            },
+            {
+              "content": "It is always active",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "fe723724-d020-45c3-86e4-b8c5c3c8748b",
+          "content": "How does AMM match orders?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "First In Last Out",
+              "key": "A"
+            },
+            {
+              "content": "Price Time Priority",
+              "key": "B"
+            },
+            {
+              "content": "Constant Market Maker Model",
+              "key": "C"
+            },
+            {
+              "content": "Last In First Out",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "6fc6f39c-81a8-4796-aade-bfff10267e15",
+      "name": "Advantages of CLOB",
+      "content": "Some of advantages of Center Limit Order Book(CLOB) model are:\n\n* Users can execute orders using smart contracts in Serum's fully decentralized, on-chain order book while keeping pricing and order size flexibility.\n\n* Similar to a standard CLOB, users have the option to specify the price, quantity, and direction of their transactions. This technique provides high liquidity by matching orders based on price, time, and priority.\n\n* Serum enhances composability as it can be used by other protocols in the area to bootstrap liquidity and provide matching services.\n\n* The fast throughput and low transaction costs of the Solana network assist the Serum order book in minimising capital inefficiencies and liquidity segmentation.\n\n* Serum's CLOB is built to be asset agnostic and has additional strong features like cross-chain swaps. It may create an order book that corresponds to any trading product offered by Solana, including options and futures (e.g. ETH and BTC).\n\n* Due to Serum's flexible protocol, a wide range of participants and applications can share middleware in one place. This is made possible by the backend matching engine's versatility, which allows it to be extended to almost any financial or non-financial item.\n\n* Other applications can connect to Serum and leverage its infrastructure to build their own projects thanks to on-chain CLOB, such as a trading application that utilizes Serum's liquidity.   \n",
       "stepItems": []
+    },
+    {
+      "uuid": "512e6dc7-5919-43e4-bfd2-40b26ebb2d81",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "53c58fcf-8101-48f8-9681-899a4b173a0b",
+          "content": "Central Limit Order Book enhances the liquidity by specifying ____ of transaction.",
+          "answerKeys": [
+            "A",
+            "B",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Limit Price",
+              "key": "A"
+            },
+            {
+              "content": "Quantity",
+              "key": "B"
+            },
+            {
+              "content": "Direction",
+              "key": "C"
+            },
+            {
+              "content": "Transaction Time",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "02db90e6-1301-4bdf-b04e-b97eaafa22e1",
+          "content": "How does Solana empower Serum Central Limit Order Book?",
+          "answerKeys": [
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Low Transaction Cost",
+              "key": "A"
+            },
+            {
+              "content": "Minimising capital inefficiencies",
+              "key": "B"
+            },
+            {
+              "content": "Less Liquidity Segmentation",
+              "key": "C"
+            },
+            {
+              "content": "All of the above",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "5f5b0575-7d48-4365-a523-2033a64fabb4",
+          "content": "What do you mean by cross-chain swaps?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Swapping within a blockchain ecosystem",
+              "key": "A"
+            },
+            {
+              "content": "Swapping across different Crypto tokens using smart contracts",
+              "key": "B"
+            },
+            {
+              "content": "Swapping across different Cryptos tokens with intermediary",
+              "key": "C"
+            },
+            {
+              "content": "None of the above",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "4a4264fd-6110-4199-bfeb-e2400c211f00",
+      "name": "Future Prospects of CLOB",
+      "content": "### Providing More Financial Services\nA wide range of intricate financial services may be created on top of the DEX, and they all interact with one another to add value. DeFi's modularity and the synergies produced by a system of projects connected first to Serum DEX and then, possibly, to one another benefit users greatly.\n\nExample : Solrise Finance is a decentralized fund management and investment protocol built on Solana and Serum.\n\n### Modified Borrowing and Lending\nA composable on-chain CLOB can be used to create a borrow-lending protocol with specialised infrastructure for capital efficiency and leveraged trading. One click might enable in-pool trading to exchange directly and margin trading via borrow-lending iterations. Due to the permissionless nature of DeFi and the latency and expense of Solana, such on-chain capabilities are possible.\n\nExample : Jet Protocol is a borrowing and lending protocol built on the Solana blockchain.\n\n### Diversification beyond DEX\nEverything bottoms out to the order book and DEX on the chain, regardless of the system's configuration. Stakeholders in the social networking, gaming, and travel industries can all gain from advancing and collaborating with the Serum DEX.\n\nThis ought to provide a crystal-clear and upbeat image of Serum DEX's potential as the matching engine powering Solana-based projects that make use of the DEX's matching service, liquidity, and price data.   \n",
+      "stepItems": []
+    },
+    {
+      "uuid": "c0207687-5da1-4450-b395-c1efe7ce0092",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "e00fa4ba-a439-4b38-bfb4-1545770a9343",
+          "content": "Which property of Project Serum helps other projects build on top of Serum?",
+          "answerKeys": [
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Fast Throughput",
+              "key": "A"
+            },
+            {
+              "content": "Low Transaction cost",
+              "key": "B"
+            },
+            {
+              "content": "Large Network",
+              "key": "C"
+            },
+            {
+              "content": "High Composibility",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "d93f538b-0acd-4401-b817-94728867d81b",
+          "content": "Which of the following protocol is building lending and borrowing and is build on top of Serum?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Bonfida",
+              "key": "A"
+            },
+            {
+              "content": "JET Protocol",
+              "key": "B"
+            },
+            {
+              "content": "COPE",
+              "key": "C"
+            },
+            {
+              "content": "None of the above",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "d252ce19-1ca5-448b-a1dd-4bedfb9fbfe2",
+          "content": "Which of the following Serum DEXs is building fund management system?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Mango Markets",
+              "key": "A"
+            },
+            {
+              "content": "Solrise Finance",
+              "key": "B"
+            },
+            {
+              "content": "Oxygen",
+              "key": "C"
+            },
+            {
+              "content": "None of the above",
+              "key": "D"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -7,7 +7,7 @@ created: "2022-08-21T04:15:13.911Z"
 categories:
   - developer
   - engineering
-thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/eth/aave/AAVE_Portals.png
+thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/intro_to_clob.png
 publishStatus: Live
 socialShareImage:
 showIncorrectOnCompletion: true
@@ -67,7 +67,7 @@ steps:
             key: C
           - content: Orderbook
             key: D
-      
+
       - uuid: 91f9ae5b-a46a-40b9-a8f6-b8eb0b6105bc
         content: What is the full name of SPL token?
         answerKeys:
@@ -106,12 +106,12 @@ steps:
           - Adds an item to the Request Queue specifying the order details (market size, price, order type, side)
           - Adds an item representing the new order to an array in the Open Order Account in an available slot and it looks like:
             *[ Order1(size, price, order type, side), Order2(size, price, order type, side), Order3(size, price, order type, side), and so on... ]
-    
+
     stepItems: []
   - uuid: 6c5397e0-169a-4a28-b077-aa4739b662e9
     name: Evaluation
     content: |
-    stepItems: 
+    stepItems:
       - uuid: 2fb87226-070d-40c0-94b8-54a4f18f0d94
         content: Which of the following details in not included in an order placement request?
         answerKeys:
@@ -231,7 +231,7 @@ steps:
   - uuid: 7caadc64-8688-4f24-ac77-bac31865848f
     name: Evaluation
     content: |
-    stepItems: 
+    stepItems:
       - uuid: 0f2d4abd-d1a2-442d-a118-57333137e801
         content: Which processes take place in Fill?
         answerKeys:
@@ -274,7 +274,7 @@ steps:
             * Using a cross-program invocation to the SPL token program moves funds from the Base Currency Vault 
             and Quote Currency Vault to the provided SPL token accounts equal to the free balance amount in the Open Orders for each currency.
 
-      The whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two. 
+      The whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.
     stepItems: []
   - uuid: a1183156-e45b-4ddf-b381-897274ec0cb5
     name: Evaluation
@@ -320,6 +320,6 @@ steps:
          type: UserDiscordConnect
 
 
-      
 
-    
+
+
