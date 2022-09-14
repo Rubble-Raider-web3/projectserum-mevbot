@@ -1,0 +1,2352 @@
+so uh this afternoon i wanted to go over
+
+a brief or not super brief but a more
+
+detailed lecture about serum um like
+
+before if you're interested please come
+
+sit over here i'll be writing on the
+
+whiteboard
+
+and there's a lot of space
+
+so what serum is is in a nutshell it's
+
+an on-chain central limit order book
+
+that's built on solana
+
+this was one of the key innovations that
+
+solano was able to provide
+
+as like a decentralized app and i could
+
+sort of explain some intuition behind
+
+the reasons
+
+first i guess
+
+maybe just going over the simple
+
+mechanics of a central limit order book
+
+so central
+
+limit
+
+order book
+
+there are many different ways to
+
+represent order books um in terms of
+
+like how
+
+orders are processed but in general
+
+there's only like a few things that are
+
+required um there's like a price
+
+price
+
+and there's a size
+
+and this price can be for either buying
+
+or selling
+
+we refer to the the buyers as bids and
+
+the sellers as asks
+
+uh an order book usually is represented
+
+in like a ladder format so let's just
+
+say that like
+
+we have price listed here um this will
+
+be say or also i'll put but there's a
+
+size of the offer
+
+and then this will be size of the bid
+
+size of bid
+
+and i'll just write some numbers here
+
+let's just say the thing trades around
+
+10
+
+11 12
+
+9
+
+8
+
+7 right
+
+something you might see in like an order
+
+book is that you can see sizes on each
+
+price level
+
+this could be like 20
+
+like 20
+
+40.
+
+and this will define a market
+
+the offers are the prices that people
+
+are willing to sell
+
+whatever asset is represented in this
+
+order book um at and the bids represent
+
+the prices that people are willing to
+
+buy uh things from the order book at
+
+so in this particular market um the best
+
+bid is priced at nine and the best offer
+
+is priced at ten
+
+so that means that these two people like
+
+the the people who are putting in bids
+
+at price 9 are not willing to buy at
+
+price 10 right so this defines the
+
+market uniquely
+
+if someone wants to purchase something
+
+from this order book the best price that
+
+they can get at would be 10 and if
+
+someone was trying to sell on this order
+
+book the best price that they could sell
+
+out would be at nine
+
+and in most traditional financial
+
+markets
+
+the way that price mechanism and price
+
+discovery is
+
+is sort of represented is through these
+
+central limit order books um
+
+there are some caveats of building these
+
+themes on blockchains uh one of the main
+
+things that would be difficult is prices
+
+are very dynamic they move really
+
+quickly there are a lot of trades in the
+
+market
+
+if you're trying to build an order book
+
+on a on a blockchain for example for
+
+instance it has very high gas costs what
+
+could what could happen is that
+
+if you wanted to cancel or move your
+
+orders around every single one of those
+
+actions requires you to pay a large fee
+
+and this can be pretty detrimental
+
+uh especially if you want to have
+
+markets that are very tight or liquid
+
+it's a better user experience
+
+for people interacting with the markets
+
+when the difference between the bid and
+
+ask are closer together or tighter
+
+but when they become wider there's a
+
+higher implicit fee for order execution
+
+and that's not necessarily desirable
+
+if you were to run an order book on a
+
+blockchain like ethereum where gas fees
+
+are very high
+
+part of the the the cost that the makers
+
+incur when they're placing orders must
+
+be represented in that spread so it's
+
+it's very unlikely that you'll see
+
+efficient markets in that kind of system
+
+so at a very high level um this is the
+
+data structure that essential order book
+
+will sort of represent and solana
+
+has the capability to run run an order
+
+book like this but it requires a bit of
+
+really careful engineering design
+
+so let's talk a bit about how crm is
+
+organized crm has a couple main accounts
+
+that
+
+store all the information that you need
+
+one account is the market
+
+this will contain information about
+
+the different order books that are
+
+involved there's a separate account for
+
+the asks
+
+this is a public key
+
+one for the bids
+
+it's also a public key and there's also
+
+an account for what we call the event
+
+queue
+
+and this is also going to be a public
+
+key
+
+there's also some metadata related to
+
+the market itself uh you'll obviously
+
+need to have the mints for the both
+
+sides of the market right the the mint
+
+that you buy with and the mint that you
+
+sell with
+
+i believe the way that serum represented
+
+is in terms of these terminologies that
+
+i personally dislike but one of them is
+
+called base and one of them is called
+
+quote
+
+the convention is based would be
+
+something like in in a btc
+
+usdc market
+
+where
+
+generally the convention is you buy btc
+
+with usdc so usdc would be on the bids
+
+and btc would be on the offers
+
+the quote mint would be usdc
+
+and the basement would be btc
+
+this convention i think is very
+
+confusing but once you know the
+
+nomenclature that's sort of just how you
+
+should think about this so this is just
+
+a metadata account it doesn't really
+
+encode much information it just tells
+
+you
+
+what pieces of data that you actually
+
+need to access
+
+the more interesting things are what
+
+these these different accounts bids ask
+
+and event queue actually represent
+
+um so
+
+bid and asks both sort of represent the
+
+same underlying data structure this is
+
+essentially just the order book tree
+
+and we'll go over into how this is
+
+actually organized in detail in a bit
+
+and the event queue is like a circular
+
+buffer
+
+and really this is just your simple like
+
+fifo q
+
+but the reason why it's implemented as a
+
+circular buffer um is because
+
+when you are allocating accounts on
+
+solana everything must be densely packed
+
+uh you have the fixed size buffer that
+
+you're storing information in and so
+
+when you are operating on these fixed
+
+size buffers it becomes really useful to
+
+make sure that all that information is
+
+uh stored in a condensed manner so the
+
+fifo circular buffer is a good example
+
+of how you could do such a
+
+implementation
+
+uh
+
+going through like how a trade like a
+
+trade or order actually happens on
+
+on crm is fairly straightforward so
+
+there's an instruction that's called new
+
+order
+
+that takes in essentially
+
+your price
+
+your size
+
+and your side
+
+this will go through the existing order
+
+book it will figure out based on the
+
+size whether you're interacting with the
+
+bids or the offers
+
+it will check to see if any of your
+
+orders cross
+
+with existing if your order crosses with
+
+any existing orders on the book and if
+
+it does it will match them right so
+
+in the case where no orders are matched
+
+all it will do is it will take that side
+
+so say let's make this really concrete
+
+say this price is like 10 say the size
+
+is 5 and the side is bid right and say
+
+the market um is
+
+like
+
+9 at 12
+
+right
+
+so this is the best offer and this is
+
+the best bid
+
+if this were the case all it would do is
+
+it would insert a bid in the bid tree at
+
+price 10 for size five
+
+this is the case where there are no
+
+trades that occurred whatsoever
+
+uh let's let's change the value a bit uh
+
+say that this price was set to
+
+say there's like 10 here at
+
+at the 12 price and we set the price
+
+here to be 12.
+
+if this were the case
+
+there is actually a match that occurs
+
+and this size that is on the offer will
+
+be decremented to 5 right that's just
+
+the normal behavior like a central limit
+
+order book um and the way that serum
+
+represents this is that the data
+
+structures represented by the bid and
+
+ask will be modified to represent this
+
+information and every trade field that
+
+occurs against every individual order
+
+gets pushed to this event queue right so
+
+i guess on trade
+
+you want to push
+
+a fill event
+
+to this event queue
+
+can anyone reason as to why this is
+
+pushed to a queue rather than just
+
+handled immediately
+
+what
+
+yeah so so it is handled asynchronously
+
+um but in a traditional order book you
+
+probably wouldn't yeah see a hand
+
+uh i i did you say size of transaction
+
+i'm sorry i i cannot hear you
+
+at the same time gotcha so the the
+
+suggestion here was like potential
+
+concurrency issues like multiple orders
+
+happening at the same time um that's a
+
+that's a good guess but i think um
+
+everything because everything happens
+
+atomically um every single order will be
+
+happening at the same time uh
+
+so like there's no way in which like
+
+there is a strict order into all the
+
+events that occur on the blockchain um
+
+does anyone else have a guess as to why
+
+this might be the case
+
+i kind of hinted at it when i said
+
+transaction size
+
+if you were to actually match every
+
+single
+
+order on the tree every single order in
+
+the order book
+
+as a trades occurred you potentially
+
+could run out of account space in your
+
+transaction
+
+one thing that i probably should have
+
+mentioned um
+
+in the description of the market is that
+
+every user on serum is given a special
+
+account called an open orders account
+
+and this sort of stores the state of
+
+like all of the all the assets they have
+
+to use right um and
+
+when you place an order on the book uh
+
+that sort of locks up some tokens so you
+
+have some like locked
+
+token
+
+locked quantity
+
+and this will get incremented every
+
+single time you place an order because
+
+if i have some amount of usdc and i want
+
+to post a bid on the btc ustc order book
+
+um in doing so i'm saying that this this
+
+token that i placed that as bid is no
+
+longer withdrawable from my account um
+
+and that piece of accounting becomes
+
+somewhat important uh when you make a
+
+trade on the order book uh this lock
+
+quantity should in theory be freed up in
+
+some way
+
+so it should either it should probably
+
+disappear and the other token that got
+
+filled with should be available for
+
+withdrawal right that's just the
+
+mechanism how the value transfer occurs
+
+um and because
+
+you would need to pass in every single
+
+one of these accounts for every single
+
+filled
+
+side of the trade it becomes sort of
+
+infeasible to allow
+
+every single trade to be processed
+
+synchronously the event queue sort of
+
+handles the asynchronous process of
+
+managing all the accounting that occurs
+
+when trades happen
+
+does anyone have questions about that i
+
+can elaborate further
+
+yeah so the question is like when you
+
+put in a new order whether you're
+
+transferring token to be locked up um
+
+the answer is essentially yes so
+
+whenever you place a new order on the
+
+book um you have to transfer some tokens
+
+into crm
+
+serum will note note that you have
+
+transferred some amount of token uh and
+
+and if you make a trade um what will
+
+generally happen is that
+
+you some token will be transferred from
+
+the locked state to a freed state right
+
+and you can also you can always like
+
+retrieve that free token so there's like
+
+a locked quantity and there's a locked
+
+free quantity in a free quantity usually
+
+these will also be prefaced with like
+
+either base or quote right either base
+
+or quote based on these two types
+
+and when you trade uh you can
+
+essentially think of these values uh
+
+incrementing and decrementing based on
+
+the positions that occur right so if you
+
+if you place an order in the book um
+
+your lock quantity is going to increase
+
+when you make a trade
+
+that some some of that lot quantity will
+
+generally happen is that like once it
+
+gets processed in the event queue this
+
+free quantity is going to increase right
+
+so you can withdraw that
+
+yes
+
+yes
+
+yeah thank you
+
+cool
+
+so i guess i want to talk a little bit
+
+about how
+
+these structures are actually organized
+
+in memory because that sort of informs
+
+you about the complexity of this system
+
+so i'll start with
+
+this idea of like how how do you
+
+represent an order book um i'll give a
+
+really high level overview of how the
+
+memory is set up
+
+you have a section here that's just the
+
+header so this is this is just like the
+
+order book which they call like a slab
+
+object
+
+you have a header
+
+and then you have a large chunk of bytes
+
+here that represents the nodes
+
+each of these nodes are going to be a
+
+member of that tree and the nodes will
+
+have different types
+
+one type is an inner node
+
+and one type is a leaf node
+
+roughly speaking you can just map all
+
+leaf nodes to orders in the
+
+tree and the inner node sort of formed
+
+the inner structure of that tree the
+
+whole thing itself um at a very high
+
+level this is just your typical binary
+
+search tree that you learn in your intro
+
+computer science course
+
+that's more complicated because of the
+
+memory layout
+
+okay
+
+so
+
+at a very
+
+sort of
+
+the way that you can think about how
+
+node allocation works is that this this
+
+space
+
+is just a
+
+uh is like a list of nodes um there are
+
+inner nodes there are leaf nodes and
+
+there's something called the free node
+
+um which is also just like a node but we
+
+can sort of go into like how that
+
+organization works when you create a new
+
+order
+
+for the first time you're simply just
+
+allocating a node in here and that is
+
+going to be like a leaf node
+
+when you create a new order on top of
+
+this uh you need some way of comparing
+
+uh what uh like whether this node is
+
+like less than or greater than the other
+
+node and you add like another leaf right
+
+but potentially you'll also add some
+
+inner nodes so what what occurs is you
+
+like basically start with like a leaf
+
+note here um right that's their first
+
+this is your first uh order that comes
+
+in and then when you add in a new order
+
+uh the tree has to have a preserved
+
+structure so your root becomes like an
+
+inner node
+
+and then the two leaves will be sorted
+
+based on their prices
+
+another leaf
+
+and this process sort of continues
+
+iteratively but there's a rather complex
+
+way in which like this is all
+
+represented
+
+at a very high level this is just a list
+
+of nodes and there's some structure in
+
+them that connect uh between one and
+
+another so like you can imagine that if
+
+you look at the in the inner node there
+
+are two parameters uh to represent both
+
+left and right
+
+and this allows you to search through
+
+this tree
+
+it's rather complex
+
+the mechanism that it uses is uh this
+
+thing called crit bit uh which i can
+
+maybe discuss briefly it has to do with
+
+sort of like the the searching mechanism
+
+that's used but um i think the key
+
+innovation that i think is like pretty
+
+interesting and how uh crm even
+
+organizes the searching is based on like
+
+what it uses for the keys um
+
+one important aspect of how crm works is
+
+that uh it's a price time based order
+
+book which means that suppose i have a
+
+bunch of orders at a price level uh say
+
+say i'll just use 10 as the price level
+
+and this price level has a number of
+
+orders of different sizes and this this
+
+will be sorted by time so the first
+
+index of this array will be the size of
+
+the first order that's placed say it's
+
+like 5
+
+5
+
+10
+
+20.
+
+if there was a trade that was size 15
+
+that went through uh this level 10 uh
+
+the order in which the fills get
+
+processed is one two
+
+uh two and then three
+
+and the final remaining state would be a
+
+list that has 5 and 20.
+
+so
+
+the data structure of serum has to have
+
+some way of representing
+
+not only the price ordering but the time
+
+ordering of when the orders were
+
+inserted into the tree so there has to
+
+be some mechanism built into the slab
+
+data structure that allows you to do so
+
+and that is going to be the key that is
+
+used in each of the nodes
+
+and this was a really clever innovation
+
+for the way that crm organized this
+
+whenever a new order is created
+
+there's an order id that's assigned to
+
+it and this order id
+
+is a u128
+
+u128
+
+and the way that it works is the
+
+algorithm looks really roughly like you
+
+take the price
+
+which is like some u 64.
+
+and then you you shift this over by 64
+
+64 bits
+
+then you have a sequence number
+
+that you use in some way we'll discuss
+
+that in a second um
+
+then to create the order id itself you
+
+do something like oid
+
+is equal it's also u64 by the way
+
+oid is equal to price
+
+ored with the sequence number
+
+and then you do sequence number plus
+
+plus
+
+so
+
+does anyone see potential problems with
+
+this implementation
+
+if you use this as a key yeah
+
+yeah
+
+that's certainly true
+
+the timestamp can definitely overflow i
+
+guess one thing that you could do is you
+
+can sort of reset it
+
+i don't think crm has the current
+
+restriction of checking for overflow but
+
+there's another really like i'd say more
+
+critical bug with this in terms of like
+
+the ordering of the tree
+
+does this work for both bid and offer or
+
+does it only work for one or the other
+
+think about the order in which these
+
+things should be sorted
+
+the offer should be sorted from smallest
+
+to largest right
+
+because
+
+for the offer the best offer is the
+
+offer with the lowest price that was
+
+posted at the earliest time
+
+if you use this order id um this
+
+perfectly represents all offers right
+
+but it doesn't represent all bids
+
+so does anyone have
+
+a very clever idea of how you can
+
+represent bids with this ordering with
+
+just a small change
+
+minus
+
+what do you mean by minus
+
+i guess you could do negative price that
+
+would be a somewhat interesting idea um
+
+i think prices are represented as u64
+
+yeah
+
+uh
+
+so you could do the greater than
+
+operation like you sort of sword in the
+
+opposite way but i think what ends up
+
+happening is that um on a particular
+
+level of the bid like say say this is
+
+the bid right um what's to happen is
+
+that you will pop the most recent
+
+entry first on that level as opposed to
+
+the least recent entry first
+
+based on based on the way that sequence
+
+number is organized so it is certainly
+
+true that your order book will be sorted
+
+um from largest to smallest uh which is
+
+a desirable feature but the time
+
+ordering is messed up if you were to
+
+change the change ordering that's that's
+
+the main problem uh we can maybe go
+
+through a small example let's let's say
+
+that like my price is 10 and my sequence
+
+number was two um and then i had another
+
+one where my price is 10 and my sequence
+
+number was three
+
+and these are both bids um the way in
+
+which they should actually get filled is
+
+this one should get filled first and
+
+this one should get filled next but if
+
+you're distorted in descending order
+
+this one gets filled first and that one
+
+gets filled next so that's actually
+
+inaccurate
+
+you actually have to do something
+
+slightly more clever to get this to work
+
+for bids
+
+okay so the clever the clever uh
+
+thing that you can do um for this
+
+particular thing
+
+is you add one line of code prior to
+
+this this line
+
+if bid
+
+sequence number
+
+equals sequence number
+
+with the bits reversed
+
+uh and i think this is pretty big brain
+
+because what this allows you to do is
+
+when you do this it guarantees that the
+
+lexigraphical ordering of the sequence
+
+number is flipped from smallest to
+
+largest and so now your order id is
+
+still the same uh it's still going to be
+
+your price
+
+with with this adjustment
+
+ordered with your sequence number
+
+but it's also true that this sequence
+
+number is going to be in the right
+
+descending order right uh and we can do
+
+like a really quick math proof if you're
+
+not convinced of this fact um
+
+so
+
+just really quickly right suppose we had
+
+two numbers um i claim that if normally
+
+x is greater than y
+
+uh that
+
+tilde of x like if you reverse the bits
+
+this is going to be less than tilde y
+
+right and this is not super hard to
+
+imagine because like suppose x looked
+
+like 0 1 0 1 something like that dot and
+
+y looks like 0 1 0 1
+
+uh it's like 0 and 1.
+
+there's going to be some matching common
+
+prefix between these two
+
+that will always be the same regardless
+
+of whether you reverse the bits um but
+
+the second in which you reverse the bits
+
+uh the next uh the next and most
+
+significant bit will get swapped which
+
+means that the ordering of the two
+
+numbers will get swapped so this this
+
+clever bit hack allows you to sort of
+
+represent both bids and offers in the
+
+tree uh and this order id uh is now a
+
+unique way to both identify the order uh
+
+and also search the binaries to search
+
+the the order book uh and it's in its
+
+data representation
+
+so
+
+to sort of reiterate about how crm does
+
+its structure of the order book it uses
+
+this very clever key mechanism to
+
+determine the short order of all the
+
+nodes
+
+and then it represents the tree itself
+
+in a densely packed list um every single
+
+node in this list is going to be just a
+
+single entry with some pointers to other
+
+entries in the list
+
+and you can just search this like a
+
+normal data structure like you have apis
+
+around it uh but the nice part is that
+
+it fits in a densely packed account
+
+and it's also sorted it follows the
+
+price time ordering
+
+that is sort of required for the machine
+
+algorithm that's present
+
+this is uh quite confusing so does
+
+anyone have any questions related to
+
+this
+
+yeah
+
+yeah that's a great question so uh for
+
+one thing they're sort of in two
+
+different two separate accounts you have
+
+one account for a bid so sorry the
+
+question was like how do we tell the
+
+difference between bid and offer um you
+
+have uh two accounts
+
+one for bid and offer so you have asks
+
+and bids
+
+and the other thing is that when you
+
+place a new order you specify the side
+
+right so side is a user parameter
+
+are there other questions
+
+yeah
+
+so the question is like what happens
+
+when you have a large number of orders
+
+uh that's that's a great question so
+
+there are a couple ways this is handled
+
+um
+
+for one thing like the account size is
+
+not limited to 10k if you allocate the
+
+account outside of the program not
+
+through a cpi you can get much larger
+
+sizes
+
+but it is true that the size is finite
+
+the way in which crm handles
+
+the order book filling up is it will
+
+take the least most aggressive order
+
+which you can find conveniently due to
+
+the sorting sorting key and then evicts
+
+that so
+
+as long as your order that you're
+
+placing is more uh has a better price
+
+than the least most aggressive order in
+
+the book serum has a way of managing
+
+that
+
+zero zero one zero
+
+bigger than one okay so so so okay so
+
+this to be to be clear this is x right
+
+this is x and this is y
+
+right
+
+all right cool so let's do the reversal
+
+uh this is one one zero and this is one
+
+zero zero
+
+so so this operation this tilde
+
+operation just takes the value of the
+
+bit and flips it to the different
+
+direction right so
+
+initially x is larger than y and after
+
+the transformation x becomes smaller
+
+than y
+
+yeah no no we're flipping the bits
+
+that's that's what that's what this
+
+refers to so that's a that's a good
+
+clarification this is a bit flip
+
+right
+
+are there any other questions related to
+
+this
+
+yes the slab uh the slab that i'm
+
+describing that has all of the nodes uh
+
+inside this in this binary tree um
+
+that slab data structure is stored in a
+
+single account uh you have one slab for
+
+the bids and you have one slab for the
+
+offer for the offers
+
+yes
+
+so so these two are like
+
+these are just essentially indices
+
+inside the array right because the whole
+
+thing lives in a giant array these are
+
+indices in the array and they'll point
+
+at other nodes that could either be
+
+inner nodes or leaf nodes
+
+uh correct it's it's indices so like
+
+essentially the way that you you can
+
+think about it is that you have like an
+
+array of nodes so you have like a array
+
+of like node objects um this node would
+
+kind of be like a union between both of
+
+all of these things it could be an inner
+
+node leaf node and free node
+
+um and when you
+
+when you like have an inner node uh
+
+these two left and right values point to
+
+other nodes in this array uh and this is
+
+how you search that object
+
+yeah that's a great question
+
+right right so there are a lot of
+
+there are a lot of considerations to be
+
+made here um
+
+and like the the important factors are
+
+like thinking about what operations you
+
+want an order book to support with
+
+respect to like how it can be modified
+
+uh i think the two main ones and really
+
+the only two ones are like how do you
+
+create a new order um and this is this
+
+is uh this is like sort of divided into
+
+pieces right new order um you want to be
+
+able to like place
+
+and you want to be able to trade
+
+and the other is like how do i cancel
+
+cancel specifically how do i cancel if
+
+given an order id
+
+because that seems like a fairly
+
+reasonable user interface to provide a
+
+user might know what order id they have
+
+um it's probably less intuitive to write
+
+the order of the user uh the exact node
+
+index where their order is inside this
+
+like giant list of nodes um and so if
+
+you want to be able to support both
+
+these operations a plate a tr a place a
+
+trade and a cancel operation
+
+it becomes kind of useful to do some
+
+sort of tree search to find this stuff
+
+especially for cancel because
+
+if you're trying to cancel and you have
+
+some order id um
+
+uh it's a log or order of login
+
+operation to search a binary tree
+
+otherwise it would be a linear scan if
+
+you didn't have any sort of like sorted
+
+order
+
+but yeah that's a good question
+
+are there any other questions regarding
+
+this particular issue
+
+um if there's two orders that could
+
+potentially get uh fulfilled but they
+
+won't even match
+
+is there like any issue with like some
+
+kind of double spend
+
+because you have like lots of tokens
+
+so so like you in this case you would
+
+have like both a btc and an eat market
+
+um
+
+i believe i believe that serum uses like
+
+i don't know if they use the same i
+
+think they use the same underlying
+
+collateral vault for everything so like
+
+i think they have a single vault for all
+
+bdc all usd but for every single uh
+
+market account uh there's uh its own set
+
+of open orders which keeps track of like
+
+free and locked token so
+
+i think that solves the double spend
+
+problem because like if you're sort of
+
+trading on
+
+the eth market uh you know exactly how
+
+much eath is like locked and free based
+
+on that eat market parameter and you
+
+know how much token is locked and free
+
+in the btc market
+
+other questions
+
+ah so i think there's a clever i think
+
+there's a clever way to sort of go about
+
+this um
+
+if i remember correctly um
+
+i think
+
+they do something where the sequence
+
+number always has like
+
+the the final bit of the sequence number
+
+is always correct so they might actually
+
+do something like
+
+like sequence number plus equals two
+
+yeah like if they do plus equals two
+
+here i think that actually mitigates
+
+that problem because then the the final
+
+bit of the sequence number is always
+
+going to be the same and so you can just
+
+use the order id to identify bitter
+
+offer i think it does something clever
+
+like that uh i don't remember the
+
+details so i'll have to look through the
+
+source code but um i i'm pretty sure as
+
+a fact it does not pass in like any side
+
+um but there should be enough
+
+information encoded inside that like
+
+order id key to determine whether or not
+
+it's a it's a better offer good question
+
+okay um if there's no more questions
+
+about this feel free to ask me later um
+
+there's there's some details i glossed
+
+over like how how that like binary
+
+search actually works um it's rather
+
+complicated uh
+
+at a very high level it uses this whole
+
+like longest ancestor argument to just
+
+allow for the the search um
+
+like comparing basically two price keys
+
+and checking uh how long the ancestor is
+
+is how the the tree is indexed uh but we
+
+can go over that in detail and like it
+
+makes a lot more sense when looking
+
+through source code because it's quite
+
+hard to explain without like going
+
+through the nitty gritty logic um
+
+if no more questions on this i'll talk a
+
+bit about how the event queue uh process
+
+works
+
+oh yeah
+
+so it's similar to a priority queue but
+
+you also need to sort of have uh
+
+individual member access right in the
+
+traditional implementation of priority
+
+queue there is no random access
+
+available you can only access the top
+
+most element
+
+when you use a tree
+
+you can search that more easily right so
+
+a tree structure makes a little bit more
+
+sense in this in this use case
+
+obviously like the data structure you
+
+use to define an order book is not
+
+necessarily set in stone there are just
+
+certain trade-offs that you might want
+
+to make
+
+other questions
+
+okay great let's talk about how the
+
+event key works because this is also
+
+quite complicated
+
+okay so at a very like at a very high
+
+level right uh when when you like
+
+process trades in the order book
+
+there are like two things that you want
+
+to do like the first thing that you want
+
+to do is you want to add the fill right
+
+so um
+
+there are really two cases case one case
+
+one in the trade um
+
+order
+
+is fully filled
+
+this is like the case like if i had
+
+order of size 10 size
+
+10
+
+and trade size 10. trade size also
+
+equals 10. that order gets fully filled
+
+in that case there are two events that
+
+get pushed the queue so you have
+
+something like eq
+
+push
+
+like fill
+
+with some metadata
+
+and also
+
+you'd have something that's called an
+
+out event right so
+
+the reason why you would need an out
+
+event as well as a fill event for this
+
+case is because the user who placed that
+
+initial order that got filled that's the
+
+passive fill
+
+their order id is still stored somewhere
+
+right every time you place an order
+
+every time you make a trade you need to
+
+copy that order id key and put it in
+
+some static object that you store
+
+when a trade gets filled that particular
+
+party like their order id is still in
+
+their user account so you need to remove
+
+that right so you need to push both a
+
+fill event and an out event
+
+in the case that is partially filled you
+
+only need the fill
+
+partial
+
+so these are the basically the only two
+
+operations that are really necessary to
+
+store in that event queue there is
+
+additional logic to help to handle self
+
+trades i'm not going to discuss that
+
+that's quite
+
+complicated uh but in
+
+your standard case uh non-edge case
+
+where
+
+you're trading against counterparties
+
+other than yourself
+
+these are the two actions that can incur
+
+you either completely cover their full
+
+trade size or you cover their partial
+
+trade size
+
+in the case that their trade sizes is
+
+fully covered you need to also provide
+
+an out event so you can remove the open
+
+order from their list of stored state
+
+the logic for how you actually process
+
+this event queue
+
+is also like not super complicated but
+
+requires a bit of thinking right so in
+
+general the idea would be like
+
+while
+
+this queue is not empty
+
+um
+
+if phil right or i guess like you have
+
+you have some event right it'll be like
+
+match
+
+event
+
+if it's a fill event
+
+then what you do is you take um
+
+you would basically
+
+decrement the locked token from the
+
+makers account and increment their free
+
+token of the opposite kind so
+
+this would be like
+
+decrease
+
+locked token
+
+quoted token
+
+or maybe traded token that's probably
+
+better
+
+and then increment
+
+uh i guess like the free
+
+i guess
+
+bad terminology but opposite token right
+
+so like you can imagine that these are
+
+like different for the both sides of the
+
+both sides of the book but
+
+it's it's shouldn't be that confusing
+
+right it's just like
+
+when when a trade occurs like whatever
+
+coking you had quoted
+
+disappears and whatever token i've
+
+traded with you like
+
+appears right that's like the main idea
+
+of what you need to process um
+
+but this requires like you need the open
+
+orders of account you need the open
+
+orders account
+
+um of the passive fill
+
+and for the odd event is really similar
+
+so if it's an out event
+
+what you essentially do is you remove
+
+the order id
+
+the order id
+
+from the account from
+
+from the open orders account
+
+and this is also for the passive fill
+
+right
+
+these are the main things that you need
+
+to do uh can off the bat with just like
+
+really naive implementation here can
+
+anyone think of a problem uh that might
+
+be like a limitation for how this
+
+particular mechanism would work
+
+it sounds really simple right like if i
+
+were to write like a simple script this
+
+is what i would do
+
+on solana you have to think about the
+
+limitations
+
+why might a system like this like not be
+
+as effective as you might think
+
+[Music]
+
+that would be like an example of a edge
+
+case that you should think about because
+
+that's something that can certainly
+
+happen um so yeah let's think about that
+
+like someone flows through a bunch of
+
+different levels right
+
+a bunch of different market makers get
+
+filled right uh what happens what
+
+happens to this while loop
+
+like what are some things that can go
+
+wrong here also like let's think about
+
+what accounts you need to pass in to
+
+this instruction
+
+yeah so you basically yeah right you
+
+need you need to pass in every account
+
+that got filled right so every single
+
+open orders account that you're
+
+interacting with will need to be passed
+
+into this
+
+into this particular uh
+
+into the consume events instruction
+
+right this is the just to clarify this
+
+is the asynchronous processing of the
+
+event queue after the trade has occurred
+
+so trades have already happened now we
+
+have this event queue that's filled up
+
+and we want to process those events so
+
+as we're asynchronously processing this
+
+event queue
+
+we need to have access of every single
+
+account that this while loop will
+
+interact with right um so
+
+how might you
+
+represent that like like when i'm in
+
+this fill event i need to i need to have
+
+access to the actual piece of state that
+
+i'm modifying like what would you do to
+
+sort of represent that information
+
+like let's just say that i had a list of
+
+accounts right so say i have a list of
+
+like
+
+um
+
+say i have like a list that's passed in
+
+i have access to some lists of like this
+
+these are all my open orders accounts
+
+and this is just some like vector of
+
+account info
+
+um in in inside this while loop while
+
+i'm popping the queue i basically need
+
+to like look up every single open order
+
+discount every single time i enter one
+
+of these blocks right um that becomes
+
+kind of expensive it's like a linear
+
+scan to that list every single time
+
+um is there a way that you can avoid
+
+that
+
+like i probably don't want to linear
+
+scan this list every single time i pop
+
+in an event
+
+yeah
+
+sort of
+
+uh i mean you could pass it in as sure
+
+you passed it as a tree but what's
+
+another way that you can binary search
+
+an object
+
+it's like a sorted list right
+
+yeah so the solution serum does to avoid
+
+like this unnecessary computation is
+
+that it passes in all the open orders
+
+accounts this consume events as a sorted
+
+list so prior to the the match here it
+
+will say like it will search for uh
+
+i'm running out i'm running out of space
+
+on this board but
+
+prior to performing this match operation
+
+it will
+
+do a binary search
+
+search
+
+over all of the open orders accounts
+
+um and it will look for the requisite
+
+matching key so uh defects key
+
+or fetch fetch account fetch
+
+uh like maker account
+
+and this is one way sort of this is one
+
+thing it doesn't say computation um the
+
+other unit does is
+
+do you want this operation to fail or
+
+run out of compute in the case that uh
+
+you did not pass in a necessary open
+
+orders account probably not right you
+
+want to be able to pop this queue sort
+
+of incrementally so
+
+if this binary search fails to find a
+
+match it will just terminate the
+
+instruction um and that's that's the
+
+other way in which it sort of represents
+
+like uh this matching process in case of
+
+events
+
+um so that's really kind of the two main
+
+things that are most confusing about
+
+serum but that should essentially cover
+
+like the main data structure portion
+
+like both
+
+how orders are represented and like how
+
+trades go through and then how they're
+
+processed um are there any questions
+
+about like this event q portion or the
+
+order book portion
+
+i don't know if public keys are hashable
+
+i imagine they are because they're just
+
+32 byte strings um i i also i'm not too
+
+sure about like sort of the limitations
+
+of using hash maps in the salon or
+
+runtime um it's potential it's
+
+potentially possible like doing such an
+
+operation is not particularly efficient
+
+so i think like the binary search sort
+
+of makes it like relatively easy without
+
+too much computational cost that's a
+
+good question though
+
+um are there any other questions related
+
+to this
+
+right so what happens in um
+
+so this case here right that happens
+
+inside a new order like when trades are
+
+created uh these events are pushed to
+
+the queue um and then asynchronously uh
+
+after that order has been already
+
+executed uh this process will go on in
+
+the background so there's a separate
+
+instruction that implements this popping
+
+so how does that happen
+
+yeah yeah that's a great question so
+
+there's no way to actually like run a
+
+thread to do something like this like on
+
+solana so what you'd have to do is sort
+
+of have an off-chain process uh call
+
+into this instruction kind of on like an
+
+interval
+
+this is something we call crank so the
+
+idea here is that this is like a crank
+
+and a crank just at a very high level is
+
+like this is like a a script that you
+
+write that calls a particular
+
+instruction in a program over and over
+
+and over again so the the matching
+
+process uh or how the matching happens
+
+with new order like the the everything
+
+is filled in and like in atomically the
+
+tree gets updated but when you want to
+
+update the actual accounts uh that
+
+encode positions of like what people can
+
+withdraw from the serum exchange that
+
+all happens in this crate process where
+
+it loops through the event queue
+
+yeah is like a what
+
+um kind of it's a permissionless crack
+
+so anyone can run this crank it's like
+
+this operation to pop in the queue
+
+there's no authority that's required
+
+like anyone who has access to the inputs
+
+can just call this instruction and it
+
+will process the events on the queue
+
+right so i think in serum v1 this is not
+
+a thing that exists
+
+but i think in future iterations of
+
+serum the idea is that like the cranker
+
+will accrue some reward for doing this
+
+process
+
+good question
+
+cool
+
+are there any other questions related to
+
+any of the serum stuff
+
+if you have like more advanced questions
+
+and you're interested i'm happy to walk
+
+through the source code um it's quite
+
+difficult to navigate alone for the
+
+first time so
+
+if you have questions i'm here to answer
+
+those
+
+cool thanks so much
+
+[Applause]
+
