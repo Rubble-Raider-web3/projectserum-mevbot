@@ -1,5 +1,5 @@
 uuid: 992cedb4-e1de-49d5-8292-89f364efa096
-key: trade-lifecycle
+key: orderbook-trade-lifecycle
 name: Trade Lifecycle
 content: Explains Trade Lifecycle on Serum DEX
 guideType: onboarding

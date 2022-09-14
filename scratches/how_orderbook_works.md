@@ -96,7 +96,7 @@ Seller-2, asks for $7 as the price per token, and Buyer-2 and Buyer-3 both are o
 preference as their order was placed first.
 
 
-![Example](../images/how_clob_works.png)
+![Example](https://raw.githubusercontent.com/DoDAO-io/dodao-projectserum-guides/main/images/how_clob_works.png)
 
 
 

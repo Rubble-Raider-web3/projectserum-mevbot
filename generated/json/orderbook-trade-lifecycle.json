@@ -1,10 +1,10 @@
 {
-  "uuid": "48c51a38-13d4-4b3e-8397-cfbc4f48c316",
+  "uuid": "992cedb4-e1de-49d5-8292-89f364efa096",
   "key": "orderbook-trade-lifecycle",
-  "name": "Orderbook Trade Lifecycle",
-  "content": "Explains the lifecycle of Trade in Orderbooks",
+  "name": "Trade Lifecycle",
+  "content": "Explains Trade Lifecycle on Serum DEX",
   "guideType": "onboarding",
-  "created": "2022-08-02T04:15:13.911Z",
+  "created": "2022-08-21T04:15:13.911Z",
   "categories": [
     "developer",
     "engineering"
@@ -15,34 +15,382 @@
   "showIncorrectOnCompletion": true,
   "steps": [
     {
-      "uuid": "35cac954-f981-4b7e-a7fe-6b65c8ead192",
-      "name": "Trade lifecycle Overview",
-      "content": "The high level lifecycle of a trade is:\n- Placing orders: A user funds an intermediary account (their OpenOrders account) from their SPL token account (wallet) and adds an order placement request to the Request Queue\n- Matching orders: The request is popped off of the Request Queue and processed: it’s placed on the Orderbook. Any resulting trades get reported in the Event Queue.\n- Consuming events: Events are popped off of the Event Queue and processed: OpenOrders account balances are updated as the result of the trade\n- Settlement: Users can settle free funds from their OpenOrders back to their SPL token account (wallet) at any time\n",
+      "uuid": "628e184c-5fe6-49d1-b6a5-4add0747a3f1",
+      "name": "Introduction",
+      "content": "## Introduction:\nThe Serum DEX is a program on the Solana blockchain. Solana's block times are some of the fastest in the industry, \nat 400ms. This allows Serum to handle hundreds of orders per second per market. With Solana's current transaction \nrate of 50,000 transactions per second, Serum is able to process a large number of transactions quickly and \nefficiently.\n\nTokens on Solana are created as instances of the SPL Token Program. An Solana Program Library (SPL) token is similar \nto an ERC20 token on Ethereum.\n\nNow, before going to Trade Lifecycle, let's first understand some terminologies related to accounts specifically global accounts:\n  * **Request Queue**: This account maintains all submitted but unprocessed order placement and cancellation requests.\n  \n  * **Orderbook**: Speaks for itself. There's one account for bids and another for asks, but for simplicity,\n  we'll refer to both of them collectively as Orderbook going forward.\n  \n  * **Event Queue**: Reports the list of outputs from order matching: trades, for instance\n  \n  * **Market**: Holds metadata about the market (e.g. important constants like tick size and references to the other accounts below)\n  \n  * **Base Currency Vault**: An SPL token account that holds **base currency** balances. Base currency is also known as the transaction currency and is always listed first in a currency pair quotation. \n  \n  * **Quote Currency Vault**: An SPL token account that holds **quote currency** balances. Quote currency is also known as the counter currency and is always listed second in a currency pair quotation.\n  \n  * **Open Order Account**: It is like an accounting system that calculates a user's position for a given currency pair quotation. For example, if a currency pair quotation has USDC (base currency) and ETH (quote currency) in a market, then a user trade in this market might have a certain amount of each currency stored in the order book or free for withdrawal. This system manages the accounting differences between USDC (base currency) and ETH (quote currency) for each user. Open Order Accounts are created by the user but maintained by protocol or DEX.\n\nAnd the user-specific accounts: to interact with the DEX, a given user must create an **Open Orders Account**. This \naccount stores the following:\n  * How much of the base and quote currency the user has locked in open orders or settleable\n  * A list of open orders for that user on that market\n",
       "stepItems": []
     },
     {
-      "uuid": "a9bbcef0-af29-45ee-9f5d-bb6c1a3d4498",
-      "name": "Placing orders",
-      "content": "Placing orders\n",
+      "uuid": "5654f373-9755-47ab-bcd5-295037ba2871",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "0a819f87-8f52-4436-9bff-bd380410ecd9",
+          "content": "What is the block time of Solana?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "4ms",
+              "key": "A"
+            },
+            {
+              "content": "40ms",
+              "key": "B"
+            },
+            {
+              "content": "400ms",
+              "key": "C"
+            },
+            {
+              "content": "4000ms",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "8d10ae65-4897-4f65-97d8-c32826c33b9f",
+          "content": "Which of the following reports the list of outputs from order matching?",
+          "answerKeys": [
+            "A"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Event Queue",
+              "key": "A"
+            },
+            {
+              "content": "Request Queue",
+              "key": "B"
+            },
+            {
+              "content": "Base Currency Vault",
+              "key": "C"
+            },
+            {
+              "content": "Orderbook",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "91f9ae5b-a46a-40b9-a8f6-b8eb0b6105bc",
+          "content": "What is the full name of SPL token?",
+          "answerKeys": [
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Serum Program Liquidity token",
+              "key": "A"
+            },
+            {
+              "content": "Solana Program Liquidity token",
+              "key": "B"
+            },
+            {
+              "content": "Serum Program Library token",
+              "key": "C"
+            },
+            {
+              "content": "Solana Program Library token",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "e72ffb77-7b67-456e-83d6-43508cd001b6",
+      "name": "Trade Lifecycle",
+      "content": "The below four steps define the lifecycle of an order withing Serum DEX\n\n#### 1. Placing orders\nA user funds an intermediary account (their OpenOrders account) from their SPL token account (wallet) and adds an \norder placement request to the Request Queue.\n\n#### 2. Matching orders\nThe request is popped off of the Request Queue and processed: it’s placed on the Orderbook. Any resulting trades \nget reported in the Event Queue.\n\n#### 3. Consuming Events\nEvents are popped off of the Event Queue and processed: OpenOrders account balances are updated as the result of \nthe trade.\n\n#### 4. Settlement\nUsers can settle free funds from their OpenOrders back to their SPL token account (wallet) at any time.\n",
       "stepItems": []
     },
     {
-      "uuid": "15b9f239-2a30-4f98-b4a0-21f129eafe7c",
-      "name": "Matching orders",
-      "content": "Matching orders\n",
+      "uuid": "7435646e-206d-4b76-b402-628746f9f160",
+      "name": "Trade Lifecycle - Placing Orders",
+      "content": "The trade lifecycle generally consists of four main stages: placing orders, matching orders, consuming events, and settlement.\nLet's see each in detail:\n\n## 1. Placing orders:\nUsers can place an order by submitting a Place Order instruction to the DEX program. To do so, they must provide the following information:\n- Order details: the market, size, price, order type, side\n- Their OpenOrders account on that market\n- Their SPL token account for the market’s base currency (if selling) or quote currency (if buying)\n\nSerum DEX then initiates the transfer by calculating the maximum funds required for an order ( either the size of the order if selling, or the size \nmultiplied by the price if buying). It also notes the free balance for the corresponding currency in the OpenOrders \naccount. Finally, it transfers the difference between the required amount and free OpenOrders balance from the SPL \ntoken account to either the Base Currency Vault or Quote Currency Vault. This increases the OpenOrders account's total \nbalance for the corresponding currency by the amount transferred.\n\nAfter the transfer, Serum DEX  increments and retrieves a sequence number from the request queue. This, along with \nthe order's price, determines the new order's ID.\n\nThe Order ID is a unique identifier that is used to determine the price-time priority of an order. It is a 128-bit \nnumber, with the first 64 bits representing the price and the second 64 bits representing the sequence number. If \nthe order is a buy order, all of the bits in the second half of the number are flipped.\n\nThen, it adds an item to the request queue specifying the order details (size, price, order type, side). \n\nFinally, it adds an item representing the new order to an array in the OpenOrders account in an available slot.\n",
       "stepItems": []
     },
     {
-      "uuid": "dffaad29-f925-4661-80fa-74fe574fe731",
-      "name": "Consuming events",
-      "content": "Consuming events\n",
+      "uuid": "6c5397e0-169a-4a28-b077-aa4739b662e9",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "2fb87226-070d-40c0-94b8-54a4f18f0d94",
+          "content": "Which of the following details in not included in an order placement request?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "User's Open Order account on the market",
+              "key": "A"
+            },
+            {
+              "content": "User's bank account for the market",
+              "key": "B"
+            },
+            {
+              "content": "User's SPL token account for the market",
+              "key": "C"
+            },
+            {
+              "content": "The market size, price, order type",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "5ef22568-2fc3-450d-94e2-2fad26cada2e",
+          "content": "Where does an order placement request gets added?",
+          "answerKeys": [
+            "A"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "To the Request Queue",
+              "key": "A"
+            },
+            {
+              "content": "To the Event Queue",
+              "key": "B"
+            },
+            {
+              "content": "Both A & B",
+              "key": "C"
+            },
+            {
+              "content": "None of these",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "0a13a877-4d98-4d84-9667-482117c97ec3",
+      "name": "Trade Lifecycle - Matching Orders",
+      "content": "## 2. Matching orders:\n\nThis step removes requests from the Request Queue and processes them, updates orders on the Orderbook, and puts \ninformation about resulting trades in the Event Queue.\n\nWhen an order is placed on the RequestQueue, it is transferred to the Orderbook. The Orderbook then stores the order \ndetails, including the specs (side, price, remaining size), the public key of the order placer's OpenOrders account, \nand the index of this order in that OpenOrders account's order array (the slot number).\n\n For any trades, two corresponding Fill items are added to the Event Queue. In the case of a trade, cancel, or IOC \norder that missed, Out items are added to the Event Queue.\n\nBelow is the information that Fill and the Out event contain\n#### Fill\nThe fields contained in Fill event are \n1) Side \n2) If this side of the trade was the maker\n3) Quantity paid by this counterparty (the currency is inferable from the Side: if buying, this quantity is always denominated in the quote currency)\n4) Quantity received by this counterparty (if buying, this quantity is always denominated in the base currency)\n5) Quantity of any fees paid (always in the quote currency)\n6) Order’s ID and slot number, and the public key of the corresponding OpenOrders account\n\n\n#### Out\nThe fields contained in Out event are\n1) Side\n2) Quantity unlocked\n3) Quantity still locked in the order (0 in the case of a cancel or full fill, nonzero in the case of a partial fill)\n4) Order’s ID and slot number, and the public key of the corresponding OpenOrders account\n\nNote that clients can check the Orderbook account for the current state, the Event Queue account to see their trades \n(and others'), and the OpenOrders account to view their open orders (and others').\n",
       "stepItems": []
     },
     {
-      "uuid": "c1da1dc1-166e-46a6-8aea-8e52c1d758d0",
-      "name": "Settlement",
-      "content": "Settlement\n",
+      "uuid": "b9dd2c8c-f17b-4dea-abf0-e69f266aa761",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "0055bc33-0aff-4bea-8b97-7d7ee6499fca",
+          "content": "Which of the following information is stored by both the type of event queue objects?",
+          "answerKeys": [
+            "A",
+            "B",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Slot number",
+              "key": "A"
+            },
+            {
+              "content": "Order ID",
+              "key": "B"
+            },
+            {
+              "content": "Private key of the Open Order account",
+              "key": "C"
+            },
+            {
+              "content": "Public key of the Open Order account",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "bed11fe7-d2f3-4c15-bb35-2f4ae8a9cebd",
+          "content": "What are the two types of event queue objects?",
+          "answerKeys": [
+            "A",
+            "C"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Fill",
+              "key": "A"
+            },
+            {
+              "content": "Base",
+              "key": "B"
+            },
+            {
+              "content": "Out",
+              "key": "C"
+            },
+            {
+              "content": "Request",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "740108b1-a6a6-4480-9f68-4b593e03df36",
+      "name": "Trade Lifecycle - Consuming Events",
+      "content": "## 3. Consuming events:\nPrimary job as part of this phase is to make sure that OpenOrders accounts are updated according to events emitted \nby Match Orders.\n\nSubmitting Consume Events instructions (that do anything) does involve a bit of work for the client: they have to \nread some prefix of the event log, gather and sort the public keys of the affected OpenOrders accounts, and submit \nthose as writable along with other relevant global singleton accounts.\n\n#### Processing of Event Queue\nThe next event in the Event Queue is considered. If the OpenOrders public key is found in the account list submitted \nby the client is writable, then continue. Otherwise, abort.\n\n#### Fill Events\nWhen a Fill event is found, the total balance of the OpenOrders account is decreased by the quantity paid. The total\nand free balances of the OpenOrders account are increased by the quantity received. The Market's total fees paid \ncounter increments by the quantity of fees paid.\n\n#### Out Events\nWhen the Order Event is found, the OpenOrders account's free balance increments by the quantity unlocked with \neach event. If the event's specified quantity still locked is zero, then the order is removed from the OpenOrders account's \naccount list. Note that this can happen in constant time because the slot number is provided in the event. \n",
       "stepItems": []
+    },
+    {
+      "uuid": "7caadc64-8688-4f24-ac77-bac31865848f",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "0f2d4abd-d1a2-442d-a118-57333137e801",
+          "content": "Which processes take place in Fill?",
+          "answerKeys": [
+            "A",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "The Open Order account's total balances are decremented by the quantity paid",
+              "key": "A"
+            },
+            {
+              "content": "The Open Order account's total balances are incremented by the quantity paid",
+              "key": "B"
+            },
+            {
+              "content": "The Open Order account's free balance increments by quantity unlocked",
+              "key": "C"
+            },
+            {
+              "content": "The Open Order account's total and free balances are incremented by the quantity received",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "db66938d-393c-4db7-91eb-3e60cc132a41",
+          "content": "Which of the following searching algorithms is used to find  s account public key?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Linear Search",
+              "key": "A"
+            },
+            {
+              "content": "Binary Search",
+              "key": "B"
+            },
+            {
+              "content": "Interpolation Search",
+              "key": "C"
+            },
+            {
+              "content": "Exponential Search",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "19a2d5a0-fcf2-4ce8-9124-a916016805ca",
+      "name": "Trade Lifecycle - Settlement",
+      "content": "## 4. Settlement:\nThis instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote \ncurrency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The \nruntime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency \nVault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each \ncurrency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "a1183156-e45b-4ddf-b381-897274ec0cb5",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "44fedf57-680e-41ea-8aac-d022cfac6571",
+          "content": "Select the correct statement(s) about settlement?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Users can not settle free funds from their Open Orders back to their SPL token account at any time",
+              "key": "A"
+            },
+            {
+              "content": "Users can settle free funds from their Open Orders back to their SPL token account at any time",
+              "key": "B"
+            },
+            {
+              "content": "Users can settle free funds from their Open Orders back to the Base Currency Vault at any time",
+              "key": "C"
+            },
+            {
+              "content": "Users can settle free funds from their Open Orders back to the Quote Currency Vault at any time",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "9e505cdc-ab22-498d-a86c-50eebb5201eb",
+          "content": "What is the time taken by the whole trade-lifecycle?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "1-2 minutes",
+              "key": "A"
+            },
+            {
+              "content": "1-2 hours",
+              "key": "B"
+            },
+            {
+              "content": "1-2 seconds",
+              "key": "C"
+            },
+            {
+              "content": "1-2 milliseconds",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "5d98e292-6811-4f03-b17d-3bf6ff50b1b4",
+      "name": "Your Info",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "42f0589d-d4e4-4e2b-b0da-b7f25a2292c6",
+          "label": "Nick Name",
+          "required": true,
+          "type": "PublicShortInput"
+        },
+        {
+          "uuid": "aa74c55c-b00f-425f-ac08-c2da022cbbe0",
+          "type": "UserDiscordConnect"
+        }
+      ]
     }
   ]
 }
