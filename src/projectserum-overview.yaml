@@ -13,27 +13,239 @@ socialShareImage:
 showIncorrectOnCompletion: true
 steps:
   - uuid: 2ab1f3cf-906c-492d-8f74-6d178a86969c
-    name: Serum Overview
+    name: Background
     content: |
-      [https://www.youtube.com/watch?v=RxjMn6ORL6k](https://www.youtube.com/watch?v=RxjMn6ORL6k)
+      DeFi promises to revolutionize global commerce by putting power back into the hands of individuals and enabling true 
+      open finance. However, there are some inherent weaknesses that limit DeFi's full potential.
+      
+      The main weaknesses of DeFi on Ethereum are
+      #### 1) Segmented Liquidity 
+      Popular DeFi protocols create silos of unused capital, which segment liquidity.
+      
+      #### 2) Inefficient Markets
+      Blockchain limitations make it hard to adopt a central limit order book, forcing developers to use inefficient market types.
+      
+      #### 3) Settlement Risk
+      Layer 2 blockchain scaling solutions limit composability and introduce settlement risk between transactions.
+      
+      Project Serum proposes a more efficient and capital-friendly solution for DeFi by combining the best aspects of
+      permissionless and permissioned systems with familiar elements of traditional finance. All of this is made possible by
+      Solana's fast and scalable Layer 1 blockchain. The ultimate goal is to drive the mass adoption of DeFi on a global
+      scale, with over 1 billion users and $10 trillion in value moving on-chain at the speed and price that customers demand.
     stepItems: []
+  - uuid: 701eb17c-5d9f-41c4-a90a-c71e266997d9
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 142f6f79-508c-4b83-9cf1-b5fd1b7f8563
+        content: What are the main weaknesses of DeFi
+        answerKeys:
+          - A
+          - B
+          - C
+        type: MultipleChoice
+        choices:
+          - content: Segmented Liquidity
+            key: A
+          - content: Settlement Risk
+            key: B
+          - content: Inefficient Markets
+            key: C
+          - content: Decentralization
+            key: D
+
+      - uuid: 1656a200-9d6a-4f82-9408-de4918815dc7
+        content: What is the main cause of Segmented Liquidity on Ethereum
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: Most of the liquidity is locked
+            key: A
+          - content: Low transaction speed
+            key: B
+          - content: Protocols have their own liquidity, and they don't share the liquidity.
+            key: C
+          - content: All the above
+            key: D
+
   - uuid: 5f7f0a4d-0893-48df-8fa2-76aac31d3961
-    name: Current challenges in DeFi
+    name: About Serum
     content: |
-      Current challenges in DeFi
+      Serum is a decentralized exchange that anyone in the world can open an account on almost instantly. All you need is an 
+      internet connection and computer, and with some crypto assets you're ready to trade with anyone on the planet. Serum is
+      a decentralized open source project that everyone can contribute to building. Project Serum is built by the Serum
+      Foundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance.
+
+      Solana is a fast, secure, and censorship-resistant blockchain providing the open infrastructure required for global adoption. 
+      It uses a proof-of-stake mechanism as well as a "proof-of-history" mechanism to achieve consensus.
+      
+      Solana is one of the few blockchains out there that is designed to be able to handle a lot of users and devices 
+      without sacrificing decentralization or security. Its specs include:
+        - supporting 50k transactions per second
+        - block times of approximately 400ms
+        - network fees of $0.0001 per transaction
+        - no sharding is required
+
+      The FTX team's choice to build Serum on Solana instead of ethereum is exactly why serum can perform so well. The potential
+      for building dapps on serum is also huge.
     stepItems: []
+  - uuid: ed642c0e-cc95-4106-b891-5b333eedb03c
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 82079bd2-f4d2-46c2-bbae-66ac24e042a1
+        content: Why did Serum Team decided to build Serum DEX on Solana instead of Ethereum
+        answerKeys:
+          - A
+          - C
+          - D
+        type: MultipleChoice
+        choices:
+          - content: Because Solana supports 50k transactions per second
+            key: A
+          - content: Becuase Solana is Ethereum Virtual Machine Compatible
+            key: B
+          - content: Block times of approximately 400ms
+            key: C
+          - content: Network fees of ~$0.0001 per transaction
+            key: D
+
+      - uuid: cb11f45a-72d3-43d2-8f90-d58e0b7dbfe2
+        content: What are the consensus mechanisms used by Solana
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: proof-of-stake
+            key: A
+          - content: proof-of-history
+            key: B
+          - content: proof-of-work
+            key: C
+          - content: Both A and B
+            key: D
   - uuid: c425a86a-0e9b-4cf7-9854-5e1b8be01dda
-    name: Solution - On-chain central order book
+    name: Key building Blocks of Project Serum
     content: |
-      Solution - On-chain central order book
+      Project Serum is made up of four key building
+
+      #### 1) Serum Core
+      Serum Core is the first full central limit order book and matching engine that runs on blockchain. Bonfida has developed
+      Serum Core - an asset agnostic order book built on the Solana blockchain. This powerful technology is capable of
+      supporting advanced financial marketplaces, including derivatives and borrow lending.
+      
+      #### 2) Developer Ecosystem and Services
+      Developers can connect their project to Serum and make use of its expansive liquidity. Serum core offers its matching
+      engine as a service for the ecosystem, making it easy to use for other decentralized applications. This allows developers
+      to focus on their project while still having access to the features and benefits that Serum has to offer.
+      
+      #### 3) True Composability
+      The serum middleware makes it possible for different applications and users to share data and liquidity in one place. This
+      makes it possible for trading applications to trade with each other, and access liquidity from a single source.
+      
+      #### 4) Serum DAO
+      A decentralized governance framework is a great way to let the ecosystem make its own decisions without having to go
+      through a centralized authority. This can help speed up the process and make it more efficient.
+
     stepItems: []
+  - uuid: 94130176-48c7-41d2-88fe-33710dbb84ab
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: eb8215a6-d977-4936-b0cc-453665bffa8a
+        content: Which of these is not a core building block of Project Serum?
+        answerKeys:
+          - A
+        type: SingleChoice
+        choices:
+          - content: Serum Brokerage
+            key: A
+          - content: Serum Core
+            key: B
+          - content: Serum DAO
+            key: C
+          - content: Developer Ecosystem and Services
+            key: D
+
+      - uuid: 63e251b3-f0c5-4fd7-917f-af04e9dd97e3
+        content: How does Serum achieve true composability?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: By sharing the user's KYC information with all applications.
+            key: A
+          - content: By allowing different applications and users to share data and liquidity in one place
+            key: B
+          - content: By using Rust language for its code.
+            key: C
+          - content: All the above
+            key: D
   - uuid: ea76f813-494a-4727-bc87-3839b14dfd2f
-    name: Serum for Developers
+    name: Serum Core
     content: |
-        What all can developers use and how can they build on top of serum
+      Let's explore how Serum Core powers its ecosystem of decentralized applications.
+      
+      Serum Core provides an asset-agnostic order book that sits at the heart of the ecosystem. Its on-chain central limit
+      order book and matching engine are provided as a service to the Solana ecosystem.
+      
+      Serum core is the powerhouse that allows applications to create and manage their own order books, or to connect with other
+      existing order books. By outsourcing the implementation and maintenance of an order book to Serum core, any Solana program
+      can take advantage of its ability to match buyers and sellers without having to worry about the burden that comes with it.
+      Its design allows Serum core to process trades for multiple applications all at once, providing a fast and efficient way
+      to keep the network moving.
+      
+      Serum core makes trading easy for a wide range of use cases including the powerful Serum decentralized exchange. Anything
+      from options futures, borrow, lending positions, or any financial and non-financial instrument can also take advantage of
+      Serum's back-end matching engine.
+      
+      ### Final Thoughts
+      Project Serum's ultimate vision is to be both user-friendly and capital efficient. To achieve this, DeFi needs many 
+      necessary primitives, one of which is central limit order books. All of this is made possible by Solana, a fast, secure, 
+      and censorship-resistant blockchain that provides the open infrastructure required for global adoption. Project Serum is 
+      built by the Serum Foundation and backed by a consortium of experts in cryptocurrency trading and decentralized finance.
+
     stepItems: []
-  - uuid: 4c445d47-bd68-41c2-a0ae-2cfc0ce46c34
-    name: Serum Ecosystem
+  - uuid: 644b7b31-b012-45ba-bccf-fbd214cc3047
+    name: Evaluation
     content: |
-        All the different apps that have been built on top of Serum
-    stepItems: []
+    stepItems:
+      - uuid: da0b9133-93b4-4a87-a827-a26c973dd029
+        content: What is main offering of Serum Core?
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: Serum Core provides off-chain order book with syncs data with Solana Blockchain at regular intervals
+            key: A
+          - content: Serum Core offers set of reusable Smart Contracts which makes it easy to write code on Solana
+            key: B
+          - content: Serum Core offers a lending and borrowing engine
+            key: C
+          - content: Serum Core provides an on-chain asset-agnostic Cental Limit Order Book
+            key: D
+      - uuid: 65098fe5-cb3f-4ff6-8fb3-f35feab7767f
+        content: What type of applications can be build on top of Serum
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: Decentralized Exchange Clients
+            key: A
+          - content: Option/Futures related Financial Applications
+            key: B
+          - content: Borrowing and Lending Applications
+            key: C
+          - content: All the above
+            key: D
+  - uuid: c22250e7-0eba-43f3-a098-ea89f43ed842
+    name: Your Info
+    content: |
+    stepItems:
+      - uuid: 1759d51e-aed1-459e-af96-c3a8a3c3554e
+        label: Nick Name
+        required: true
+        type: PublicShortInput
+      - uuid: d18dba89-f7f5-42d3-b044-36eefc73a9d8
+        type: UserDiscordConnect
