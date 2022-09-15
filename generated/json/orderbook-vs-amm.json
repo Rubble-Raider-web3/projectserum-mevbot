@@ -1,7 +1,7 @@
 {
   "uuid": "a520c145-bd32-4478-b3e6-31f42828c7dc",
-  "key": "orderbook-basics",
-  "name": "Intro to Central Limit Order Book",
+  "key": "orderbook-vs-amm",
+  "name": "Central Limit Order Book vs AMM",
   "content": "Explains what is Central Orderbook and its benefits over AMMs",
   "guideType": "onboarding",
   "created": "2022-08-02T04:15:13.911Z",

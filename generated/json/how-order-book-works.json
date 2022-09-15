@@ -1,0 +1,235 @@
+{
+  "uuid": "cff23df4-d555-459a-999f-fce31c43efd1",
+  "key": "how-order-book-works",
+  "name": "How Order Book Works",
+  "content": "Explains what is an Order Book and how order are placed in it",
+  "guideType": "onboarding",
+  "created": "2022-08-02T04:15:13.911Z",
+  "categories": [
+    "overview"
+  ],
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/eth/aave/Lending_And_Borrowing.png",
+  "publishStatus": "Live",
+  "socialShareImage": null,
+  "showIncorrectOnCompletion": true,
+  "steps": [
+    {
+      "uuid": "c21ad82d-9733-4859-af6c-2a9196b17250",
+      "name": "Introduction",
+      "content": "Order Book is a crucial tool for traders, as it allows them to see the current buy and sell activity for a \nparticular asset. This helps them make more informed decisions about their trades, and ultimately increase their\nchances of success.\n\nThe order book is a running list of all the open orders that have been placed by traders who haven't been matched yet.\nFor every entry in the order book, there is at least one other trader with an open order at that exact price. The top of\nthe list in red are the open asks, or the prices that sellers are asking for, and below in green are the open bids, or\nprices that buyers are willing to pay.\n\nSince these are all open orders, they give us an insight into what prices people think they can get their orders filled at.\n\nBy taking all of this information into account, traders can make wiser decisions about their  trades and improve their\nchances of making a successful trade.\n\nFor a successful trade the sell and the buy price needs to overlap. For example, if someone places an open order on an\nexchange to buy Ethereum for 2,000 USD, someone else on the exchange will need to agree to sell their Ethereum at the\nsame price of 2,000 USD.\n\nAn imbalance in buy or sell orders on an order book can show where the market might be headed. When there are lots of\nbuy orders at a particular level, it could signal that there's support at that level. On the other hand, if there are\nlots of sell orders, it might be an area of resistance. But it's important to keep in mind that these aren't always\nreliable signals on their own.\n\nThe order book trading instrument is designed to promote transparency on exchanges. It indicates prices that each\nbuyer and seller are willing to accept, making market manipulation more difficult.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "0f1b0e82-53e4-43bc-8159-1f2b69f20493",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "5911899d-d45e-4f68-88a6-dd3d70c7bdb1",
+          "content": "What is the main purpose of Order Book?",
+          "answerKeys": [
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "It's a physical books which has all the orders given by the CEO of an organization",
+              "key": "A"
+            },
+            {
+              "content": "Allows a person to do trade with a SmartContract",
+              "key": "B"
+            },
+            {
+              "content": "Allows Traditional banks to lend money",
+              "key": "C"
+            },
+            {
+              "content": "Allows traders to buy or sell the asset based price and time",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "3f5a9a79-7627-4d1d-84a3-c2a38aafeecd",
+          "content": "When does a successful trade happen?",
+          "answerKeys": [
+            "A"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "When there is an overlap in the lowest selling price and highest buying price",
+              "key": "A"
+            },
+            {
+              "content": "When the amount/number of asset sold the buyer is exactly equal to what is bought by the buyer",
+              "key": "B"
+            },
+            {
+              "content": "When the price that buyer is willing to pay is equal to one calculated from market sentiment.",
+              "key": "C"
+            },
+            {
+              "content": "When both A and B are true",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "78b5deea-4446-48aa-af75-7326e51ad950",
+      "name": "Important Terms",
+      "content": "Below are the important terms involved in Order Books \n### Bid\nThe bid is the price at which the buyer is willing to purchase the asset\n\n### Ask\nThe Ask is the price that the seller is willing to sell the asset for\n\n### Amount  \nNumber of tokens(asset) you plan to buy or sell\n\n### Price\nThe \"$\" (price) at which you plan to buy or see a certain token or asset\n\n### Market Order\nA market order is simply an order to buy or sell an asset at its current market price. For example, if the current market\nprice for Bitcoin is $2,000, and you place a buy order at that price, the trade will go through and you'll purchase the\nBitcoin for $2,000.\n\n\n### Limit Order\nA limit order, as opposed to a market order, is an automated order to buy or sell a financial instrument at a predetermined\nprice. So, for example, if the current market price of Bitcoin is $2,000 but your analysis shows that it would be a\nbetter buy at $1,950, you would place a limit order at $1,950. The trade will not go through until the Bitcoin can be\nbought at that price.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "36f06c3e-255c-4077-a65f-3da341a1b85b",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "4313356d-16e1-40ba-8714-1e8b06fcf779",
+          "content": "When do we mean by a Bid in an Order Book?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Price at which seller puts the asset for bidding",
+              "key": "A"
+            },
+            {
+              "content": "The bid is the price at which the buyer is willing to purchase the asset",
+              "key": "B"
+            },
+            {
+              "content": "The average price in USDC at which the asset is sold on a day",
+              "key": "C"
+            },
+            {
+              "content": "None of these",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "b988fc96-2890-4560-8470-6adf82034385",
+          "content": "When is a Limit Order?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "An order with a limited quantity",
+              "key": "A"
+            },
+            {
+              "content": "An automated order to buy or sell a financial instrument at a predetermined price",
+              "key": "B"
+            },
+            {
+              "content": "Order with limited power",
+              "key": "C"
+            },
+            {
+              "content": "Order sold at current price",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "7fa3a29e-6e6f-4388-8ed6-20bfbac5f8a3",
+      "name": "Buy and Sell",
+      "content": "### The Buy Side\nAll \"open buy orders\" that are below the last traded price make up the buy side. When a buyer makes an offer to purchase\nsomething at a specific price, this is called a \"bid.\" In other words, the bid represents the trader's interest in buying\na certain number of units that are owned by someone else, usually at a price that is lower than what was paid for them\noriginally.\n\nOnce a bid is matched with a corresponding sell order, the trade can be executed.\n\n### The Sell Side\nThe sell side of the market contains all open sell orders that are above the last traded price. This price is called the\n\"ask.\" It means, \"I am asking a certain price to sell X units I own\"\n\n### Bid vs Ask\nFor every asset traded, there is a buyer and a seller, and a “bid” and “ask” price. The bid is the price at which the\nbuyer is willing to purchase the asset, while the ask is the price that the seller is willing to sell the asset for.\n\nThere will usually be a gap between the bid and ask price called a “spread” or “bid/ask spread.” The bid/ask spread represents\nthe difference between the bid and ask prices, and is dependent on the volume of trades being submitted. For example, if there\nis a large volume of orders in a asset’s order book, the spread will be narrower than if there are fewer orders.\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "da3989ac-433a-4d97-9ed4-a0dc65cffe89",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "155ffbf8-7bd6-4b35-aef3-22be22c4fba4",
+          "content": "What is the buyer side of order called?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Tip",
+              "key": "A"
+            },
+            {
+              "content": "Ask",
+              "key": "B"
+            },
+            {
+              "content": "Mark",
+              "key": "C"
+            },
+            {
+              "content": "Bid",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "a262ce26-9c91-4e1c-93ae-cdec1fedfec2",
+          "content": "What is the seller side of order called?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Tip",
+              "key": "A"
+            },
+            {
+              "content": "Ask",
+              "key": "B"
+            },
+            {
+              "content": "Mark",
+              "key": "C"
+            },
+            {
+              "content": "Bid",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "81c32e6f-302a-499e-9618-e4da7d795a81",
+      "name": "Example",
+      "content": "In this example we will understand how Order Book works based on price and time.\n\nIn this example we have three sellers and three buyers. \n\nHere time t1 < t2 < t3 i.e. order placed at t1 happens first, then t2 and then the t3 order is placed.\n\n### Seller Orders\n1) Seller 1 at t1, asks for price $9 for each token and wants to sell 5 tokens\n2) Seller 2 at t2, asks for price $7 for each token and wants to sell 3 tokens\n3) Seller 3 at t3, asks for price $8 for each token and wants to sell 9 tokens\n\n### Buyer Orders\n1) Buyer 1 at t1, bids at price $6 for 8 tokens\n2) Buyer 2 at t2, bids at price $8 for 5 tokens\n3) Buyer 3 at t2, bids at price $8 for 3 tokens\n\nHere Seller-1 asks for too high of a price i.e. $9 for each token and no one wants to buy at this high price, hence\ntheir order is not matched.\n\nSeller-2, asks for $7 as the price per token, and Buyer-2 and Buyer-3 both are okay with buying at $8/token. Here Buyer-2 is given \npreference as their order was placed first.\n\n\n![Example](https://raw.githubusercontent.com/DoDAO-io/dodao-projectserum-guides/main/images/how_clob_works.png)\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "cfb13622-7df4-48cc-bf16-c28a06ae4fc9",
+      "name": "Your Info",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "bc1cf32a-9ed3-439b-bc6e-66fa0269343c",
+          "label": "Nick Name",
+          "required": true,
+          "type": "PublicShortInput"
+        },
+        {
+          "uuid": "07440ad1-fb01-4ba3-984a-3e359b2441fc",
+          "type": "UserDiscordConnect"
+        }
+      ]
+    }
+  ]
+}

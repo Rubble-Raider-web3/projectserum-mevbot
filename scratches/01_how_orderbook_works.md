@@ -1,5 +1,5 @@
 ## Introduction
-The order book is a crucial tool for traders, as it allows them to see the current buy and sell activity for a 
+Order Book is a crucial tool for traders, as it allows them to see the current buy and sell activity for a 
 particular asset. This helps them make more informed decisions about their trades, and ultimately increase their 
 chances of success.
 

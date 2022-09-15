@@ -1,6 +1,7 @@
 [
   "projectserum-overview.json",
-  "orderbook-basics.json",
+  "orderbook-vs-amm.json",
+  "how-order-book-works.json",
   "orderbook-trade-lifecycle.json",
   "build-on-serum-dex.json",
   "serum-liquidity-pools.json",

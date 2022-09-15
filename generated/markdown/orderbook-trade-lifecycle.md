@@ -300,7 +300,7 @@ account list. Note that this can happen in constant time because the slot number
 ## Trade Lifecycle - Settlement
 
 ## 4. Settlement:
-This instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote 
+The settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote 
 currency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The 
 runtime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency 
 Vault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each 

@@ -13,17 +13,18 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 | S.No        | Title       |  Details  |  Link  |
 | ----------- | ----------- |----------- | ----------- |
 | 1      | Project Serum Overview | Gives an Overview of Project Serum |  [Link](generated/markdown/projectserum-overview.md) |
- | 2      | Intro to Central Limit Order Book | Explains what is Central Orderbook and its benefits over AMMs |  [Link](generated/markdown/orderbook-basics.md) |
- | 3      | Trade Lifecycle | Explains Trade Lifecycle on Serum DEX |  [Link](generated/markdown/orderbook-trade-lifecycle.md) |
- | 4      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/build-on-serum-dex.md) |
- | 5      | Serum's Liquidity Pools | Gives an Overview of Serum's Liquidity Pools |  [Link](generated/markdown/serum-liquidity-pools.md) |
- | 6      | Using Liquidity Pool's API | Using Liquidity Pool's API |  [Link](generated/markdown/using-liquidity-pools.md) |
- | 7      | Swapping Tokens Using Serum | How to Swap tokens using Serum's API |  [Link](generated/markdown/swapping-on-orderbook.md) |
- | 8      | Serum Typescript | Explains about various utilities present in Serum Typescript Library |  [Link](generated/markdown/serum-ts.md) |
- | 9      | Project Serum Tokenomics | Explains how SRM Token and its token mechanics |  [Link](generated/markdown/serum-nft-ecosystem.md) |
- | 10      | Serum Tokenomics | Explains SRM tokens |  [Link](generated/markdown/serum-tokenomics.md) |
- | 11      | Project Serum Governance | Gives and introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) |
- | 12      | Developer Resources | Explains Resources available to developers for building projects on Serum |  [Link](generated/markdown/developer-resources.md) |
+ | 2      | Central Limit Order Book vs AMM | Explains what is Central Orderbook and its benefits over AMMs |  [Link](generated/markdown/orderbook-vs-amm.md) |
+ | 3      | How Order Book Works | Explains what is an Order Book and how order are placed in it |  [Link](generated/markdown/how-order-book-works.md) |
+ | 4      | Trade Lifecycle | Explains Trade Lifecycle on Serum DEX |  [Link](generated/markdown/orderbook-trade-lifecycle.md) |
+ | 5      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/build-on-serum-dex.md) |
+ | 6      | Serum's Liquidity Pools | Gives an Overview of Serum's Liquidity Pools |  [Link](generated/markdown/serum-liquidity-pools.md) |
+ | 7      | Using Liquidity Pool's API | Using Liquidity Pool's API |  [Link](generated/markdown/using-liquidity-pools.md) |
+ | 8      | Swapping Tokens Using Serum | How to Swap tokens using Serum's API |  [Link](generated/markdown/swapping-on-orderbook.md) |
+ | 9      | Serum Typescript | Explains about various utilities present in Serum Typescript Library |  [Link](generated/markdown/serum-ts.md) |
+ | 10      | Project Serum Tokenomics | Explains how SRM Token and its token mechanics |  [Link](generated/markdown/serum-nft-ecosystem.md) |
+ | 11      | Serum Tokenomics | Explains SRM tokens |  [Link](generated/markdown/serum-tokenomics.md) |
+ | 12      | Project Serum Governance | Gives and introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) |
+ | 13      | Developer Resources | Explains Resources available to developers for building projects on Serum |  [Link](generated/markdown/developer-resources.md) |
 
 ---
 ## Header

@@ -313,7 +313,7 @@
     {
       "uuid": "19a2d5a0-fcf2-4ce8-9124-a916016805ca",
       "name": "Trade Lifecycle - Settlement",
-      "content": "## 4. Settlement:\nThis instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote \ncurrency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The \nruntime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency \nVault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each \ncurrency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.\n",
+      "content": "## 4. Settlement:\nThe settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote \ncurrency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The \nruntime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency \nVault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each \ncurrency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.\n",
       "stepItems": []
     },
     {
