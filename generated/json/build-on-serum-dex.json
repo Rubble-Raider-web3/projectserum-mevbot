@@ -6,8 +6,7 @@
   "guideType": "onboarding",
   "created": "2022-08-02T04:15:13.911Z",
   "categories": [
-    "developer",
-    "engineering"
+    "developer"
   ],
   "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/intro_to_clob.png",
   "publishStatus": "Live",
@@ -16,8 +15,93 @@
   "steps": [
     {
       "uuid": "9fec9d86-adbb-4959-bebe-f7ac619a0309",
-      "name": "Developer Guide",
-      "content": "Hard core developer guide which explains what APIs to call to integrate with Serum DEX\n",
+      "name": "Introduction",
+      "content": "Serum is a decentralized exchange that anyone in the world can open an account on almost instantly. All you need is an\ninternet connection and computer, and with some crypto assets you're ready to trade with anyone on the planet. Serum is\na decentralized open source project that everyone can contribute to building. Project Serum is built by the Serum\nFoundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance.\n\nSerum's JavaScript Library `@project-serum/serum` is useful for interacting with the DEX Smart Contracts. `@project-serum/serum`\nmakes it easier to program on top of Serum DEX by abstracting out complex logic, which makes it simpler for other applications\nto integrate or build on top of Serum DEX.\n\nDeFi projects often face the challenge of attracting enough liquidity to keep the protocol/product running. However, by\nbuilding on top of Serum's DEX, applications can tap into a deep pool of liquidity. Serum's DEX enables many different\ntypes of applications, including advanced financial marketplaces and borrow lending.\n\nThis guide explains how you can call various methods of `@project-serum/serum` to\n1) Fetch the market data\n2) Fetch all the order book data\n3) Fetch open order of a particular account\n4) Place a new order on order book\n5) Cancel an order\n6) Retrieve filled orders\n7) Settle the funds within various user accounts used in DEX\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "20b342a6-93c3-4156-ad7b-52864b59fcd2",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "08852962-8c5b-46ed-8856-e9d7b7430caf",
+          "content": "What are the benefits of using `@project-serum/serum` library?",
+          "answerKeys": [
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "All the complex code to interact with Serum DEX is abstracted out into easy to use Javascript library",
+              "key": "A"
+            },
+            {
+              "content": "It makes it easy for the programmers to interact with Serum DEX.",
+              "key": "B"
+            },
+            {
+              "content": "Different UI applications can use `@project-serum/serum` and build application on top of Serum DEX.",
+              "key": "C"
+            },
+            {
+              "content": "All the above",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "48a36bbc-a7c9-4b36-a9ea-054aaba2edd1",
+          "content": "Which of these operations can be performed by using `@project-serum/serum` library?",
+          "answerKeys": [
+            "A",
+            "B",
+            "D"
+          ],
+          "type": "MultipleChoice",
+          "choices": [
+            {
+              "content": "Fetch open order of a particular account",
+              "key": "A"
+            },
+            {
+              "content": "Place a new order on order book",
+              "key": "B"
+            },
+            {
+              "content": "Interact with Solidity Smart Contracts",
+              "key": "C"
+            },
+            {
+              "content": "Retrieve filled orders",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "b3068b72-8c56-4b99-be5b-05b19f1f64bc",
+      "name": "Pull Market and Order Book information",
+      "content": "You would need market address and program address for connecting to the Serum DEX. Market and program id can be found\nfrom [https://github.com/project-serum/serum-js/blob/master/src/markets.json](https://github.com/project-serum/serum-js/blob/master/src/markets.json)\n\nBelow code explains how you can load a market and its data\n```javascript\n  import { Account, Connection, PublicKey } from '@solana/web3.js';\n  import { Market } from '@project-serum/serum';\n  \n  let connection = new Connection('https://testnet.solana.com');\n  let marketAddress = new PublicKey('...');\n  let programAddress = new PublicKey(\"...\");\n  let market = await Market.load(connection, marketAddress, {}, programAddress);\n  \n  // Fetching orderbooks\n  let bids = await market.loadBids(connection);\n  let asks = await market.loadAsks(connection);\n  // L2 orderbook data\n  for (let [price, size] of bids.getL2(20)) {\n    console.log(price, size);\n  }\n  // Full orderbook data\n  for (let order of asks) {\n    console.log(\n    order.orderId,\n    order.price,\n    order.size,\n    order.side, // 'buy' or 'sell'\n    );\n  }\n```\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "b62b486d-f306-4d54-9a79-aa1f6dd68e39",
+      "name": "Placing an order",
+      "content": "Users can place an order by submitting a Place Order instruction to the DEX program. To do so, they must provide the \nfollowing information:\n- Order details: the market, size, price, order type, side\n- Their OpenOrders account on that market\n- Their SPL token account for the market’s base currency (if selling) or quote currency (if buying)\n\n`@project-serum/serum` simplifies the placement of new order and saves us from getting into the complexity of passing\nparameters like open order account etc.\n\n```javascript\n  // Placing orders\n  let owner = new Account('...');\n  let payer = new PublicKey('...'); // spl-token account\n  await market.placeOrder(connection, {\n    owner,\n    payer,\n    side: 'buy', // 'buy' or 'sell'\n    price: 123.45,\n    size: 17.0,\n    orderType: 'limit', // 'limit', 'ioc', 'postOnly'\n  });\n  ```\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "78c91d59-099b-4006-aaf6-5374cc5c6824",
+      "name": "Cancelling and order",
+      "content": "Cancellation takes in an order (which includes the slot number and Order ID) adds an event to cancel it to the Event Queue.\n\nThe Order ID is a unique identifier that is used to determine the price-time priority of an order. It is a 128-bit\nnumber, with the first 64 bits representing the price and the second 64 bits representing the sequence number. If\nthe order is a buy order, all of the bits in the second half of the number are flipped.\n\n\n```javascript\n  // Retrieving open orders by owner\n  let myOrders = await market.loadOrdersForOwner(connection, owner.publicKey);\n  \n  // Cancelling orders\n  for (let order of myOrders) {\n    await market.cancelOrder(connection, owner, order);\n  }    \n```\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "394add16-da51-47f1-bf8e-a8072bc19f2a",
+      "name": "Retrieving filled orders and Settling funds",
+      "content": "After the trade has been made the \"Fill\" events are fired. When a Fill event is found, the total balance of the OpenOrders account \nis decreased by the quantity paid. The total and free balances of the OpenOrders account are increased by the quantity received. \nThe Market's total fees paid counter increments by the quantity of fees paid.\n\nThe settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote \ncurrency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The \nruntime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency \nVault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each \ncurrency.\n\n```javascript\n// Retrieving fills\nfor (let fill of await market.loadFills(connection)) {\n  console.log(fill.orderId, fill.price, fill.size, fill.side);\n}\n\n// Settle funds\nfor (let openOrders of await market.findOpenOrdersAccountsForOwner(\n  connection,\n  owner.publicKey,\n)) {\n  if (openOrders.baseTokenFree > 0 || openOrders.quoteTokenFree > 0) {\n    // spl-token accounts to which to send the proceeds from trades\n    let baseTokenAccount = new PublicKey('...');\n    let quoteTokenAccount = new PublicKey('...');\n\n    await market.settleFunds(\n      connection,\n      owner,\n      openOrders,\n      baseTokenAccount,\n      quoteTokenAccount,\n    );\n  }\n}\n```\n",
       "stepItems": []
     }
   ]
