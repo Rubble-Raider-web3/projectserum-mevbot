@@ -6,11 +6,10 @@
   "guideType": "onboarding",
   "created": "2022-08-02T04:15:13.911Z",
   "categories": [
-    "developer",
-    "engineering"
+    "onboarding"
   ],
   "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/serum_governance.png",
-  "publishStatus": "Live",
+  "publishStatus": "Draft",
   "socialShareImage": null,
   "showIncorrectOnCompletion": true,
   "steps": [
