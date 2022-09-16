@@ -4,10 +4,9 @@ guides:
   - orderbook-trade-lifecycle.yaml
   - orderbook-vs-amm.yaml
   - build-on-serum-dex.yaml
-  - serum-liquidity-pools.yaml
   - serum-ts.yaml
+  - using-liquidity-pools.yaml
   - serum-tokenomics.yaml
   - serum-governance.yaml
   - swapping-on-orderbook.yaml
-  - using-liquidity-pools.yaml
   - developer-resources.yaml

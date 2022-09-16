@@ -4,11 +4,10 @@
   "orderbook-trade-lifecycle.json",
   "orderbook-vs-amm.json",
   "build-on-serum-dex.json",
-  "serum-liquidity-pools.json",
   "serum-ts.json",
+  "using-liquidity-pools.json",
   "serum-tokenomics.json",
   "serum-governance.json",
   "swapping-on-orderbook.json",
-  "using-liquidity-pools.json",
   "developer-resources.json"
 ]
