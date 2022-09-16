@@ -142,6 +142,94 @@
           ]
         }
       ]
+    },
+    {
+      "uuid": "8b10742a-e771-41e8-bd6a-afa2223cb423",
+      "name": "Pool Operation - Get pool basket",
+      "content": "Use [`getPoolBasket()`](https://project-serum.github.io/serum-ts/pool/modules/_index_.html#getpoolbasket)\nto fetch the current pool basket (the quantity of each token needed to create N pool tokens\nor the quantity of each token received for redeeming N pool tokens).\n\nNegative quantities will cause tokens to be transferred in the opposite direction.\n```js\n  import { Connection, PublicKey } from '@solana/web3.js';\n  import { loadPoolInfo, getPoolBasket } from '@project-serum/pool';\n  import BN from 'bn.js';\n  \n  let connection = new Connection('...');\n  let poolAddress = new PublicKey('...'); // Address of the pool.\n  \n  let poolInfo = await loadPoolInfo(connection, poolAddress);\n  let basket = await getPoolBasket(\n  connection,\n  poolInfo,\n  { create: new BN(100) },\n  // Arbitrary SOL address, can be anything as long as it has nonzero SOL\n  // and is not a program-owned address.\n  new PublicKey('...'),\n  );\n  \n  console.log(basket);\n```\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "495579ef-b56b-4009-9bf1-dbd27c65bc98",
+      "name": "Pool Operations - Redeem pool tokens",
+      "content": "Liquidity providers can redeem their LP tokens against the liquidity pool to receive the original pair of tokens \nback, a process called withdrawing liquidity. The amount of the two tokens to be redeemed is decided by the \npercentage share of the liquidity pool they hold, and the ratio is determined by that of these tokens in the \nliquidity pool at the time.\n\nWhen you redeem N of T:\n* Pool burns N of T\n* Pool returns the redemption basket for N of T to you\n\nSend a transaction to redeem pool tokens:\n```js\n  import { Account, Connection, PublicKey } from '@solana/web3.js';\n  import { loadPoolInfo, PoolTransactions } from '@project-serum/pool';\n  import BN from 'bn.js';\n\n  let connection = new Connection('...');\n  let poolAddress = new PublicKey('...'); // Address of the pool.\n  let payer = new Account('...'); // Account to pay for solana fees.\n\n  let poolInfo = await loadPoolInfo(connection, poolAddress);\n  let { transaction, signers } = PoolTransactions.execute(\n    poolInfo,\n    {\n      // Number of tokens to redeem.\n      redeem: new BN(100),\n    },\n    {\n      // Spl-token account to pull the pool tokens to redeem from.\n      poolTokenAccount: new PublicKey('...'),\n      // Spl-token accounts to send the redemption proceeds.\n      assetAccounts: [new PublicKey('...'), new Public('...')],\n      // Owner of poolTokenAccount and assetAccounts.\n      owner: payer.publicKey,\n    },\n    // Expected redemption proceeds.\n    [new BN(10), new BN(10)],\n  );\n  await connection.sendTransaction(transaction, [payer, ...signers]);\n```\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "639c2ec2-7ce6-484f-8e7e-fe5a11d1d01e",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "10816ad3-e857-488b-98de-6d6c8943d7b6",
+          "content": "Which on these best defines a basket while redemption a pool?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Basket contains all the owners of the pool",
+              "key": "A"
+            },
+            {
+              "content": "Basket is defines by the number of liquidity tokens to mint",
+              "key": "B"
+            },
+            {
+              "content": "For redemptions, the basket is the quantity of each asset that will be transferred from the pool to the user after the redemption.",
+              "key": "C"
+            },
+            {
+              "content": "Basket is the wrapper which contains all the transactions needed to create the pool",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "3af40d0b-2200-455e-9a55-6ab52a9cce94",
+          "content": "Which of these is used to redeem pool with tokens?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Code Snippet A\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to use for initialization.\n        initialize: new BN(100),\n      },\n  ```\n",
+              "key": "A"
+            },
+            {
+              "content": "Code Snippet B\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to create.\n        create: new BN(100)\n      },\n  ```\n",
+              "key": "B"
+            },
+            {
+              "content": "Code Snippet C\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to redeem.\n        redeem: new BN(100),\n      },\n  ```\n",
+              "key": "C"
+            },
+            {
+              "content": "Code Snippet D\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to use for setum.\n        setup: new BN(100),\n      },\n  ```\n",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "e752a300-448e-4060-be0b-276c58e7c006",
+      "name": "Your Info",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "037ef15d-3ff3-4f2a-a46d-2f2fc589caca",
+          "label": "Nick Name",
+          "required": true,
+          "type": "PublicShortInput"
+        },
+        {
+          "uuid": "980afdbb-7520-46c4-959b-3065169d3cac",
+          "type": "UserDiscordConnect"
+        }
+      ]
     }
   ]
 }

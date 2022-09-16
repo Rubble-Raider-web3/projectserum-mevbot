@@ -214,6 +214,167 @@ When you create N number of tokens of type T:
 
 
 ---
+## Pool Operation - Get pool basket
+
+Use [`getPoolBasket()`](https://project-serum.github.io/serum-ts/pool/modules/_index_.html#getpoolbasket)
+to fetch the current pool basket (the quantity of each token needed to create N pool tokens
+or the quantity of each token received for redeeming N pool tokens).
+
+Negative quantities will cause tokens to be transferred in the opposite direction.
+```js
+  import { Connection, PublicKey } from '@solana/web3.js';
+  import { loadPoolInfo, getPoolBasket } from '@project-serum/pool';
+  import BN from 'bn.js';
+  
+  let connection = new Connection('...');
+  let poolAddress = new PublicKey('...'); // Address of the pool.
+  
+  let poolInfo = await loadPoolInfo(connection, poolAddress);
+  let basket = await getPoolBasket(
+  connection,
+  poolInfo,
+  { create: new BN(100) },
+  // Arbitrary SOL address, can be anything as long as it has nonzero SOL
+  // and is not a program-owned address.
+  new PublicKey('...'),
+  );
+  
+  console.log(basket);
+```
+
+
+    
+
+
+---
+## Pool Operations - Redeem pool tokens
+
+Liquidity providers can redeem their LP tokens against the liquidity pool to receive the original pair of tokens 
+back, a process called withdrawing liquidity. The amount of the two tokens to be redeemed is decided by the 
+percentage share of the liquidity pool they hold, and the ratio is determined by that of these tokens in the 
+liquidity pool at the time.
+
+When you redeem N of T:
+* Pool burns N of T
+* Pool returns the redemption basket for N of T to you
+
+Send a transaction to redeem pool tokens:
+```js
+  import { Account, Connection, PublicKey } from '@solana/web3.js';
+  import { loadPoolInfo, PoolTransactions } from '@project-serum/pool';
+  import BN from 'bn.js';
+
+  let connection = new Connection('...');
+  let poolAddress = new PublicKey('...'); // Address of the pool.
+  let payer = new Account('...'); // Account to pay for solana fees.
+
+  let poolInfo = await loadPoolInfo(connection, poolAddress);
+  let { transaction, signers } = PoolTransactions.execute(
+    poolInfo,
+    {
+      // Number of tokens to redeem.
+      redeem: new BN(100),
+    },
+    {
+      // Spl-token account to pull the pool tokens to redeem from.
+      poolTokenAccount: new PublicKey('...'),
+      // Spl-token accounts to send the redemption proceeds.
+      assetAccounts: [new PublicKey('...'), new Public('...')],
+      // Owner of poolTokenAccount and assetAccounts.
+      owner: payer.publicKey,
+    },
+    // Expected redemption proceeds.
+    [new BN(10), new BN(10)],
+  );
+  await connection.sendTransaction(transaction, [payer, ...signers]);
+```
+
+
+    
+
+
+---
+## Evaluation
+
+
+
+
+
+##### Which on these best defines a basket while redemption a pool?  
+
+- [ ]  Basket contains all the owners of the pool
+- [ ]  Basket is defines by the number of liquidity tokens to mint
+- [x]  For redemptions, the basket is the quantity of each asset that will be transferred from the pool to the user after the redemption.
+- [ ]  Basket is the wrapper which contains all the transactions needed to create the pool
+
+
+
+
+
+##### Which of these is used to redeem pool with tokens?  
+
+- [ ]  Code Snippet A
+  ```javascript
+      PoolTransactions.execute(
+      poolInfo,
+      {
+        // Number of tokens to use for initialization.
+        initialize: new BN(100),
+      },
+  ```
+
+- [ ]  Code Snippet B
+  ```javascript
+      PoolTransactions.execute(
+      poolInfo,
+      {
+        // Number of tokens to create.
+        create: new BN(100)
+      },
+  ```
+
+- [x]  Code Snippet C
+  ```javascript
+      PoolTransactions.execute(
+      poolInfo,
+      {
+        // Number of tokens to redeem.
+        redeem: new BN(100),
+      },
+  ```
+
+- [ ]  Code Snippet D
+  ```javascript
+      PoolTransactions.execute(
+      poolInfo,
+      {
+        // Number of tokens to use for setum.
+        setup: new BN(100),
+      },
+  ```
+
+
+    
+
+
+---
+## Your Info
+
+
+
+
+
+| Label | Type | Required |
+| ----------- | ----------- | ---- |
+| Nick Name        | PublicShortInput   |  true    |
+
+
+
+
+    
+
+
+---
 ## Header
 This is the course header. This will be added on top of every page. Go to [DoDAO.io](https://www.dodao.io) to know more.
 
