@@ -6,8 +6,7 @@
   "guideType": "onboarding",
   "created": "2022-08-02T04:15:13.911Z",
   "categories": [
-    "developer",
-    "engineering"
+    "developer"
   ],
   "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/liquidity_pools_api.png",
   "publishStatus": "Live",
@@ -15,10 +14,134 @@
   "showIncorrectOnCompletion": true,
   "steps": [
     {
-      "uuid": "3f7228c7-028f-436d-936c-2b425ab5f9ab",
-      "name": "Calling Serum Pool's API",
-      "content": "https://github.com/project-serum/serum-ts/tree/master/packages/pool\n",
+      "uuid": "48dfb1a7-17d9-4614-ab3e-038720278950",
+      "name": "General Working of a Liquidity Pool",
+      "content": "The Pool account is designed to hold assets. You can create a Pool account by sending in some assets. In return, you will \nbe given a Pool Token (T) which represents your partial ownership of the Pool.\n\nIf you send in x% of the Pool's assets, the Pool will mint enough T tokens so that you have x% of the prior outstanding.\nYou can redeem your T tokens to get back assets. However, if the Pool has changed since you created it, you\nmight not get back exactly the same thing.\n\nIf you have x% of all Pool Tokens, you are entitled to x% of the assets in the Pool (see below). When a Token is redeemed,\nit is burned.\n\nYou can customize if and how the Pool can trade or rebalance its assets.\n\nThis is what represents a pool state in Serum\n```rust \n    pub struct PoolState {\n      pub tag: PoolStateTag,\n        \n        /// Token mint account for the pool token.\n      pub pool_token_mint: Address,\n        /// Mint and vaults for the assets in the pool.\n      pub assets: Vec<AssetInfo>,\n        \n        /// Mint authority for the pool token and owner for the assets in the pool.\n      pub vault_signer: Address,\n        /// Nonce used to generate `vault_signer`.\n      pub vault_signer_nonce: u8,\n        \n        /// Additional accounts that need to be included with every request.\n      pub account_params: Vec<ParamDesc>,\n        \n        /// User-friendly pool name.\n      pub name: String,\n        \n        /// Vault for fees collected by the pool for LQD. Mint is the pool token mint.\n      pub lqd_fee_vault: Address,\n        /// Vault for fees collected by the pool for the pool initializer. Mint is the pool token mint.\n      pub initializer_fee_vault: Address,\n        \n        /// Fee on creations and redemptions, per million tokens.\n      pub fee_rate: u32,\n        \n        /// Meaning depends on the pool implementation.\n      pub admin_key: Option<Address>,\n      \n      pub custom_state: Vec<u8>,\n    }\n      \n    pub struct AssetInfo {\n      pub mint: Address,\n        /// Vault should be owned by `PoolState::vault_signer`\n      pub vault_address: Address,\n    }      \n```\n",
       "stepItems": []
+    },
+    {
+      "uuid": "b9cecfde-62c0-4bd8-bc9a-0156a8329f92",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "f16d2558-969f-4378-a0df-2c65081c22aa",
+          "content": "What do you get in return of sending assets to a Pool",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Voting Power",
+              "key": "A"
+            },
+            {
+              "content": "Liquidity Pool Tokens(different from the assets) also commonly known as LP Tokens",
+              "key": "B"
+            },
+            {
+              "content": "NFTs",
+              "key": "C"
+            },
+            {
+              "content": "Souldbound Tokens",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "f9bf06ac-796f-4b8b-a44d-3b797b7d3f69",
+          "content": "Which one of these is not a field in the Pool State?",
+          "answerKeys": [
+            "C"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Mint authority for the pool token and owner for the assets in the pool.",
+              "key": "A"
+            },
+            {
+              "content": "User-friendly pool name.",
+              "key": "B"
+            },
+            {
+              "content": "Number of NFTs to mint",
+              "key": "C"
+            },
+            {
+              "content": "Fee on creations and redemptions, per million tokens.",
+              "key": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "debc6ed6-e798-42f0-a4e0-a34bfaf3f24a",
+      "name": "Pool Operations - Create pool tokens",
+      "content": "When initializing the pool you need to  specify the creation basket for Pool Tokens. It takes N, the number of Pool Tokens you want to\ncreate, as an argument. It outputs the assets and quantities needed to create the N number of T tokens. You can also enter a fixed creation\nbasket per T if you want. If you leave this blank, it defaults to `N / (total number of T)` * (full contents of basket).\nNote that the function can also return assets to the pool before returning the basket.\n\nFor creations, the basket is the quantity of each asset that need to be sent to the pool to process the creation. For\nredemptions and swaps, the basket is the quantity of each asset that will be transferred from the pool to the user after\nthe redemption or swap.\n\nWhen you create N number of tokens of type T:\n* P takes the creation basket for N, and mints you N of T\n* If you don’t have the creation basket it fails\n\n```js\n  import { Account, Connection, PublicKey } from '@solana/web3.js';\n  import { loadPoolInfo, PoolTransactions } from '@project-serum/pool';\n  import BN from 'bn.js';\n  \n  let connection = new Connection('...');\n  let poolAddress = new PublicKey('...'); // Address of the pool.\n  let payer = new Account('...'); // Account to pay for solana fees.\n  \n  let poolInfo = await loadPoolInfo(connection, poolAddress);\n  let { transaction, signers } = PoolTransactions.execute(\n    poolInfo,\n    {\n    // Number of tokens to create.\n    create: new BN(100),\n    },\n    {\n      // Spl-token account to send the created tokens.\n      poolTokenAccount: new PublicKey('...'),\n      // Spl-token accounts to pull funds from.\n      assetAccounts: [new PublicKey('...'), new Public('...')],\n      // Owner of poolTokenAccount and assetAccounts.\n      owner: payer.publicKey,\n    },\n    // Expected creation cost.\n    [new BN(10), new BN(10)],\n  );\n  await connection.sendTransaction(transaction, [payer, ...signers]);\n```\n",
+      "stepItems": []
+    },
+    {
+      "uuid": "ba2106d8-c458-4def-a2b5-ecd6580f0eb8",
+      "name": "Evaluation",
+      "content": "",
+      "stepItems": [
+        {
+          "uuid": "69b2a34b-3a27-477d-b1aa-e548d0454ef4",
+          "content": "Which on these best defines a basket while creating a pool?",
+          "answerKeys": [
+            "D"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Basket contains all the owners of the pool",
+              "key": "A"
+            },
+            {
+              "content": "Basket is defines by the number of liquidity tokens to mint",
+              "key": "B"
+            },
+            {
+              "content": "Basket is the wrapper which contains all the transactions needed to create the pool",
+              "key": "C"
+            },
+            {
+              "content": "Basket is the quantity of each asset that need to be sent to the pool to process the creation",
+              "key": "D"
+            }
+          ]
+        },
+        {
+          "uuid": "519b0d05-7553-486f-a98c-2d2196cd5bc7",
+          "content": "Which of these is used to create pool with tokens?",
+          "answerKeys": [
+            "B"
+          ],
+          "type": "SingleChoice",
+          "choices": [
+            {
+              "content": "Code Snippet A\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to use for initialization.\n        initialize: new BN(100),\n      },\n  ```\n",
+              "key": "A"
+            },
+            {
+              "content": "Code Snippet B\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to create.\n        create: new BN(100)\n      },\n  ```\n",
+              "key": "B"
+            },
+            {
+              "content": "Code Snippet C\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to redeem.\n        redeem: new BN(100),\n      },\n  ```\n",
+              "key": "C"
+            },
+            {
+              "content": "Code Snippet D\n  ```javascript\n      PoolTransactions.execute(\n      poolInfo,\n      {\n        // Number of tokens to use for setum.\n        setup: new BN(100),\n      },\n  ```\n",
+              "key": "D"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
