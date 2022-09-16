@@ -8,7 +8,7 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 
 ---
 
-## Central Limit Order Book vs AMM
+## Order Book vs AMM
 
 
 ## Intro & Terms

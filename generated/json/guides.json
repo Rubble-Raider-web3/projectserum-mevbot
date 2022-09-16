@@ -1,15 +1,14 @@
 [
   "projectserum-overview.json",
-  "orderbook-vs-amm.json",
   "how-order-book-works.json",
   "orderbook-trade-lifecycle.json",
+  "orderbook-vs-amm.json",
   "build-on-serum-dex.json",
   "serum-liquidity-pools.json",
-  "using-liquidity-pools.json",
-  "swapping-on-orderbook.json",
   "serum-ts.json",
-  "serum-nft-ecosystem.json",
   "serum-tokenomics.json",
   "serum-governance.json",
+  "swapping-on-orderbook.json",
+  "using-liquidity-pools.json",
   "developer-resources.json"
 ]

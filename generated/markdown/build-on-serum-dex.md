@@ -106,6 +106,34 @@ Below code explains how you can load a market and its data
 
 
 ---
+## Evaluation
+
+
+
+
+
+##### What information peices do you need to be able to connect to Serum DEX?  
+
+- [ ]  Network Url i.e. `https://testnet.solana.com`
+- [ ]  Market Address
+- [ ]  Program Address/Id
+- [x]  All the above
+
+
+
+
+
+##### Which of these helps in pulling Order Books from Serum?  
+
+- [ ]  `await market.fetchAll(connection)`
+- [x]  `await market.loadBids(connection)` and `await market.loadAsks(connection)`
+- [ ]  `await market.getSerumMarket(connection)`
+- [ ]  None of the above
+
+    
+
+
+---
 ## Placing an order
 
 Users can place an order by submitting a Place Order instruction to the DEX program. To do so, they must provide the 
@@ -136,6 +164,34 @@ parameters like open order account etc.
 
 
 ---
+## Evaluation
+
+
+
+
+
+##### Which information is not needed while pacing the limit order?  
+
+- [ ]  side - buy or sell
+- [ ]  price
+- [x]  gas fee
+- [ ]  size
+
+
+
+
+
+##### Which of these is not a valid order type?  
+
+- [ ]  limit
+- [x]  exchange
+- [ ]  ioc
+- [ ]  postOnly
+
+    
+
+
+---
 ## Cancelling and order
 
 Cancellation takes in an order (which includes the slot number and Order ID) adds an event to cancel it to the Event Queue.
@@ -155,6 +211,23 @@ the order is a buy order, all of the bits in the second half of the number are f
   }    
 ```
 
+
+    
+
+
+---
+## Evaluation
+
+
+
+
+
+##### Select the correct code snippet which allows cancelling the order?  
+
+- [x]  `await market.cancelOrder(connection, owner, order);`
+- [ ]  `await market.cancelNow(connection, owner, order);`
+- [ ]  `await market.cancel(connection, owner, order);`
+- [ ]  None of the above
 
     
 
@@ -198,6 +271,51 @@ for (let openOrders of await market.findOpenOrdersAccountsForOwner(
   }
 }
 ```
+
+
+    
+
+
+---
+## Evaluation
+
+
+
+
+
+##### Which event is fired when a tade is made in Serum?  
+
+- [ ]  TradeSuccess
+- [ ]  OrderFilled
+- [x]  Fill
+- [ ]  None of the above
+
+
+
+
+
+##### Select the correct statement regarding settlement of funds after a successful trade?  
+
+- [ ]  The settlement instruction settles the funds of the user from their Order Book to their SPL token accounts
+- [ ]  The settlement instruction settles the funds of the user from their OpenOrders account to their Order Book Account
+- [x]  The settlement instruction settles the funds of the user from their SPL token accounts to their OpenOrders account
+- [ ]  The settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts
+
+    
+
+
+---
+## Your Info
+
+
+
+
+
+| Label | Type | Required |
+| ----------- | ----------- | ---- |
+| Nick Name        | PublicShortInput   |  true    |
+
+
 
 
     

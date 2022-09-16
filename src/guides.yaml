@@ -1,14 +1,13 @@
 guides:
   - projectserum-overview.yaml
-  - orderbook-vs-amm.yaml
   - how-order-book-works.yaml
   - orderbook-trade-lifecycle.yaml
+  - orderbook-vs-amm.yaml
   - build-on-serum-dex.yaml
   - serum-liquidity-pools.yaml
-  - using-liquidity-pools.yaml
-  - swapping-on-orderbook.yaml
   - serum-ts.yaml
-  - serum-nft-ecosystem.yaml
   - serum-tokenomics.yaml
   - serum-governance.yaml
+  - swapping-on-orderbook.yaml
+  - using-liquidity-pools.yaml
   - developer-resources.yaml

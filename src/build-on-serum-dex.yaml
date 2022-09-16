@@ -105,6 +105,38 @@ steps:
         }
       ```
     stepItems: []
+  - uuid: 898ac414-fb9c-4a4f-bf00-637b88db1d73
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: ff5b37c3-978a-48e9-8aad-fa7c632cc79e
+        content: What information peices do you need to be able to connect to Serum DEX?
+        answerKeys:
+          - D
+        type: SingleChoice
+        choices:
+          - content: Network Url i.e. `https://testnet.solana.com`
+            key: A
+          - content: Market Address
+            key: B
+          - content: Program Address/Id
+            key: C
+          - content: All the above
+            key: D
+      - uuid: 0d25ff30-47a3-4c97-a6b1-ded313247edf
+        content: Which of these helps in pulling Order Books from Serum?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: "`await market.fetchAll(connection)`"
+            key: A
+          - content: "`await market.loadBids(connection)` and `await market.loadAsks(connection)`"
+            key: B
+          - content: "`await market.getSerumMarket(connection)`"
+            key: C
+          - content: None of the above
+            key: D
   - uuid: b62b486d-f306-4d54-9a79-aa1f6dd68e39
     name: Placing an order
     content: |
@@ -131,6 +163,38 @@ steps:
         });
         ```
     stepItems: []
+  - uuid: 48c98f9b-fda1-4c78-94af-a21b32121a23
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: 32bfdb96-cd58-4802-9a71-cde7f4d3f30f
+        content: Which information is not needed while pacing the limit order?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: side - buy or sell
+            key: A
+          - content: price
+            key: B
+          - content: gas fee
+            key: C
+          - content: size
+            key: D
+      - uuid: 412f9979-5e75-4dea-a840-d3268d378b57
+        content: Which of these is not a valid order type?
+        answerKeys:
+          - B
+        type: SingleChoice
+        choices:
+          - content: limit
+            key: A
+          - content: exchange
+            key: B
+          - content: ioc
+            key: C
+          - content: postOnly
+            key: D
   - uuid: 78c91d59-099b-4006-aaf6-5374cc5c6824
     name: Cancelling and order
     content: |
@@ -151,6 +215,25 @@ steps:
         }    
       ```
     stepItems: []
+  - uuid: fdecacd2-1724-4773-a478-5ba9dffbff13
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: bb4d63d2-432c-487d-92b9-8ebab870e5ac
+        content: Select the correct code snippet which allows cancelling the order?
+        answerKeys:
+          - A
+        type: SingleChoice
+        choices:
+          - content: "`await market.cancelOrder(connection, owner, order);`"
+            key: A
+          - content: "`await market.cancelNow(connection, owner, order);`"
+            key: B
+          - content: "`await market.cancel(connection, owner, order);`"
+            key: C
+          - content: None of the above
+            key: D
+
   - uuid: 394add16-da51-47f1-bf8e-a8072bc19f2a
     name: Retrieving filled orders and Settling funds
     content: |
@@ -191,4 +274,46 @@ steps:
       }
       ```
     stepItems: []
+  - uuid: aeca7b4e-b484-4c23-a402-820df5cef8dc
+    name: Evaluation
+    content: |
+    stepItems:
+      - uuid: b870640c-c71d-442c-aee3-fc8183f6197b
+        content: Which event is fired when a tade is made in Serum?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: TradeSuccess
+            key: A
+          - content: OrderFilled
+            key: B
+          - content: Fill
+            key: C
+          - content: None of the above
+            key: D
+      - uuid: e74bc232-b3b2-45ed-9b09-343b4473fa7d
+        content: Select the correct statement regarding settlement of funds after a successful trade?
+        answerKeys:
+          - C
+        type: SingleChoice
+        choices:
+          - content: The settlement instruction settles the funds of the user from their Order Book to their SPL token accounts
+            key: A
+          - content: The settlement instruction settles the funds of the user from their OpenOrders account to their Order Book Account
+            key: B
+          - content: The settlement instruction settles the funds of the user from their SPL token accounts to their OpenOrders account
+            key: C
+          - content: The settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts
+            key: D
+  - uuid: 1b25a4de-d9ef-4584-b958-01483f878890
+    name: Your Info
+    content: |
+    stepItems:
+      - uuid: 034c90ca-0cd5-42ea-92ba-210ead9c9d04
+        label: Nick Name
+        required: true
+        type: PublicShortInput
+      - uuid: 7563b802-89d6-4665-84e0-eab26461c2c2
+        type: UserDiscordConnect
 
