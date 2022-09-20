@@ -74,7 +74,8 @@ steps:
       Serum is a decentralized exchange that anyone in the world can open an account on almost instantly. All you need is an 
       internet connection and computer, and with some crypto assets you're ready to trade with anyone on the planet. Serum is
       a decentralized open source project that everyone can contribute to building. Project Serum is built by the Serum
-      Foundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance.
+      Foundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance. Serum is built
+      on top of Solana Blockchain.
 
       Solana is a fast, secure, and censorship-resistant blockchain providing the open infrastructure required for global adoption. 
       It uses a proof-of-stake mechanism as well as a "proof-of-history" mechanism to achieve consensus.
