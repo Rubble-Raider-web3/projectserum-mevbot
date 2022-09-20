@@ -89,7 +89,8 @@ The Ask is the price that the seller is willing to sell the asset for
 Number of tokens(asset) you plan to buy or sell
 
 ### Price
-The "$" (price) at which you plan to buy or see a certain token or asset
+The "$" (price) at which you plan to buy or see a certain token or asset. The price doesn't need to be in USD, and
+is mosly represented in the base currecy i.e. the currency used to buy the asset.
 
 ### Market Order
 A market order is simply an order to buy or sell an asset at its current market price. For example, if the current market
