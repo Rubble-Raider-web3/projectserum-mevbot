@@ -8,7 +8,7 @@
   "categories": [
     "overview"
   ],
-  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/intro_to_clob.png",
+  "thumbnail": "https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/project_Serum_overview.png",
   "publishStatus": "Live",
   "socialShareImage": null,
   "showIncorrectOnCompletion": true,
@@ -83,7 +83,7 @@
     {
       "uuid": "5f7f0a4d-0893-48df-8fa2-76aac31d3961",
       "name": "About Serum",
-      "content": "Serum is a decentralized exchange that anyone in the world can open an account on almost instantly. All you need is an \ninternet connection and computer, and with some crypto assets you're ready to trade with anyone on the planet. Serum is\na decentralized open source project that everyone can contribute to building. Project Serum is built by the Serum\nFoundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance.\n\nSolana is a fast, secure, and censorship-resistant blockchain providing the open infrastructure required for global adoption. \nIt uses a proof-of-stake mechanism as well as a \"proof-of-history\" mechanism to achieve consensus.\n\nSolana is one of the few blockchains out there that is designed to be able to handle a lot of users and devices \nwithout sacrificing decentralization or security. Its specs include:\n  - supporting 50k transactions per second\n  - block times of approximately 400ms\n  - network fees of $0.0001 per transaction\n  - no sharding is required\n\nThe FTX team's choice to build Serum on Solana instead of ethereum is exactly why serum can perform so well. The potential\nfor building dapps on serum is also huge.\n",
+      "content": "Serum is a decentralized exchange that anyone in the world can open an account on almost instantly. All you need is an \ninternet connection and computer, and with some crypto assets you're ready to trade with anyone on the planet. Serum is\na decentralized open source project that everyone can contribute to building. Project Serum is built by the Serum\nFoundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance. Serum is built\non top of Solana Blockchain.\n\nSolana is a fast, secure, and censorship-resistant blockchain providing the open infrastructure required for global adoption. \nIt uses a proof-of-stake mechanism as well as a \"proof-of-history\" mechanism to achieve consensus.\n\nSolana is one of the few blockchains out there that is designed to be able to handle a lot of users and devices \nwithout sacrificing decentralization or security. Its specs include:\n  - supporting 50k transactions per second\n  - block times of approximately 400ms\n  - network fees of $0.0001 per transaction\n  - no sharding is required\n\nThe FTX team's choice to build Serum on Solana instead of ethereum is exactly why serum can perform so well. The potential\nfor building dapps on serum is also huge.\n",
       "stepItems": []
     },
     {

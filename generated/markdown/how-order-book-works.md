@@ -22,6 +22,10 @@ For every entry in the order book, there is at least one other trader with an op
 the list in red are the open asks, or the prices that sellers are asking for, and below in green are the open bids, or
 prices that buyers are willing to pay.
 
+![Example](https://raw.githubusercontent.com/DoDAO-io/dodao-projectserum-guides/main/orderbooksnapshot_btc_usd.gif)
+
+Image Taken From - www.amberdata.io/crypto-dictionary
+
 Since these are all open orders, they give us an insight into what prices people think they can get their orders filled at.
 
 By taking all of this information into account, traders can make wiser decisions about their  trades and improve their
@@ -243,4 +247,6 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 * All links - https://github.com/project-serum/awesome-serum
 * Pools - https://docs.google.com/document/d/1lmMZRKkxMFOtGOEZOFEKYL7syqv-4QT87F0o55fc35Y/edit
 * Serum DEX - https://docs.google.com/document/d/1isGJES4jzQutI0GtQGuqtrBUqeHxl_xJNXdtOv4SdII/edit
+* Serum's new Asset-Agnostic orderbook - https://medium.com/serum-stories/bonfida-delivers-a-new-core-for-serum-asset-agnostic-orderbook-serum-stories-11-3d1b3c03d25c
+* 
     

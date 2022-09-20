@@ -69,7 +69,8 @@ scale, with over 1 billion users and $10 trillion in value moving on-chain at th
 Serum is a decentralized exchange that anyone in the world can open an account on almost instantly. All you need is an 
 internet connection and computer, and with some crypto assets you're ready to trade with anyone on the planet. Serum is
 a decentralized open source project that everyone can contribute to building. Project Serum is built by the Serum
-Foundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance.
+Foundation - the foundation is a group of experts in cryptocurrencies trading and decentralized finance. Serum is built
+on top of Solana Blockchain.
 
 Solana is a fast, secure, and censorship-resistant blockchain providing the open infrastructure required for global adoption. 
 It uses a proof-of-stake mechanism as well as a "proof-of-history" mechanism to achieve consensus.
@@ -252,4 +253,6 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 * All links - https://github.com/project-serum/awesome-serum
 * Pools - https://docs.google.com/document/d/1lmMZRKkxMFOtGOEZOFEKYL7syqv-4QT87F0o55fc35Y/edit
 * Serum DEX - https://docs.google.com/document/d/1isGJES4jzQutI0GtQGuqtrBUqeHxl_xJNXdtOv4SdII/edit
+* Serum's new Asset-Agnostic orderbook - https://medium.com/serum-stories/bonfida-delivers-a-new-core-for-serum-asset-agnostic-orderbook-serum-stories-11-3d1b3c03d25c
+* 
     

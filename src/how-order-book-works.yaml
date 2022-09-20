@@ -23,6 +23,10 @@ steps:
       the list in red are the open asks, or the prices that sellers are asking for, and below in green are the open bids, or
       prices that buyers are willing to pay.
       
+      ![Example](https://raw.githubusercontent.com/DoDAO-io/dodao-projectserum-guides/main/orderbooksnapshot_btc_usd.gif)
+      
+      Image Taken From - www.amberdata.io/crypto-dictionary
+      
       Since these are all open orders, they give us an insight into what prices people think they can get their orders filled at.
       
       By taking all of this information into account, traders can make wiser decisions about their  trades and improve their
