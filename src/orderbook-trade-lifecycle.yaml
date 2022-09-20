@@ -6,7 +6,7 @@ guideType: onboarding
 created: "2022-08-21T04:15:13.911Z"
 categories:
   - engineering
-thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/how_orderbook_works.png
+thumbnail: https://d31h13bdjwgzxs.cloudfront.net/guides/sol/project-serum/serum_trade_lifecycle.png
 publishStatus: Live
 socialShareImage:
 showIncorrectOnCompletion: true
@@ -42,21 +42,6 @@ steps:
     name: Evaluation
     content: |
     stepItems:
-      - uuid: 0a819f87-8f52-4436-9bff-bd380410ecd9
-        content: What is the block time of Solana?
-        answerKeys:
-          - C
-        type: SingleChoice
-        choices:
-          - content: 4ms
-            key: A
-          - content: 40ms
-            key: B
-          - content: 400ms
-            key: C
-          - content: 4000ms
-            key: D
-
       - uuid: 8d10ae65-4897-4f65-97d8-c32826c33b9f
         content: Which of the following reports the list of outputs from order matching?
         answerKeys:

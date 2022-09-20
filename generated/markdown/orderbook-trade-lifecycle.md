@@ -47,17 +47,6 @@ Now, before going to Trade Lifecycle, let's first understand some terminologies 
 
 
 
-##### What is the block time of Solana?  
-
-- [ ]  4ms
-- [ ]  40ms
-- [x]  400ms
-- [ ]  4000ms
-
-
-
-
-
 ##### Which of the following reports the list of outputs from order matching?  
 
 - [x]  Event Queue
