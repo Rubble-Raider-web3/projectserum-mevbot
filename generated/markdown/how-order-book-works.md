@@ -115,7 +115,7 @@ bought at that price.
 
 
 
-##### When do we mean by a Bid in an Order Book?  
+##### What do we mean by a Bid in an Order Book?  
 
 - [ ]  Price at which seller puts the asset for bidding
 - [x]  The bid is the price at which the buyer is willing to purchase the asset
@@ -173,9 +173,9 @@ is a large volume of orders in a asset’s order book, the spread will be narrow
 ##### What is the buyer side of order called?  
 
 - [ ]  Tip
-- [x]  Ask
+- [ ]  Ask
 - [ ]  Mark
-- [ ]  Bid
+- [x]  Bid
 
 
 

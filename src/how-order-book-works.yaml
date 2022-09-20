@@ -110,7 +110,7 @@ steps:
     content: |
     stepItems:
       - uuid: 4313356d-16e1-40ba-8714-1e8b06fcf779
-        content: When do we mean by a Bid in an Order Book?
+        content: What do we mean by a Bid in an Order Book?
         answerKeys:
           - B
         type: SingleChoice
@@ -167,7 +167,7 @@ steps:
       - uuid: 155ffbf8-7bd6-4b35-aef3-22be22c4fba4
         content: What is the buyer side of order called?
         answerKeys:
-          - B
+          - D
         type: SingleChoice
         choices:
           - content: Tip
