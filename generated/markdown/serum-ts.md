@@ -18,7 +18,7 @@ This is the course header. This will be added on top of every page. Go to [DoDAO
 Serum is a Decentralized exchange on the solana blockchain. It is built with the motive of bringing reducing the transaction costs and improving the speed 
 of functioning of decentralized exchanges. It is a monorepo with many packages. In this guide we will be taking a look at some of them.
 
-##borsch-ts:
+### borsch-ts:
 Borsch is a serialization format used to convert human readable code to binary code and the respective binary code back to human 
 interpretable code. It stands for "Binary Object Representation Serializer for Hashing". While there are other such serialization formats 
 like Serde and bincode, the team behind borsch argues that borsch is the first attempt of its kind which is meant to be used in "security crucial 
@@ -43,7 +43,7 @@ Borsh achieves high performance by opting out from Serde which makes it faster t
 
  borsh_skip allows to skip serializing/deserializing fields, assuming they implement Default trait, similary to #[serde(skip)].
 
- ##common-ts:
+ ### common-ts:
  Contains some common utilities to interact with project-serum. 
  Contains methods like
  `getMultipleSolanaAccounts()` - returns an array of account details of solana accounts based on the array of public keys passed into the function.
@@ -112,7 +112,7 @@ Borsh achieves high performance by opting out from Serde which makes it faster t
 
 
 
-##@project-serum/serum:
+### @project-serum/serum:
 Its a JavaScript client library for interacting with the Project Serum DEX.
 
 Like any other client library, @project-serum/serum contains various methods for to make it easy for the developer to write applications on top of serum DEX. 
@@ -136,13 +136,14 @@ and, error.ts:
 contains errors to be thrown under various circumstances.
 |
 It can be installed by,
-Using npm:
-npm install @solana/web3.js @project-serum/serum
-
-Using yarn:
-yarn add @solana/web3.js @project-serum/serum
-
-##@project-serum/pool:
+```
+  Using npm:
+  npm install @solana/web3.js @project-serum/serum
+  
+  Using yarn:
+  yarn add @solana/web3.js @project-serum/serum
+```
+### @project-serum/pool:
 
 It is a client library for interacting with project-serum pools.
 Offers methods like,
@@ -153,11 +154,13 @@ transactions can be executed by writing the code and passing it as parameter ins
  
 To install,
 
+```
 Using npm:
 npm install @solana/web3.js @project-serum/pool
 
 Using yarn:
 yarn add @solana/web3.js @project-serum/pool
+``` 
 
 
     
@@ -216,7 +219,7 @@ yarn add @solana/web3.js @project-serum/pool
 
 
 
-##@project-serum/spl-token-swap (previously, @project-serum/swap):
+### @project-serum/spl-token-swap (previously, @project-serum/swap):
 
 Contains modules to deal with various phases of swapping in project project-serum.
 
@@ -247,7 +250,7 @@ This smart-contract contains the interfaces and enums (CurveType(enum), TokenAcc
 **utils.ts**
 Contains functions to perform math specific to the working of this package.( divideBnToNumber(), getTokenMultiplierFromDecimals()).
 
-##@project-serum/tokens:
+### @project-serum/tokens:
 This package contains json and ts files that specify the token addresses that are used in project-serum (mainnet, testnet and devnet) 
 and their type respectively(MAINET/ DEVNET/ TESTNET_TOKENS).
 
