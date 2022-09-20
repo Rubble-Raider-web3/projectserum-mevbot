@@ -95,10 +95,6 @@ Users can settle free funds from their OpenOrders back to their SPL token accoun
 ---
 ## Trade Lifecycle - Placing Orders
 
-The trade lifecycle generally consists of four main stages: placing orders, matching orders, consuming events, and settlement.
-Let's see each in detail:
-
-## 1. Placing orders:
 Users can place an order by submitting a Place Order instruction to the DEX program. To do so, they must provide the following information:
 - Order details: the market, size, price, order type, side
 - Their OpenOrders account on that market
@@ -156,8 +152,6 @@ Finally, it adds an item representing the new order to an array in the OpenOrder
 ---
 ## Trade Lifecycle - Matching Orders
 
-## 2. Matching orders:
-
 This step removes requests from the Request Queue and processes them, updates orders on the Orderbook, and puts 
 information about resulting trades in the Event Queue.
 
@@ -165,11 +159,14 @@ When an order is placed on the RequestQueue, it is transferred to the Orderbook.
 details, including the specs (side, price, remaining size), the public key of the order placer's OpenOrders account, 
 and the index of this order in that OpenOrders account's order array (the slot number).
 
- For any trades, two corresponding Fill items are added to the Event Queue. In the case of a trade, cancel, or IOC 
-order that missed, Out items are added to the Event Queue.
+For any trades, Fill items are added to the Event Queue. In the case of a trade, cancel, or IOC 
+order that missed, Out items are also added to the Event Queue.
+
+### Order Events
+As mentioned above every trade/action in Serum's CLOB leads to two events i.e. Fill and/or Out
 
 Below is the information that Fill and the Out event contain
-#### Fill
+#### Fill Event
 The fields contained in Fill event are 
 1) Side 
 2) If this side of the trade was the maker
@@ -179,7 +176,7 @@ The fields contained in Fill event are
 6) Order’s ID and slot number, and the public key of the corresponding OpenOrders account
 
 
-#### Out
+#### Out Event
 The fields contained in Out event are
 1) Side
 2) Quantity unlocked
