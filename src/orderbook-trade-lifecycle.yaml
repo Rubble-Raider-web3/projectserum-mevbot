@@ -15,11 +15,6 @@ steps:
     name: Introduction
     content: |
       ## Introduction:
-      The Serum DEX is a program on the Solana blockchain. Solana's block times are some of the fastest in the industry, 
-      at 400ms. This allows Serum to handle hundreds of orders per second per market. With Solana's current transaction 
-      rate of 50,000 transactions per second, Serum is able to process a large number of transactions quickly and 
-      efficiently.
-      
       Tokens on Solana are created as instances of the SPL Token Program. An Solana Program Library (SPL) token is similar 
       to an ERC20 token on Ethereum.
       
@@ -37,12 +32,10 @@ steps:
         
         * **Quote Currency Vault**: An SPL token account that holds **quote currency** balances. Quote currency is also known as the counter currency and is always listed second in a currency pair quotation.
         
-        * **Open Order Account**: It is like an accounting system that calculates a user's position for a given currency pair quotation. For example, if a currency pair quotation has USDC (base currency) and ETH (quote currency) in a market, then a user trade in this market might have a certain amount of each currency stored in the order book or free for withdrawal. This system manages the accounting differences between USDC (base currency) and ETH (quote currency) for each user. Open Order Accounts are created by the user but maintained by protocol or DEX.
-
-      And the user-specific accounts: to interact with the DEX, a given user must create an **Open Orders Account**. This 
-      account stores the following:
-        * How much of the base and quote currency the user has locked in open orders or settleable
-        * A list of open orders for that user on that market
+        * **Open Order Account**: To interact with the DEX, a given user must create an **Open Orders Account**. This 
+          account stores the following:
+          * How much of the base and quote currency the user has locked in open orders or settleable
+          * A list of open orders for that user on that market
 
     stepItems: []
   - uuid: 5654f373-9755-47ab-bcd5-295037ba2871
