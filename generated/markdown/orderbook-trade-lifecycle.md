@@ -208,7 +208,7 @@ Note that clients can check the Orderbook account for the current state, the Eve
 
 
 
-##### What are the two types of event queue objects?  
+##### What are the two types of EventQueue's events?  
 
 - [x]  Fill
 - [ ]  Base
@@ -221,7 +221,6 @@ Note that clients can check the Orderbook account for the current state, the Eve
 ---
 ## Trade Lifecycle - Consuming Events
 
-## 3. Consuming events:
 Primary job as part of this phase is to make sure that OpenOrders accounts are updated according to events emitted 
 by Match Orders.
 
@@ -278,7 +277,6 @@ account list. Note that this can happen in constant time because the slot number
 ---
 ## Trade Lifecycle - Settlement
 
-## 4. Settlement:
 The settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote 
 currency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The 
 runtime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency 

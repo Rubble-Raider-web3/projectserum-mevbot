@@ -190,7 +190,7 @@
         },
         {
           "uuid": "bed11fe7-d2f3-4c15-bb35-2f4ae8a9cebd",
-          "content": "What are the two types of event queue objects?",
+          "content": "What are the two types of EventQueue's events?",
           "answerKeys": [
             "A",
             "C"
@@ -220,7 +220,7 @@
     {
       "uuid": "740108b1-a6a6-4480-9f68-4b593e03df36",
       "name": "Trade Lifecycle - Consuming Events",
-      "content": "## 3. Consuming events:\nPrimary job as part of this phase is to make sure that OpenOrders accounts are updated according to events emitted \nby Match Orders.\n\nSubmitting Consume Events instructions (that do anything) does involve a bit of work for the client: they have to \nread some prefix of the event log, gather and sort the public keys of the affected OpenOrders accounts, and submit \nthose as writable along with other relevant global singleton accounts.\n\n#### Processing of Event Queue\nThe next event in the Event Queue is considered. If the OpenOrders public key is found in the account list submitted \nby the client is writable, then continue. Otherwise, abort.\n\n#### Fill Events\nWhen a Fill event is found, the total balance of the OpenOrders account is decreased by the quantity paid. The total\nand free balances of the OpenOrders account are increased by the quantity received. The Market's total fees paid \ncounter increments by the quantity of fees paid.\n\n#### Out Events\nWhen the Order Event is found, the OpenOrders account's free balance increments by the quantity unlocked with \neach event. If the event's specified quantity still locked is zero, then the order is removed from the OpenOrders account's \naccount list. Note that this can happen in constant time because the slot number is provided in the event. \n",
+      "content": "Primary job as part of this phase is to make sure that OpenOrders accounts are updated according to events emitted \nby Match Orders.\n\nSubmitting Consume Events instructions (that do anything) does involve a bit of work for the client: they have to \nread some prefix of the event log, gather and sort the public keys of the affected OpenOrders accounts, and submit \nthose as writable along with other relevant global singleton accounts.\n\n#### Processing of Event Queue\nThe next event in the Event Queue is considered. If the OpenOrders public key is found in the account list submitted \nby the client is writable, then continue. Otherwise, abort.\n\n#### Fill Events\nWhen a Fill event is found, the total balance of the OpenOrders account is decreased by the quantity paid. The total\nand free balances of the OpenOrders account are increased by the quantity received. The Market's total fees paid \ncounter increments by the quantity of fees paid.\n\n#### Out Events\nWhen the Order Event is found, the OpenOrders account's free balance increments by the quantity unlocked with \neach event. If the event's specified quantity still locked is zero, then the order is removed from the OpenOrders account's \naccount list. Note that this can happen in constant time because the slot number is provided in the event. \n",
       "stepItems": []
     },
     {
@@ -286,7 +286,7 @@
     {
       "uuid": "19a2d5a0-fcf2-4ce8-9124-a916016805ca",
       "name": "Trade Lifecycle - Settlement",
-      "content": "## 4. Settlement:\nThe settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote \ncurrency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The \nruntime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency \nVault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each \ncurrency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.\n",
+      "content": "The settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote \ncurrency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The \nruntime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency \nVault to the provided SPL token accounts. This is equal to the free balance amount in the OpenOrders for each \ncurrency.\n\nThe whole trade-lifecycle, starting from Placing the order, all the way to settlement, just takes a second or two.\n",
       "stepItems": []
     },
     {

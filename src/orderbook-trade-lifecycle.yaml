@@ -210,7 +210,7 @@ steps:
             key: D
 
       - uuid: bed11fe7-d2f3-4c15-bb35-2f4ae8a9cebd
-        content: What are the two types of event queue objects?
+        content: What are the two types of EventQueue's events?
         answerKeys:
           - A
           - C
@@ -228,7 +228,6 @@ steps:
   - uuid: 740108b1-a6a6-4480-9f68-4b593e03df36
     name: Trade Lifecycle - Consuming Events
     content: |
-      ## 3. Consuming events:
       Primary job as part of this phase is to make sure that OpenOrders accounts are updated according to events emitted 
       by Match Orders.
       
@@ -288,7 +287,6 @@ steps:
   - uuid: 19a2d5a0-fcf2-4ce8-9124-a916016805ca
     name: Trade Lifecycle - Settlement
     content: |
-      ## 4. Settlement:
       The settlement instruction settles the funds of the user from their OpenOrders account to their SPL token accounts for the base and quote 
       currency. The user will sign with the “owner” keypair, which is the same key that was used for placing orders. The 
       runtime will then use a cross program invocation to move funds from the Base Currency Vault and Quote Currency 
