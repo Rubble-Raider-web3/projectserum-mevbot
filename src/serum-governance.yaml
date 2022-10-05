@@ -15,13 +15,25 @@ steps:
     name: Governance
     content: |
       'Governance' refers to decision-making and control, focusing on who has these capabilities.
-      A key element for Serum's, or say any Blockchain project's, success is decentralization, which is founded on the idea that the community knows best with regard to the direction of the project ecosystem. To prepare for the demands of a larger and more diverse group of users, it's critical to have a framework for the community to have their say. The project must establish a governance system to manage the complexity of decision-making in order to reduce uncertainty, delays, and costs when compared to existing systems.
+      A key element for Serum's, or say any Blockchain project's, success is decentralization, which is founded on the 
+      idea that the community knows best with regard to the direction of the project ecosystem. To prepare for the demands 
+      of a larger and more diverse group of users, it's critical to have a framework for the community to have their say. 
+      The project must establish a governance system to manage the complexity of decision-making in order to reduce 
+      uncertainty, delays, and costs when compared to existing systems.
 
-      When many stakeholders are involved in a particular blockchain network, governance becomes more complicated. Therefore, public Blockchain networks have a much higher governance risk than private Blockchain networks. Anyone who joins a public blockchain can potentially vote and affect the system in some way.
+      When many stakeholders are involved in a particular blockchain network, governance becomes more complicated. Therefore, 
+      public Blockchain networks have a much higher governance risk than private Blockchain networks. Anyone who joins a 
+      public blockchain can potentially vote and affect the system in some way.
 
-      The community's input is essential for the development of the Serum ecosystem. Here's how discussions among the Serum community turn into Forum posts and proposals on the DAO voting platform:
-      First, someone in the community has an idea or perspective that they think would be beneficial for the ecosystem. They discuss this with others in the community to get feedback and see if there is general agreement. Once there is enough support for the idea, someone will create a post about it on the Forum. From there, others can comment and provide feedback. The goal is to get as much input and feedback as possible so that the proposal can be improved. Once the proposal is ready, it will be posted on the DAO voting platform for everyone to see. All members of the community can then vote on it. If the proposal gets enough votes, it will be implemented in the Serum ecosystem.
-
+      The community's input is essential for the development of the Serum ecosystem. Here's how discussions among the Serum 
+      community turn into Forum posts and proposals on the DAO voting platform:
+      
+      First, someone in the community has an idea or perspective that they think would be beneficial for the ecosystem. They 
+      discuss this with others in the community to get feedback and see if there is general agreement. Once there is 
+      enough support for the idea, someone will create a post about it on the Forum. From there, others can comment and 
+      provide feedback. The goal is to get as much input and feedback as possible so that the proposal can be improved. Once 
+      the proposal is ready, it will be posted on the DAO voting platform for everyone to see. All members of the community 
+      can then vote on it. If the proposal gets enough votes, it will be implemented in the Serum ecosystem.
     stepItems: []
   - uuid: 8d77177b-46fd-41ad-9655-8b927c694458
     name: Evaluation
@@ -62,18 +74,37 @@ steps:
   - uuid: 9084a935-3399-4ed1-9b1f-8d540604ad24
     name: Rules and Guidelines
     content: |
-      If you're familiar with the DAO Voting Platform UI, you'll know what realms, governance, and proposal are. If not, here's a quick guide: 
-      **Realms** — An instance of the DAO. Realms provides a platform for builders on Solana to create a DAO, manage their members, vote on proposals, and allocate their treasury. 
-      **Proposal** — A DAO proposal is an idea that a community or DAO member wants the DAO to consider. It’s typically a document describing an idea, how it will be implemented, and the funding requirements for executing the idea. In order for a DAO proposal to be accepted, it must go through a voting process in which the community or DAO members vote on whether or not to accept the proposal.
+      If you're familiar with the DAO Voting Platform UI, you'll know what realms, governance, and proposal are. If not,
+      here's a quick guide: 
+      
+      **Realms** — An instance of the DAO. Realms provides a platform for builders on Solana to create a DAO, manage 
+      their members, vote on proposals, and allocate their treasury. 
+      
+      **Proposal** — A DAO proposal is an idea that a community or DAO member wants the DAO to consider. It’s typically 
+      a document describing an idea, how it will be implemented, and the funding requirements for executing the idea. In 
+      order for a DAO proposal to be accepted, it must go through a voting process in which the community or DAO members 
+      vote on whether or not to accept the proposal.
 
       The expectations and guidelines for this governance process are laid out below:
-      - An informal discussion will naturally emerge across various channels such as Discord. The Serum LinkTree lists some popular channels: @projectserum | Linktree.
-      - Informal discussion topics are brought to the Serum Community Forum (https://forum.projectserum.com) once they are ready for more “formal” discussion in preparation for transformation into an actionable proposal.
-      - A Forum participant is expected to: Articulate what he believes should happen or be deployed specifically; Open post(s) to the public, constructive analysis and criticism; Interact with comments on the post in a timely manner and demonstrate a willingness to engage other participants in a constructive manner.
-      - It is expected that newly created forum topics are made open to discussion for at least 7 days before the relevant proposal on https://dao.projectseum.com is created for voting.
-      - Suppose you created a forum topic that has not yet been made into a proposal, and you wish to change the content that would go into that proposal, you are expected to: (1) create a new forum reply (post) in that thread specifying the changes, and (2) wait 72 hours before you can make a proposal about that topic accordingly on the DAO voting platform.
-      - All proposals submitted to the DAO voting platform must link back to a single Forum post (that summarizes all relevant information from that thread). The content of the proposal must abide completely by that Forum post.
-      - If you wish to make a change to a proposal (on the DAO voting platform), it is expected that you cancel that proposal and reply with the proposed changes to the Forum topic. There must be 72 hours between the upload of that new reply and the submission of the related proposal. You can immediately make your new proposal after submitting the new Forum reply. The new proposal should link back to the same thread.
+      - An informal discussion will naturally emerge across various channels such as Discord. The Serum LinkTree lists 
+        some popular channels: @projectserum | Linktree.
+      - Informal discussion topics are brought to the Serum Community Forum (https://forum.projectserum.com) once they 
+        are ready for more “formal” discussion in preparation for transformation into an actionable proposal.
+      - A Forum participant is expected to: Articulate what he believes should happen or be deployed specifically; Open 
+        post(s) to the public, constructive analysis and criticism; Interact with comments on the post in a timely manner 
+        and demonstrate a willingness to engage other participants in a constructive manner.
+      - It is expected that newly created forum topics are made open to discussion for at least 7 days before the relevant 
+        proposal on https://dao.projectseum.com is created for voting.
+      - Suppose you created a forum topic that has not yet been made into a proposal, and you wish to change the content 
+        that would go into that proposal, you are expected to: (1) create a new forum reply (post) in that thread specifying 
+        the changes, and (2) wait 72 hours before you can make a proposal about that topic accordingly on the DAO voting 
+        platform.
+      - All proposals submitted to the DAO voting platform must link back to a single Forum post (that summarizes all 
+        relevant information from that thread). The content of the proposal must abide completely by that Forum post.
+      - If you wish to make a change to a proposal (on the DAO voting platform), it is expected that you cancel that 
+        proposal and reply with the proposed changes to the Forum topic. There must be 72 hours between the upload of 
+        that new reply and the submission of the related proposal. You can immediately make your new proposal after submitting 
+        the new Forum reply. The new proposal should link back to the same thread.
       - The current voting structure is 1 SRM per vote.
       - 100,000 SRM is required to create a “governance”
       - 25,000 SRM is needed to create a proposal for the treasury
@@ -130,18 +161,30 @@ steps:
   - uuid: 83dfdf4c-47c7-428e-a82b-ec62f4ce4a43
     name: Voting
     content: |
-      Once a proposal is uploaded, a maximum of 3 days are available for voting. As a voter, you can either vote for or against a proposal. Once a proposal has been voted on by enough people, it will be either accepted or rejected by the DAO.
+      Once a proposal is uploaded, a maximum of 3 days are available for voting. As a voter, you can either vote for or 
+      against a proposal. Once a proposal has been voted on by enough people, it will be either accepted or rejected by 
+      the DAO.
+      
       ### How to Vote?
       Following steps can be followed to vote:
       - **Go to the DAO Page**: First, go to https://dao.projectserum.com and click on the Serum Realm
-      - **Connect your Wallet**: On the top right corner of the page you can select and connect your wallet of your preference.
-      - **Deposit your Tokens**: Once you are connected, you will see a ‘Deposit Governance Tokens’ button. Click it and select "Deposit" when prompted. A transaction will appear asking for **all SRM tokens in your account** (You cannot decide the amount of SRM tokens to deposit). Approve the transaction.
-      - Once approved, you will be shown a "Tokens have been deposited" message and you will see the total amount of tokens deposited. A new button to "Withdraw Governance Tokens" will appear.
-      - **Choose the Proposal**: Click on the 59Y8FAtjWKHU3HSsESFNnptNyq1NeYBajT9oZCGKCewa Governance. Current proposal parameters will appear at the top. You will see a list of proposals, current ones will have a “Voting” tag. Click on a proposal you wish to vote on or view.
-      - **Vote on the Proposal**: A proposal page appears containing relative voting stats. If the voting is in session, you will see a timer on the bottom right with the time left, and a "Yeah" and "Nay" buttons on the top right. To vote just click on your desired vote and approve the transaction.
+      - **Connect your Wallet**: On the top right corner of the page you can select and connect your wallet of your 
+        preference.
+      - **Deposit your Tokens**: Once you are connected, you will see a ‘Deposit Governance Tokens’ button. Click it and 
+        select "Deposit" when prompted. A transaction will appear asking for **all SRM tokens in your account** (You 
+        cannot decide the amount of SRM tokens to deposit). Approve the transaction.
+      - Once approved, you will be shown a "Tokens have been deposited" message and you will see the total amount of 
+        tokens deposited. A new button to "Withdraw Governance Tokens" will appear.
+      - **Choose the Proposal**: Click on the 59Y8FAtjWKHU3HSsESFNnptNyq1NeYBajT9oZCGKCewa Governance. Current proposal 
+        parameters will appear at the top. You will see a list of proposals, current ones will have a “Voting” tag. Click 
+        on a proposal you wish to vote on or view.
+      - **Vote on the Proposal**: A proposal page appears containing relative voting stats. If the voting is in session, 
+        you will see a timer on the bottom right with the time left, and a "Yeah" and "Nay" buttons on the top right. To 
+        vote just click on your desired vote and approve the transaction.
       - Your tokens are now in the governance system - congrats on voting on the proposal!
 
-      Note: You can withdraw your tokens at any moment, but if the vote is still in progress, you will also forfeit your vote. Once the timer expires, you can withdraw your tokens without impacting the vote.
+      Note: You can withdraw your tokens at any moment, but if the vote is still in progress, you will also forfeit your 
+      vote. Once the timer expires, you can withdraw your tokens without impacting the vote.
 
     stepItems: []
   - uuid: 8b77a3d6-d3bc-4951-b345-0b819db2ebdf
